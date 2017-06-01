@@ -1,0 +1,2 @@
+# BaseSolution
+SOA based Framework
