@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using BaselineSolution.DAL.Infrastructure.Bases;
 
 namespace BaselineSolution.DAL.Repositories
@@ -7,6 +8,7 @@ namespace BaselineSolution.DAL.Repositories
     {
         IQueryable<TEntity> List();
         TEntity FindById(int id);
+        TEntity FirstOrDefault(Func<TEntity, bool> predicate);
         void AddOrUpdate(TEntity item);
         void Delete(int id);
 

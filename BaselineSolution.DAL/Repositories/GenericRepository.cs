@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Data.Entity;
 using System.Linq;
 using BaselineSolution.DAL.Database;
 using BaselineSolution.DAL.Infrastructure.Bases;
@@ -27,6 +28,11 @@ namespace BaselineSolution.DAL.Repositories
             return item;
         }
 
+        public TEntity FirstOrDefault(Func<TEntity, bool> predicate)
+        {
+            return _context.Set<TEntity>().FirstOrDefault(predicate);
+        }
+
         public void AddOrUpdate(TEntity item)
         {
             if (item.Id == 0)
@@ -47,5 +53,7 @@ namespace BaselineSolution.DAL.Repositories
                 _context.Set<TEntity>().Remove(item);
             }
         }
+
+        
     }
 }

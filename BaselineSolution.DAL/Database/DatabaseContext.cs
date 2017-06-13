@@ -5,6 +5,8 @@ using System.Data.Entity;
 using System.Data.Entity.Core.Objects;
 using System.Data.Entity.Infrastructure;
 using BaselineSolution.DAL.Database.Configuration.Internal;
+using BaselineSolution.DAL.Database.Configuration.Security;
+using BaselineSolution.DAL.Domain.Security;
 using BaselineSolution.DAL.Infrastructure.Bases;
 
 namespace BaselineSolution.DAL.Database
@@ -69,6 +71,14 @@ namespace BaselineSolution.DAL.Database
         {
             // Register new configurations here
             // Register(new [configuration])
+            #region Security
+
+            Register(new UserConfiguration());
+            Register(new RoleConfiguration());
+            Register(new RightConfiguration());
+            Register(new AccountConfiguration());
+
+            #endregion
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -83,7 +93,16 @@ namespace BaselineSolution.DAL.Database
 
         #region DbSets
 
-        // ADD DbSets HERE
+        #region Security
+
+        public virtual DbSet<Right> Rights { get; set; }
+        public virtual DbSet<Role> Roles { get; set; }
+        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Account> Accounts { get; set; }
+        public virtual DbSet<RoleRight> RoleRights { get; set; }
+
+        #endregion
+
 
         #endregion
     }

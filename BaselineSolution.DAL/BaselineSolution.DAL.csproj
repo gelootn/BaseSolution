@@ -53,19 +53,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Database\Configuration\Security\AccountConfiguration.cs" />
+    <Compile Include="Database\Configuration\Security\RightConfiguration.cs" />
+    <Compile Include="Database\Configuration\Security\RoleConfiguration.cs" />
+    <Compile Include="Database\Configuration\Security\UserConfiguration.cs" />
     <Compile Include="Database\DatabaseContext.cs" />
     <Compile Include="Database\Configuration\Internal\EntityConfiguration.cs" />
     <Compile Include="Database\Configuration\Internal\IEntityConfiguration.cs" />
+    <Compile Include="Domain\Security\Account.cs" />
+    <Compile Include="Domain\Security\User.cs" />
+    <Compile Include="Domain\Security\RoleRight.cs" />
+    <Compile Include="Domain\Security\Role.cs" />
+    <Compile Include="Domain\Security\Right.cs" />
+    <Compile Include="Domain\Shared\SystemLanguage.cs" />
     <Compile Include="Infrastructure\Bases\Entity.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\GenericRepository.cs" />
     <Compile Include="Repositories\IGenericRepository.cs" />
+    <Compile Include="Seeders\Security\AccountSeeder.cs" />
+    <Compile Include="Seeders\Security\UserSeeder.cs" />
+    <Compile Include="Seeders\Security\RoleSeeder.cs" />
     <Compile Include="Seeders\SeedCollection.cs" />
     <Compile Include="Seeders\Internal\Seeder.cs" />
     <Compile Include="Seeders\Internal\ISeed.cs" />
+    <Compile Include="UnitOfWork\Implementations\Security\SecurityUnitOfWork.cs" />
     <Compile Include="UnitOfWork\Implementations\UnitOfWork.cs" />
     <Compile Include="UnitOfWork\Interfaces\IUnitOfWork.cs" />
+    <Compile Include="UnitOfWork\Interfaces\Security\ISecurityUnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BaselineSolution.Framework\BaselineSolution.Framework.csproj">

@@ -4,6 +4,7 @@ using System.Data.Entity;
 using BaselineSolution.DAL.Database;
 using BaselineSolution.DAL.Infrastructure.Bases;
 using BaselineSolution.DAL.Seeders.Internal;
+using BaselineSolution.DAL.Seeders.Security;
 
 namespace BaselineSolution.DAL.Seeders
 {
@@ -13,9 +14,10 @@ namespace BaselineSolution.DAL.Seeders
         {
             return new ISeed[]
                 {
-                    // Add seeders here
-
-
+                    //Security seeders
+                    new AccountSeeder(context),
+                    new RoleSeeder(context),
+                    new UserSeeder(context),
                 };
         }
 

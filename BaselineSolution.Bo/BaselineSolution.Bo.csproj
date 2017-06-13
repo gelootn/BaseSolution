@@ -47,9 +47,24 @@
     <Compile Include="Internal\BaseSorter.cs" />
     <Compile Include="Internal\CollumnSorter.cs" />
     <Compile Include="Internal\DisplayObject.cs" />
+    <Compile Include="Internal\Security\UserSecurityBo.cs" />
+    <Compile Include="Internal\Security\RoleSecurityBo.cs" />
+    <Compile Include="Internal\Security\RoleRightSecurityBo.cs" />
+    <Compile Include="Internal\Security\RightSecurityBo.cs" />
+    <Compile Include="Internal\Security\AccountSecurityBo.cs" />
+    <Compile Include="Models\Shared\SystemLanguageBo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\BoResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BoResources.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BaselineSolution.DAL\BaselineSolution.DAL.csproj">
+      <Project>{461B7026-0A17-44E9-8DCF-09B8DE204940}</Project>
+      <Name>BaselineSolution.DAL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BaselineSolution.Framework\BaselineSolution.Framework.csproj">
       <Project>{804156a9-9126-443e-b5da-9a701ad742de}</Project>
       <Name>BaselineSolution.Framework</Name>
@@ -57,6 +72,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\BoResources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>BoResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
