@@ -53,6 +53,7 @@
     <Compile Include="Extensions\ExtensionsForITreeHierarchy.cs" />
     <Compile Include="Extensions\ExtensionsForLambdaExpression.cs" />
     <Compile Include="Extensions\ExtensionsForMemberInfo.cs" />
+    <Compile Include="Extensions\ExtensionsForResponse.cs" />
     <Compile Include="Extensions\ExtensionsForType.cs" />
     <Compile Include="Infrastructure\Attributes\AllowAuthenticatedAttribute.cs" />
     <Compile Include="Infrastructure\Attributes\ApiAttributes.cs" />

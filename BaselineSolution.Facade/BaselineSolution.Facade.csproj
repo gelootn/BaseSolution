@@ -40,7 +40,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Infrastructure\IGenericService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -52,6 +51,13 @@
       <Project>{461b7026-0a17-44e9-8dcf-09b8de204940}</Project>
       <Name>BaselineSolution.DAL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\BaselineSolution.Framework\BaselineSolution.Framework.csproj">
+      <Project>{804156A9-9126-443E-B5DA-9A701AD742DE}</Project>
+      <Name>BaselineSolution.Framework</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Infrastructure\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

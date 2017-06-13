@@ -59,6 +59,7 @@
     <Compile Include="Infrastructure\Bases\Entity.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\GenericRepository.cs" />
     <Compile Include="Repositories\IGenericRepository.cs" />
     <Compile Include="Seeders\SeedCollection.cs" />
     <Compile Include="Seeders\Internal\Seeder.cs" />

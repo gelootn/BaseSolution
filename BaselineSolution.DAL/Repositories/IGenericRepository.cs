@@ -5,9 +5,9 @@ namespace BaselineSolution.DAL.Repositories
 {
     public interface IGenericRepository<TEntity> where TEntity : Entity
     {
-        IQueryable<TEntity> GetAll();
-        TEntity Find(int id);
-        TEntity AddOrUpdate(TEntity iten);
+        IQueryable<TEntity> List();
+        TEntity FindById(int id);
+        void AddOrUpdate(TEntity item);
         void Delete(int id);
 
 

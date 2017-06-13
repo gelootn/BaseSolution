@@ -47,7 +47,6 @@
     <Compile Include="Internal\BaseSorter.cs" />
     <Compile Include="Internal\CollumnSorter.cs" />
     <Compile Include="Internal\DisplayObject.cs" />
-    <Compile Include="Internal\Response.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

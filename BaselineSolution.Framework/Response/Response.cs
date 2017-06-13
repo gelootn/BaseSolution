@@ -9,17 +9,22 @@ namespace BaselineSolution.Framework.Response
     /// <summary>
     /// Messages is initiated in the constructor (so never null)
     /// </summary>
-    public abstract class Response<T> where T : new()
+    public class Response<T>
     {
         private List<Message> _messages;
         private List<T> _values;
 
-        protected Response(T value)
+        public Response()
+        {
+            
+        }
+
+        public Response(T value)
         {   
             Values.Add(value);
         }
 
-        protected Response(ICollection<T> values)
+        public Response(ICollection<T> values)
         {
             Values.AddRange(values);
         }
@@ -37,7 +42,7 @@ namespace BaselineSolution.Framework.Response
             if (Values != null && Values.Count == 1)
                 return Values.First();
             else
-                return new T();
+                return default(T);
         }
 
         public bool IsSuccess
@@ -51,68 +56,13 @@ namespace BaselineSolution.Framework.Response
         {
             get { return Messages.Any(c => c.Type == MessageType.Warning); }
         }
+
         public List<Message> Messages
         {
             get { return _messages ?? (_messages = new List<Message>()); }
             set { _messages = value; }
         }
 
-        public virtual void AddError(string message, Exception exception = null)
-        {
-            var msg = new Message
-            {
-                Type = MessageType.Error,
-                MessageText = message
-            };
-
-            if (exception != null) msg.Exception = exception;
-            Messages.Add(msg);
-
-        }
-        public virtual void AddError(string message, Exception exception = null, params string[] args)
-        {
-            var msg = new Message
-            {
-                Type = MessageType.Error,
-                MessageText = string.Format(message, args)
-            };
-
-            Messages.Add(msg);
-
-
-        }
-        public virtual void AddError(Message error)
-        {
-            Messages.Add(error);
-
-        }
-        public virtual void AddError(List<Message> errors)
-        {
-            Messages.AddRange(errors);
-        }
-
-        public virtual void AddNotFound(int id)
-        {
-            AddError($"item with id {id} was not found");
-        }
-
-        public virtual void AddError(List<string> errors)
-        {
-            Messages.AddRange(errors.Select(x => new Message {Type = MessageType.Error, MessageText = x}));
-        }
-
-        public virtual void AddSuccess(string message)
-        {
-            Messages.Add(new Message() { Type = MessageType.Success, MessageText = message });
-
-        }
-
-        public virtual void AddWarning(string message)
-        {
-            Messages.Add(new Message() { Type = MessageType.Warning, MessageText = message });
-
-        }
-        
         public override string ToString()
         {
             return $"Success? {IsSuccess} (#messages: {Messages.Count})";

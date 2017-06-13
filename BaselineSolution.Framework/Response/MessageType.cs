@@ -5,7 +5,7 @@
         None,
         Error,
         Warning,
-        Message,
+        Validation,
         Success 
 
     }
