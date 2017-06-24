@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Security.Principal;
 using BaselineSolution.Framework.Infrastructure.Contracts;
-using BaselineSolution.WebApp.Infrastructure.Models.Authentication.SessionModels;
+using BaselineSolution.WebApp.Components.Models.Authentication.SessionModels;
 
-namespace BaselineSolution.WebApp.Infrastructure.Models.Authentication
+namespace BaselineSolution.WebApp.Components.Models.Authentication
 {
     public interface ICustomPrincipal : IPrincipal
     {

@@ -3,8 +3,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using BaselineSolution.Framework.Infrastructure.Attributes;
+using BaselineSolution.WebApp.Components.Models.Authentication;
 using BaselineSolution.WebApp.Infrastructure.Extensions;
-using BaselineSolution.WebApp.Infrastructure.Models.Authentication;
 
 namespace BaselineSolution.WebApp.Infrastructure.Filters
 {

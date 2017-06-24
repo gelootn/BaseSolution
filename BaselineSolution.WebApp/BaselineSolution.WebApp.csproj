@@ -94,6 +94,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Home\Styles\Authentication\Login.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -118,6 +119,7 @@
     <Content Include="fonts\fontawesome-webfont.eot" />
     <Content Include="Areas\Home\Views\web.config" />
     <Content Include="Areas\Home\Views\Authentication\Login.cshtml" />
+    <Content Include="Areas\Home\Views\_ViewStart.cshtml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -137,20 +139,12 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\Bases\CustomWebViewPageBase.cs" />
-    <Compile Include="Infrastructure\Bases\ControllerBase.cs" />
+    <Compile Include="Infrastructure\Bases\BaseController.cs" />
     <Compile Include="Infrastructure\Constants\SessionVariables.cs" />
+    <Compile Include="Infrastructure\Extensions\ExtensionsForModelStateDictionary.cs" />
     <Compile Include="Infrastructure\Extensions\ExtensionsForRequestContext.cs" />
     <Compile Include="Infrastructure\Extensions\ExtensionsForRouteData.cs" />
     <Compile Include="Infrastructure\Filters\CustomAuthorizeAttribute.cs" />
-    <Compile Include="Infrastructure\Models\Authentication\AnonymousCustomPrincipal.cs" />
-    <Compile Include="Infrastructure\Models\Authentication\AnonymousIdentity.cs" />
-    <Compile Include="Infrastructure\Models\Authentication\AuthenticatedCustomPrincipal.cs" />
-    <Compile Include="Infrastructure\Models\Authentication\ICustomPrincipal.cs" />
-    <Compile Include="Infrastructure\Models\Authentication\Authenticator.cs" />
-    <Compile Include="Infrastructure\Models\Authentication\SessionModels\AccountSessionModel.cs" />
-    <Compile Include="Infrastructure\Models\Authentication\SessionModels\AccountCultureSessionModel.cs" />
-    <Compile Include="Infrastructure\Models\Authentication\UnauthorizedJsonResult.cs" />
-    <Compile Include="Infrastructure\Utilities\HttpContextSession.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

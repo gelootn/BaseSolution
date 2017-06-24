@@ -6,9 +6,9 @@ using BaselineSolution.Bo.Internal.Security;
 using BaselineSolution.Bo.Models.Shared;
 using BaselineSolution.Framework.Extensions;
 using BaselineSolution.Framework.Infrastructure.Contracts;
-using BaselineSolution.WebApp.Infrastructure.Models.Authentication.SessionModels;
+using BaselineSolution.WebApp.Components.Models.Authentication.SessionModels;
 
-namespace BaselineSolution.WebApp.Infrastructure.Models.Authentication
+namespace BaselineSolution.WebApp.Components.Models.Authentication
 {
     [Serializable]
     public class AuthenticatedCustomPrincipal : ICustomPrincipal

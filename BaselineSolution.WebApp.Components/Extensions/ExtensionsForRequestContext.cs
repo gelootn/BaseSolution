@@ -3,7 +3,7 @@ using System.Web.Routing;
 using BaselineSolution.Framework.Infrastructure.Attributes;
 using BaselineSolution.WebApp.Components.Models.Authentication;
 
-namespace BaselineSolution.WebApp.Infrastructure.Extensions
+namespace BaselineSolution.WebApp.Components.Extensions
 {
     public static class ExtensionsForRequestContext
     {

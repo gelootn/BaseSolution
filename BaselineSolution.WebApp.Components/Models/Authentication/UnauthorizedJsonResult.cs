@@ -1,7 +1,7 @@
 ﻿using System.Net;
 using System.Web.Mvc;
 
-namespace BaselineSolution.WebApp.Infrastructure.Models.Authentication
+namespace BaselineSolution.WebApp.Components.Models.Authentication
 {
     public class UnauthorizedJsonResult : JsonResult
     {

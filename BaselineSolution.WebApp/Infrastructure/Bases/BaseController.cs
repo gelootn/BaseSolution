@@ -5,12 +5,12 @@ using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using BaselineSolution.WebApp.Components.Models.Authentication;
 using BaselineSolution.WebApp.Infrastructure.Constants;
-using BaselineSolution.WebApp.Infrastructure.Models.Authentication;
 
 namespace BaselineSolution.WebApp.Infrastructure.Bases
 {
-    public class ControllerBase : Controller
+    public class BaseController : Controller
     {
         private ICustomPrincipal _user;
 

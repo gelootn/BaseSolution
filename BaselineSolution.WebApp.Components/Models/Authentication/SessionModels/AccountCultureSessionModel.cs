@@ -1,7 +1,7 @@
 ﻿using System;
 using BaselineSolution.Bo.Models.Shared;
 
-namespace BaselineSolution.WebApp.Infrastructure.Models.Authentication.SessionModels
+namespace BaselineSolution.WebApp.Components.Models.Authentication.SessionModels
 {
     [Serializable]
     public class AccountCultureSessionModel

@@ -1,5 +1,5 @@
 ﻿using System.Web.Mvc;
-using BaselineSolution.WebApp.Infrastructure.Models.Authentication;
+using BaselineSolution.WebApp.Components.Models.Authentication;
 
 namespace BaselineSolution.WebApp.Infrastructure.Bases
 {

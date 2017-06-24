@@ -1,6 +1,6 @@
 ﻿using System.Security.Principal;
 
-namespace BaselineSolution.WebApp.Infrastructure.Models.Authentication
+namespace BaselineSolution.WebApp.Components.Models.Authentication
 {
     public class AnonymousIdentity : IIdentity
     {

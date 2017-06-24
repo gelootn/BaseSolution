@@ -3,21 +3,24 @@
 <head>
     <title>
         @WebApp.WebApp_BaseTitle
-        
+
         @if (ViewBag.Title != null)
         {
             <text> | @ViewBag.Title </text>
         }
 
     </title>
-    <link rel="stylesheet" href="~/Content/bootstrap.min.css"/>
-    <link rel="stylesheet" href="~/Content/font-awesome.min.css"/>
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/Content/font-awesome.min.css" />
+
+    @RenderSection("styles", false)
+
 </head>
 <body>
-    
-    
-    
-    @RenderBody()
+    <div class="container">
+        @RenderBody()
 
+    </div>
+    @RenderSection("scripts", false)
 </body>
 </html>

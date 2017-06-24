@@ -7,6 +7,7 @@ using System.Data.Entity.Infrastructure;
 using BaselineSolution.DAL.Database.Configuration.Internal;
 using BaselineSolution.DAL.Database.Configuration.Security;
 using BaselineSolution.DAL.Domain.Security;
+using BaselineSolution.DAL.Domain.Shared;
 using BaselineSolution.DAL.Infrastructure.Bases;
 
 namespace BaselineSolution.DAL.Database
@@ -103,6 +104,8 @@ namespace BaselineSolution.DAL.Database
 
         #endregion
 
+
+        public DbSet<SystemLanguage> SystemLanguages { get; set; }
 
         #endregion
     }

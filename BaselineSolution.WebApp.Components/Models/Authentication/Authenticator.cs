@@ -7,10 +7,10 @@ using BaselineSolution.Bo.Internal.Security;
 using BaselineSolution.Facade.Internal;
 using BaselineSolution.Framework.Extensions;
 using BaselineSolution.Framework.Infrastructure.Attributes;
-using BaselineSolution.WebApp.Infrastructure.Extensions;
-using BaselineSolution.WebApp.Infrastructure.Utilities;
+using BaselineSolution.WebApp.Components.Extensions;
+using BaselineSolution.WebApp.Components.Utilities;
 
-namespace BaselineSolution.WebApp.Infrastructure.Models.Authentication
+namespace BaselineSolution.WebApp.Components.Models.Authentication
 {
     [Serializable]
     public class Authenticator

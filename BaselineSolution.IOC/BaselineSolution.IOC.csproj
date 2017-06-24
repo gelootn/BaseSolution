@@ -55,6 +55,10 @@
       <Project>{3a7fa480-bd89-4320-8da4-439d63cef814}</Project>
       <Name>BaselineSolution.Facade</Name>
     </ProjectReference>
+    <ProjectReference Include="..\BaselineSolution.Framework\BaselineSolution.Framework.csproj">
+      <Project>{804156A9-9126-443E-B5DA-9A701AD742DE}</Project>
+      <Name>BaselineSolution.Framework</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BaselineSolution.Service\BaselineSolution.Service.csproj">
       <Project>{7273fa8c-d6de-4ae7-8a3d-6bfe13913a7c}</Project>
       <Name>BaselineSolution.Service</Name>

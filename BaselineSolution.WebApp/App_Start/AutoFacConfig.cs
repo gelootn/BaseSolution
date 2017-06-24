@@ -16,6 +16,7 @@ namespace BaselineSolution.WebApp
             builder.RegisterModule<MvcModule>();
 
             var container = builder.Build();
+
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
         }
 

@@ -117,34 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="FieldRequired" xml:space="preserve">
-    <value>The field {0} is required</value>
+  <data name="Target" xml:space="preserve">
+    <value>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</value>
   </data>
-  <data name="Login" xml:space="preserve">
-    <value>Log in</value>
-  </data>
-  <data name="Login_Title" xml:space="preserve">
-    <value>Login</value>
-  </data>
-  <data name="Logout" xml:space="preserve">
-    <value>Log out</value>
-  </data>
-  <data name="NoMatchingUsernameAndPassword" xml:space="preserve">
-    <value>The provided password and username don't match</value>
-  </data>
-  <data name="NotAuthorized" xml:space="preserve">
-    <value />
-  </data>
-  <data name="Password" xml:space="preserve">
-    <value>Pass</value>
-  </data>
-  <data name="Username" xml:space="preserve">
-    <value>User</value>
-  </data>
-  <data name="WebApp_BaseTitle" xml:space="preserve">
-    <value>Baseline solution</value>
-  </data>
-  <data name="WebApp_Description" xml:space="preserve">
-    <value />
+  <data name="DefaultSchema" xml:space="preserve">
+    <value>dbo</value>
   </data>
 </root>
