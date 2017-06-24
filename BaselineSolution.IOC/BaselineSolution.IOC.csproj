@@ -43,10 +43,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CrudModule.cs" />
     <Compile Include="MvcModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BaselineSolution.Bo\BaselineSolution.Bo.csproj">
+      <Project>{2870D474-8605-4727-94DA-8EE759F7EBA6}</Project>
+      <Name>BaselineSolution.Bo</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BaselineSolution.DAL\BaselineSolution.DAL.csproj">
       <Project>{461b7026-0a17-44e9-8dcf-09b8de204940}</Project>
       <Name>BaselineSolution.DAL</Name>

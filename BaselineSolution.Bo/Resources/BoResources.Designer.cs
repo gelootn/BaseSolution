@@ -70,6 +70,15 @@ namespace BaselineSolution.Bo.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Unit of work is not set!.
+        /// </summary>
+        public static string UnitOfWorkNotSet {
+            get {
+                return ResourceManager.GetString("UnitOfWorkNotSet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The user was not found in the database.
         /// </summary>
         public static string UserNotFound {

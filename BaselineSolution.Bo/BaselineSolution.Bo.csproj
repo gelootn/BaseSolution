@@ -52,6 +52,8 @@
     <Compile Include="Internal\Security\RoleRightSecurityBo.cs" />
     <Compile Include="Internal\Security\RightSecurityBo.cs" />
     <Compile Include="Internal\Security\AccountSecurityBo.cs" />
+    <Compile Include="Models\Security\UserBo.cs" />
+    <Compile Include="Models\Security\UserCommitBo.cs" />
     <Compile Include="Models\Shared\SystemLanguageBo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\BoResources.Designer.cs">

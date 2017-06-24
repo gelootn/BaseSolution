@@ -2,6 +2,17 @@
 {
     public class DisplayObject
     {
+
+        public DisplayObject()
+        {
+            
+        }
+
+        public DisplayObject(int id, string display)
+        {
+            
+        }
+
         public int Id { get; set; }
         public string Display { get; set; }
     }
