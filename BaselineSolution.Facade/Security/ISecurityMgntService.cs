@@ -11,6 +11,6 @@ namespace BaselineSolution.Facade.Security
 
 
         Response<UserBo> GetUserList();
-        Response<bool> SetUserPassword();
+        Response<bool> SetUserPassword(UserSetPasswordBo bo);
     }
 }
