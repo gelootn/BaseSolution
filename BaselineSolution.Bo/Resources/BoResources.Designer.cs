@@ -61,6 +61,15 @@ namespace BaselineSolution.Bo.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Password must be at least 6 chars .
+        /// </summary>
+        public static string PasswordLength {
+            get {
+                return ResourceManager.GetString("PasswordLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Passwords do not match.
         /// </summary>
         public static string PasswordsDoNotMatch {

@@ -25,8 +25,6 @@ namespace BaselineSolution.Service.Translators.Security
                 Roles = model.Roles.Select(x=> new DisplayObject(x.Id, x.Name)).ToList() 
             };
 
-
-
             return bo;
         }
 
@@ -37,6 +35,10 @@ namespace BaselineSolution.Service.Translators.Security
             model.Name = bo.Name;
             model.AccountId = bo.AccountId;
             model.Username = bo.Username;
+
+            model.Roles.Clear();
+            model.Roles = bo.Roles.Select(x => new Role {Id = x}).ToList();
+
             return model;
         }
     }

@@ -1,10 +1,16 @@
 ﻿using System.Collections.Generic;
 using BaselineSolution.Bo.Internal;
+using BaselineSolution.Bo.Validators;
 
 namespace BaselineSolution.Bo.Models.Security
 {
     public class UserCommitBo : BaseBo
     {
+        public UserCommitBo()
+        {
+            Validator = new UserCommitBoValidator();
+        }
+
         /// <summary>
         ///     The _roles.
         /// </summary>
