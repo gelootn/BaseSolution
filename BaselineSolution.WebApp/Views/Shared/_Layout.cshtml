@@ -1,0 +1,23 @@
+﻿@using BaselineSolution.WebApp.Resources
+<html>
+<head>
+    <title>
+        @WebApp.WebApp_BaseTitle
+        
+        @if (ViewBag.Title != null)
+        {
+            <text> | @ViewBag.Title </text>
+        }
+
+    </title>
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css"/>
+    <link rel="stylesheet" href="~/Content/font-awesome.min.css"/>
+</head>
+<body>
+    
+    
+    
+    @RenderBody()
+
+</body>
+</html>

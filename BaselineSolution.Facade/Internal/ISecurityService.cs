@@ -4,7 +4,7 @@ using BaselineSolution.Framework.Response;
 
 namespace BaselineSolution.Facade.Internal
 {
-    public interface ISecurityService
+    public interface ISecurityService : IService
     {
         Response<bool> CheckUserRight(UserSecurityBo user, string rightKey);
         Response<UserSecurityBo> FindUserByUsername(string username);

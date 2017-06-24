@@ -4,12 +4,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3A7FA480-BD89-4320-8DA4-439D63CEF814}</ProjectGuid>
+    <ProjectGuid>{CAD078FF-FF12-42B1-969C-756AC9162323}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BaselineSolution.Facade</RootNamespace>
-    <AssemblyName>BaselineSolution.Facade</AssemblyName>
-    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <RootNamespace>BaselineSolution.WebApp.Components</RootNamespace>
+    <AssemblyName>BaselineSolution.WebApp.Components</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -40,24 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Internal\IService.cs" />
-    <Compile Include="Internal\ISecurityService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\BaselineSolution.Bo\BaselineSolution.Bo.csproj">
-      <Project>{2870d474-8605-4727-94da-8ee759f7eba6}</Project>
-      <Name>BaselineSolution.Bo</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\BaselineSolution.DAL\BaselineSolution.DAL.csproj">
-      <Project>{461b7026-0a17-44e9-8dcf-09b8de204940}</Project>
-      <Name>BaselineSolution.DAL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\BaselineSolution.Framework\BaselineSolution.Framework.csproj">
-      <Project>{804156A9-9126-443E-B5DA-9A701AD742DE}</Project>
-      <Name>BaselineSolution.Framework</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

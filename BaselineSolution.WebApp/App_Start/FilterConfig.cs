@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using BaselineSolution.WebApp.Infrastructure.Filters;
 
-namespace BaselineSolution.WebApp.App_Start
+namespace BaselineSolution.WebApp
 {
     public class FilterConfig
     {

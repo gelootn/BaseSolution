@@ -1,7 +1,6 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
-using BaselineSolution.WebApp.App_Start;
 using BaselineSolution.WebApp.Infrastructure.Constants;
 using BaselineSolution.WebApp.Infrastructure.Models.Authentication;
 
@@ -11,6 +10,7 @@ namespace BaselineSolution.WebApp
     {
         protected void Application_Start()
         {
+            AutoFacConfig.ConfigureContainer();
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
