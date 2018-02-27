@@ -26,6 +26,8 @@ namespace BaselineSolution.DAL.Domain.Security
         /// </summary>
         public virtual string Password { get; set; }
 
+        public virtual string Salt { get; set; }
+
         /// <summary>
         ///     Gets or sets the name.
         /// </summary>

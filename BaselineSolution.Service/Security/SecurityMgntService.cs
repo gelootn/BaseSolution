@@ -38,9 +38,7 @@ namespace BaselineSolution.Service.Security
             if(!bo.IsValid())
                 return new Response<bool>().AddValidationMessage(bo.ValidationMessages);
 
-
-
-
+            return new Response<bool>();
         }
     }
 }

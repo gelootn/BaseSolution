@@ -75,6 +75,10 @@
     <Compile Include="Migrations\201706241942444_AddedSystemLanguages.Designer.cs">
       <DependentUpon>201706241942444_AddedSystemLanguages.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201802270753057_UserPasswordSalt.cs" />
+    <Compile Include="Migrations\201802270753057_UserPasswordSalt.Designer.cs">
+      <DependentUpon>201802270753057_UserPasswordSalt.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\GenericRepository.cs" />
@@ -106,6 +110,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706241942444_AddedSystemLanguages.resx">
       <DependentUpon>201706241942444_AddedSystemLanguages.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802270753057_UserPasswordSalt.resx">
+      <DependentUpon>201802270753057_UserPasswordSalt.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
