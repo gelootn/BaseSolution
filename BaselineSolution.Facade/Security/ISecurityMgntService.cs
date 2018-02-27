@@ -7,9 +7,6 @@ namespace BaselineSolution.Facade.Security
 {
     public interface ISecurityMgntService
     {
-        ICrudService<UserBo, UserCommitBo> UserCrudService { get; }
-
-
         Response<UserBo> GetUserList();
         Response<bool> SetUserPassword(UserSetPasswordBo bo);
     }

@@ -14,7 +14,6 @@ namespace BaselineSolution.WebApp
             builder.RegisterControllers(typeof(MvcApplication).Assembly);
 
             builder.RegisterModule<MvcModule>();
-            builder.RegisterModule<CrudModule>();
 
             var container = builder.Build();
 

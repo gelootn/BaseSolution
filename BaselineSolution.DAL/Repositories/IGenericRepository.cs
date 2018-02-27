@@ -11,6 +11,7 @@ namespace BaselineSolution.DAL.Repositories
         TEntity FirstOrDefault(Func<TEntity, bool> predicate);
         void AddOrUpdate(TEntity item);
         void Delete(int id);
+        void HardDelete(int id);
 
 
     }

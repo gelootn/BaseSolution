@@ -13,24 +13,19 @@ namespace BaselineSolution.Service.Security
     {
         private readonly ISecurityUnitOfWork _unitOfWork;
 
-        public SecurityMgntService(ISecurityUnitOfWork unitOfWork, ICrudService<UserBo, UserCommitBo> userCrudService)
+        public SecurityMgntService(ISecurityUnitOfWork unitOfWork)
         {
-            _unitOfWork = unitOfWork;
-
-            UserCrudService = userCrudService;
-            userCrudService.SetUnitOfWork(_unitOfWork);
-            
+            _unitOfWork = unitOfWork; 
         }
 
-        public ICrudService<UserBo, UserCommitBo> UserCrudService { get; }
 
         public Response<UserBo> GetUserList()
         {
             var list = _unitOfWork.UserRepo.List().ToList();
-            var translator = new UserCrudTranslator();
-            var bolist = list.Select(x => translator.ToBo(x)).ToList();
+            
+            
 
-            return new Response<UserBo>(bolist);
+            return new Response<UserBo>();
         }
 
         public Response<bool> SetUserPassword(UserSetPasswordBo bo)
