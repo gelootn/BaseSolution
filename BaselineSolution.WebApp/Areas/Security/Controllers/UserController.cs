@@ -1,10 +1,11 @@
 ﻿using System.Web.Mvc;
 using BaselineSolution.Facade.Security;
 using BaselineSolution.WebApp.Areas.Security.ViewModels.User;
+using BaselineSolution.WebApp.Infrastructure.Bases;
 
 namespace BaselineSolution.WebApp.Areas.Security.Controllers
 {
-    public class UserController : Controller
+    public class UserController : BaseController
     {
         private readonly ISecurityMgntService _securityMgntService;
 
@@ -22,6 +23,8 @@ namespace BaselineSolution.WebApp.Areas.Security.Controllers
         public ActionResult Edit(int? id)
         {
             var vm = new EditViewModel();
+
+
 
             
 

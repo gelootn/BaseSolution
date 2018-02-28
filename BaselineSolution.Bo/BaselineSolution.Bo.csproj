@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Filters\Security\UserFilter.cs" />
     <Compile Include="Internal\BaseBo.cs" />
     <Compile Include="Internal\BaseSorter.cs" />
     <Compile Include="Internal\CollumnSorter.cs" />

@@ -81,7 +81,7 @@ namespace BaselineSolution.WebApp.Components.HtmlHelpers.Forms
 
             var helpInline = HtmlTags.Div.Class("help-block").Append(validationHtml.ToHtmlString());
 
-            var parsed = HtmlTag.Parse(editorHtml);
+            var parsed = HtmlTag.Parse(editorHtml.ToHtmlString());
             parsed.Class("form-control");
 
             if (!string.IsNullOrWhiteSpace(prefixclass))

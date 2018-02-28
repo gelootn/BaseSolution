@@ -31,13 +31,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="LinqKit, Version=1.1.9.0, Culture=neutral, PublicKeyToken=bc217f8844052a91, processorArchitecture=MSIL">
-      <HintPath>..\packages\LinqKit.1.1.9.0\lib\net45\LinqKit.dll</HintPath>
+    <Reference Include="LinqKit, Version=1.1.15.0, Culture=neutral, PublicKeyToken=bc217f8844052a91, processorArchitecture=MSIL">
+      <HintPath>..\packages\LinqKit.1.1.15\lib\net45\LinqKit.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -60,14 +60,34 @@
     <Compile Include="Infrastructure\Attributes\IgnoreAuthenticationAttribute.cs" />
     <Compile Include="Infrastructure\Contracts\IChangeTrackable.cs" />
     <Compile Include="Infrastructure\Contracts\IDeletable.cs" />
+    <Compile Include="Infrastructure\Contracts\IEntityFilter.cs" />
+    <Compile Include="Infrastructure\Contracts\IEntityIncluder.cs" />
+    <Compile Include="Infrastructure\Contracts\IEntitySorter.cs" />
     <Compile Include="Infrastructure\Contracts\IIdentifiable.cs" />
     <Compile Include="Infrastructure\Contracts\IOwnable.cs" />
     <Compile Include="Infrastructure\Contracts\ITreeHierarchy.cs" />
+    <Compile Include="Infrastructure\Filtering\EmptyEntityFilter.cs" />
+    <Compile Include="Infrastructure\Filtering\EntityFilter.cs" />
+    <Compile Include="Infrastructure\Filtering\ExtensionsForIEntityFilter.cs" />
+    <Compile Include="Infrastructure\Filtering\WhereEntityFilter.cs" />
+    <Compile Include="Infrastructure\Including\DummyPropertyInclusionHolder.cs" />
+    <Compile Include="Infrastructure\Including\EntityIncluder.cs" />
+    <Compile Include="Infrastructure\Including\ExtensionsForIEntityIncluder.cs" />
+    <Compile Include="Infrastructure\Including\IPropertyInclusionHolder.cs" />
+    <Compile Include="Infrastructure\Including\PropertyInclusionHolder.cs" />
+    <Compile Include="Infrastructure\Sorting\EmptyEntitySorter.cs" />
+    <Compile Include="Infrastructure\Sorting\EntitySorter.cs" />
+    <Compile Include="Infrastructure\Sorting\EntitySorterBuilder.cs" />
+    <Compile Include="Infrastructure\Sorting\ExtensionsForIEntitySorter.cs" />
+    <Compile Include="Infrastructure\Sorting\OrderByEntitySorter.cs" />
+    <Compile Include="Infrastructure\Sorting\SortDirection.cs" />
+    <Compile Include="Infrastructure\Sorting\ThenByEntitySorter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Response\Message.cs" />
     <Compile Include="Response\MessageType.cs" />
     <Compile Include="Response\Response.cs" />
     <Compile Include="Security\PasswordHasher.cs" />
+    <Compile Include="Services\IListService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

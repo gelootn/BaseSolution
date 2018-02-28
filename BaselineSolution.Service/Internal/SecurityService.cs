@@ -8,7 +8,7 @@ using BaselineSolution.Facade.Internal;
 using BaselineSolution.Framework.Extensions;
 using BaselineSolution.Framework.Response;
 using BaselineSolution.Framework.Security;
-using BaselineSolution.Service.Translators.Security;
+using BaselineSolution.Service.Translators.Internal;
 
 namespace BaselineSolution.Service.Internal
 {
@@ -31,6 +31,7 @@ namespace BaselineSolution.Service.Internal
 
             return new Response<bool>(hasRight);
         }
+
 
         Response<UserSecurityBo> ISecurityService.FindUserByUsername(string username)
         {

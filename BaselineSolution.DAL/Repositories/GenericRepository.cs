@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Linq.Expressions;
 using BaselineSolution.DAL.Database;
 using BaselineSolution.DAL.Infrastructure.Bases;
 
@@ -15,11 +17,25 @@ namespace BaselineSolution.DAL.Repositories
             _context = context;
         }
 
+        public IEnumerable<TEntity> List(Expression<Func<TEntity, bool>> predicate, int page, int pageSize, out int totalCount)
+        {
+            IQueryable<TEntity> query = _context.Set<TEntity>();
+            query = query.Where(predicate);
+            
+            totalCount = query.Count();
+
+
+            query = query.Skip((page -1) * pageSize);
+            query = query.Take(pageSize);
+
+            return query;
+        }
+
         public IQueryable<TEntity> List()
         {
-            IQueryable<TEntity> querry = _context.Set<TEntity>();
-            querry = querry.Where(x => !x.Deleted);
-            return querry;
+            IQueryable<TEntity> query = _context.Set<TEntity>();
+            query = query.Where(x => !x.Deleted);
+            return query;
 
         }
 
@@ -38,6 +54,11 @@ namespace BaselineSolution.DAL.Repositories
         public TEntity FirstOrDefault(Func<TEntity, bool> predicate)
         {
             return _context.Set<TEntity>().Where(x => !x.Deleted).FirstOrDefault(predicate);
+        }
+
+        public int Count(Expression<Func<TEntity, bool>> predicate)
+        {
+            return _context.Set<TEntity>().Where(predicate).Count();
         }
 
         public void AddOrUpdate(TEntity item)

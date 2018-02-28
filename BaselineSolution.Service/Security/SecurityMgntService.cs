@@ -1,7 +1,7 @@
 ﻿using System.Linq;
+using BaselineSolution.Bo.Filters.Security;
 using BaselineSolution.Bo.Models.Security;
 using BaselineSolution.DAL.UnitOfWork.Interfaces.Security;
-using BaselineSolution.Facade.Internal;
 using BaselineSolution.Facade.Security;
 using BaselineSolution.Framework.Extensions;
 using BaselineSolution.Framework.Response;
@@ -15,25 +15,30 @@ namespace BaselineSolution.Service.Security
 
         public SecurityMgntService(ISecurityUnitOfWork unitOfWork)
         {
-            _unitOfWork = unitOfWork; 
+            _unitOfWork = unitOfWork;
         }
 
 
-        public Response<UserBo> GetUserList()
+        public Response<UserBo> GetUserList(UserFilter filter)
         {
-            var list = _unitOfWork.UserRepo.List().ToList();
-            
-            
+            var list = _unitOfWork.UserRepo.List();
+            if (!string.IsNullOrWhiteSpace(filter.Email))
+                list = list.Where(x => x.Email.Contains(filter.Email));
+            if (!string.IsNullOrWhiteSpace(filter.UserName))
+                list = list.Where(x => x.Username.Contains(filter.UserName));
 
-            return new Response<UserBo>();
+            var users = list.Select(x => x.ToUserBo()).ToList();
+
+            return new Response<UserBo>(users);
         }
 
         public Response<bool> SetUserPassword(UserSetPasswordBo bo)
         {
-            if(!bo.IsValid())
+            if (!bo.IsValid())
                 return new Response<bool>().AddValidationMessage(bo.ValidationMessages);
 
             return new Response<bool>();
         }
+
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BaselineSolution.Bo.Internal;
+using BaselineSolution.DAL.Domain.Security;
 
 namespace BaselineSolution.Bo.Models.Security
 {
@@ -62,6 +63,14 @@ namespace BaselineSolution.Bo.Models.Security
         {
             get { return _roles ?? (_roles = new List<DisplayObject>()); }
             set { _roles = new List<DisplayObject>(value); }
+        }
+    }
+
+    public class MapToAttribute : Attribute
+    {
+        public MapToAttribute(Func<object, object> func)
+        {
+            throw new NotImplementedException();
         }
     }
 }
