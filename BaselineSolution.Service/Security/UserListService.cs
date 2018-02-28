@@ -21,11 +21,6 @@ namespace BaselineSolution.Service.Security
         public UserListService(ISecurityUnitOfWork securityUnitOfWork)
         {
             _securityUnitOfWork = securityUnitOfWork;
-            Mapper.Initialize(cfg =>
-            {
-                cfg.CreateMap<UserBo, User>();
-                cfg.CreateMap<User, UserBo>();
-            });
         }
 
         int IListService<UserBo>.Count(IEntityFilter<UserBo> baseFilter)

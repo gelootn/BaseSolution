@@ -283,7 +283,6 @@
     <Compile Include="Datatables\Remote\IRemoteDatatableColumn{TEntity, TProperty}.cs" />
     <Compile Include="Datatables\Remote\IRemoteDatatableColumn{TEntity}.cs" />
     <Compile Include="Datatables\Remote\Processors\IDatatableProcessor.cs" />
-    <Compile Include="Datatables\Remote\Processors\ListServiceDatatableProcessor.cs" />
     <Compile Include="Datatables\Remote\Processors\ServiceDatatableProcessor.cs" />
     <Compile Include="Datatables\Remote\RemoteDatatable.cs" />
     <Compile Include="Datatables\Remote\RemoteDatatableColumn{TEntity, TProperty}.cs" />

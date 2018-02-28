@@ -20,7 +20,6 @@ namespace BaselineSolution.WebApp.Components.Datatables.Remote.Processors
         /// </summary>
         /// <param name="service">The repository from which the data can be fetched</param>
         /// <param name="baseFilter">The base filter that needs to be applied to the data before the request is parsed</param>
-        /// <param name="baseIncluder">The base includer that needs to be applied to the data before the request is parsed</param>
         /// <param name="baseSorter">The base sorter that needs to be applied to the data before the request is parsed</param>
         public ServiceDatatableProcessor(
             IListService<TEntity> service, 
