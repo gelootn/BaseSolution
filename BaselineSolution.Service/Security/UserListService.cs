@@ -9,6 +9,7 @@ using BaselineSolution.DAL.Domain.Security;
 using BaselineSolution.DAL.UnitOfWork.Interfaces.Security;
 using BaselineSolution.Framework.Extensions;
 using BaselineSolution.Framework.Infrastructure.Contracts;
+using BaselineSolution.Framework.Infrastructure.Sorting;
 using BaselineSolution.Framework.Services;
 using LinqKit;
 
@@ -21,6 +22,12 @@ namespace BaselineSolution.Service.Security
         public UserListService(ISecurityUnitOfWork securityUnitOfWork)
         {
             _securityUnitOfWork = securityUnitOfWork;
+/*            Mapper.Initialize(cfg =>
+            {
+                cfg.CreateMap<UserBo, User>();
+                cfg.CreateMap<User, UserBo>();
+            });*/
+
         }
 
         int IListService<UserBo>.Count(IEntityFilter<UserBo> baseFilter)
@@ -50,6 +57,25 @@ namespace BaselineSolution.Service.Security
                 }
             }
             //Func<User, bool> filter = user => true;
+
+/*            var boKeySelector = sorter.KeySelector;
+
+            var translatedSelector = Expression < Func < ??>>; //Zie mapper van filter
+
+            var reposorter = EntitySorter<User>.AsQueryable();
+            reposorter.Keyseletor = translatedSelector;
+
+
+
+
+            var query = _securityUnitOfWork.UserRepo.List();
+            query = query.Where(repofilter);
+
+           
+
+            reposorter.Sort(query);*/
+
+
             
 
             var result = _securityUnitOfWork.UserRepo.List(repofilter, page, pageSize, out int total);
