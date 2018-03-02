@@ -85,6 +85,8 @@ namespace BaselineSolution.WebApp.Areas.Security.Controllers
                 return PartialView("_delete");
             }
 
+            return HttpNotFound();
+
         }
     }
 }
