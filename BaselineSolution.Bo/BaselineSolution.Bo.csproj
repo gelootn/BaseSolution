@@ -34,6 +34,7 @@
       <HintPath>..\packages\FluentValidation.6.4.1\lib\Net45\FluentValidation.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -54,6 +55,9 @@
     <Compile Include="Internal\Security\RightSecurityBo.cs" />
     <Compile Include="Internal\Security\AccountSecurityBo.cs" />
     <Compile Include="Models\Security\AccountBo.cs" />
+    <Compile Include="Models\Security\RightBo.cs" />
+    <Compile Include="Models\Security\RoleBo.cs" />
+    <Compile Include="Models\Security\RoleRightBo.cs" />
     <Compile Include="Models\Security\UserBo.cs" />
     <Compile Include="Models\Security\UserSetPasswordBo.cs" />
     <Compile Include="Models\Shared\SystemLanguageBo.cs" />
@@ -62,6 +66,31 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>BoResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Security\AccountBoResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AccountBoResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Security\RightBoResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RightBoResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Security\RoleBoResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RoleBoResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Security\RoleRightBoResourceBo.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RoleRightBoResourceBo.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Security\UserBoResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UserBoResource.resx</DependentUpon>
     </Compile>
     <Compile Include="Validators\Security\AccountBoValidator.cs" />
     <Compile Include="Validators\Security\UserBoValidator.cs" />
@@ -84,6 +113,26 @@
     <EmbeddedResource Include="Resources\BoResources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>BoResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Security\AccountBoResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AccountBoResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Security\RightBoResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>RightBoResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Security\RoleBoResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>RoleBoResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Security\RoleRightBoResourceBo.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>RoleRightBoResourceBo.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Security\UserBoResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>UserBoResource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

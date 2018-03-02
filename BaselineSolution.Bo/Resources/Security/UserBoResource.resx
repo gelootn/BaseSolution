@@ -117,19 +117,28 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="PasswordLength" xml:space="preserve">
-    <value>Password must be at least 6 chars </value>
+  <data name="AccountId" xml:space="preserve">
+    <value>Account</value>
   </data>
-  <data name="PasswordsDoNotMatch" xml:space="preserve">
-    <value>Passwords do not match</value>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
   </data>
-  <data name="Required" xml:space="preserve">
-    <value>The field {0} is required  </value>
+  <data name="Firstname" xml:space="preserve">
+    <value>Firstname</value>
   </data>
-  <data name="UnitOfWorkNotSet" xml:space="preserve">
-    <value>Unit of work is not set!</value>
+  <data name="LastLogin" xml:space="preserve">
+    <value>Last login</value>
   </data>
-  <data name="UserNotFound" xml:space="preserve">
-    <value>The user was not found in the database</value>
+  <data name="LoginCount" xml:space="preserve">
+    <value>Login counter</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>Username</value>
   </data>
 </root>

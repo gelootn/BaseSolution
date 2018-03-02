@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BaselineSolution.Bo.Resources {
+namespace BaselineSolution.Bo.Resources.Security {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace BaselineSolution.Bo.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class BoResources {
+    public class RoleRightBoResourceBo {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal BoResources() {
+        internal RoleRightBoResourceBo() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace BaselineSolution.Bo.Resources {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("BaselineSolution.Bo.Resources.BoResources", typeof(BoResources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("BaselineSolution.Bo.Resources.Security.RoleRightBoResourceBo", typeof(RoleRightBoResourceBo).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,47 +61,29 @@ namespace BaselineSolution.Bo.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Password must be at least 6 chars .
+        ///   Looks up a localized string similar to Is Allowed.
         /// </summary>
-        public static string PasswordLength {
+        public static string Allow {
             get {
-                return ResourceManager.GetString("PasswordLength", resourceCulture);
+                return ResourceManager.GetString("Allow", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Passwords do not match.
+        ///   Looks up a localized string similar to Right.
         /// </summary>
-        public static string PasswordsDoNotMatch {
+        public static string RightId {
             get {
-                return ResourceManager.GetString("PasswordsDoNotMatch", resourceCulture);
+                return ResourceManager.GetString("RightId", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The field {0} is required  .
+        ///   Looks up a localized string similar to Role.
         /// </summary>
-        public static string Required {
+        public static string RoleId {
             get {
-                return ResourceManager.GetString("Required", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Unit of work is not set!.
-        /// </summary>
-        public static string UnitOfWorkNotSet {
-            get {
-                return ResourceManager.GetString("UnitOfWorkNotSet", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The user was not found in the database.
-        /// </summary>
-        public static string UserNotFound {
-            get {
-                return ResourceManager.GetString("UserNotFound", resourceCulture);
+                return ResourceManager.GetString("RoleId", resourceCulture);
             }
         }
     }

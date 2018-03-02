@@ -38,6 +38,8 @@ namespace BaselineSolution.Service.Internal
 
             if (sortExprType == typeof(int))
             { repoSorter = GetRepoSorter<TBo, TEntity, int>(sorter); }
+            else if (sortExprType == typeof(int?))
+            { repoSorter = GetRepoSorter<TBo, TEntity, int?>(sorter); }
             else if (sortExprType == typeof(string))
             { repoSorter = GetRepoSorter<TBo, TEntity, string>(sorter); }
             else if (sortExprType == typeof(DateTime))

@@ -117,19 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="PasswordLength" xml:space="preserve">
-    <value>Password must be at least 6 chars </value>
+  <data name="Allow" xml:space="preserve">
+    <value>Is Allowed</value>
   </data>
-  <data name="PasswordsDoNotMatch" xml:space="preserve">
-    <value>Passwords do not match</value>
+  <data name="RightId" xml:space="preserve">
+    <value>Right</value>
   </data>
-  <data name="Required" xml:space="preserve">
-    <value>The field {0} is required  </value>
-  </data>
-  <data name="UnitOfWorkNotSet" xml:space="preserve">
-    <value>Unit of work is not set!</value>
-  </data>
-  <data name="UserNotFound" xml:space="preserve">
-    <value>The user was not found in the database</value>
+  <data name="RoleId" xml:space="preserve">
+    <value>Role</value>
   </data>
 </root>

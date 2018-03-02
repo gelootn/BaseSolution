@@ -1,5 +1,6 @@
-﻿using BaselineSolution.Bo.Internal;
-using BaselineSolution.Bo.Validators;
+﻿using System.ComponentModel.DataAnnotations;
+using BaselineSolution.Bo.Internal;
+using BaselineSolution.Bo.Resources.Security;
 using BaselineSolution.Bo.Validators.Security;
 
 namespace BaselineSolution.Bo.Models.Security
@@ -11,7 +12,7 @@ namespace BaselineSolution.Bo.Models.Security
             Validator = new UserSetPasswordBoValidator();
         }
         
-
+        [Display(ResourceType = typeof(UserBoResource), Name = "Password")]
         public string NewPassword { get; set; }
     }
 }

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BaselineSolution.Bo.Resources {
+namespace BaselineSolution.Bo.Resources.Security {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace BaselineSolution.Bo.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class BoResources {
+    public class UserBoResource {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal BoResources() {
+        internal UserBoResource() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace BaselineSolution.Bo.Resources {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("BaselineSolution.Bo.Resources.BoResources", typeof(BoResources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("BaselineSolution.Bo.Resources.Security.UserBoResource", typeof(UserBoResource).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,47 +61,74 @@ namespace BaselineSolution.Bo.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Password must be at least 6 chars .
+        ///   Looks up a localized string similar to Account.
         /// </summary>
-        public static string PasswordLength {
+        public static string AccountId {
             get {
-                return ResourceManager.GetString("PasswordLength", resourceCulture);
+                return ResourceManager.GetString("AccountId", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Passwords do not match.
+        ///   Looks up a localized string similar to Email.
         /// </summary>
-        public static string PasswordsDoNotMatch {
+        public static string Email {
             get {
-                return ResourceManager.GetString("PasswordsDoNotMatch", resourceCulture);
+                return ResourceManager.GetString("Email", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The field {0} is required  .
+        ///   Looks up a localized string similar to Firstname.
         /// </summary>
-        public static string Required {
+        public static string Firstname {
             get {
-                return ResourceManager.GetString("Required", resourceCulture);
+                return ResourceManager.GetString("Firstname", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Unit of work is not set!.
+        ///   Looks up a localized string similar to Last login.
         /// </summary>
-        public static string UnitOfWorkNotSet {
+        public static string LastLogin {
             get {
-                return ResourceManager.GetString("UnitOfWorkNotSet", resourceCulture);
+                return ResourceManager.GetString("LastLogin", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The user was not found in the database.
+        ///   Looks up a localized string similar to Login counter.
         /// </summary>
-        public static string UserNotFound {
+        public static string LoginCount {
             get {
-                return ResourceManager.GetString("UserNotFound", resourceCulture);
+                return ResourceManager.GetString("LoginCount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name.
+        /// </summary>
+        public static string Name {
+            get {
+                return ResourceManager.GetString("Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password.
+        /// </summary>
+        public static string Password {
+            get {
+                return ResourceManager.GetString("Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Username.
+        /// </summary>
+        public static string UserName {
+            get {
+                return ResourceManager.GetString("UserName", resourceCulture);
             }
         }
     }
