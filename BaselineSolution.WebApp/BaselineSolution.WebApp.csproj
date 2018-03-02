@@ -150,6 +150,11 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="Areas\Security\Views\Account\Index.cshtml" />
+    <Content Include="Areas\Security\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Security\Views\Account\_AccountList.cshtml" />
+    <Content Include="Areas\Security\Views\Account\Edit.cshtml" />
+    <Content Include="Areas\Security\Views\Account\_Delete.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -172,8 +177,11 @@
     <Compile Include="Areas\Home\Controllers\AuthenticationController.cs" />
     <Compile Include="Areas\Home\HomeAreaRegistration.cs" />
     <Compile Include="Areas\Home\ViewModels\Authentication\LoginViewModel.cs" />
+    <Compile Include="Areas\Security\Controllers\AccountController.cs" />
     <Compile Include="Areas\Security\Controllers\UserController.cs" />
     <Compile Include="Areas\Security\SecurityAreaRegistration.cs" />
+    <Compile Include="Areas\Security\ViewModels\Account\DeleteViewModel.cs" />
+    <Compile Include="Areas\Security\ViewModels\Account\EditViewModel.cs" />
     <Compile Include="Areas\Security\ViewModels\User\EditViewModel.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">

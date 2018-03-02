@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using BaselineSolution.Bo.Internal;
-using BaselineSolution.DAL.Domain.Security;
 
 namespace BaselineSolution.Bo.Models.Security
 {

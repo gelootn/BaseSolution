@@ -147,4 +147,13 @@
   <data name="WebApp_Description" xml:space="preserve">
     <value />
   </data>
+  <data name="Security_AccountName" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Securirty_AccountDescription" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="Security_AccountParent" xml:space="preserve">
+    <value>Parent</value>
+  </data>
 </root>

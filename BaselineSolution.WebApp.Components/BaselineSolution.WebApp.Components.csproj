@@ -316,6 +316,7 @@
     <Compile Include="Models\Links\LinkBuilder.cs" />
     <Compile Include="Models\Links\ILinkBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\RazorViews.cs" />
     <Compile Include="Utilities\HttpContextSession.cs" />
   </ItemGroup>
   <ItemGroup>

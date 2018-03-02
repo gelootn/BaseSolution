@@ -1,2 +1,3 @@
-﻿
-<h1>THIS IS MY VIEW</h1>
+﻿@using BaselineSolution.WebApp.Components.HtmlHelpers.Links
+
+@Html.Link("index","User", new { Area = "Security"} ).ToHtml("Security Mgnt");

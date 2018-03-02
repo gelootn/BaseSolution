@@ -66,14 +66,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Infrastructure\Extentions\ExtensionsForICollection.cs" />
     <Compile Include="Internal\BaseService.cs" />
+    <Compile Include="Internal\GenericService.cs" />
     <Compile Include="Internal\SecurityService.cs" />
     <Compile Include="Internal\Service.cs" />
     <Compile Include="Internal\UnitOfWorkException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security\SecurityMgntService.cs" />
     <Compile Include="Security\UserListService.cs" />
+    <Compile Include="Infrastructure\Extentions\ExtensionsForTranslator.cs" />
     <Compile Include="Translators\Internal\SecurityTranslator.cs" />
+    <Compile Include="Translators\Internal\Translator.cs" />
+    <Compile Include="Translators\Security\AccountBoTranslator.cs" />
     <Compile Include="Translators\Security\UserBoTranslator.cs" />
   </ItemGroup>
   <ItemGroup>

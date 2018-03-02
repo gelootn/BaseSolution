@@ -53,8 +53,8 @@
     <Compile Include="Internal\Security\RoleRightSecurityBo.cs" />
     <Compile Include="Internal\Security\RightSecurityBo.cs" />
     <Compile Include="Internal\Security\AccountSecurityBo.cs" />
+    <Compile Include="Models\Security\AccountBo.cs" />
     <Compile Include="Models\Security\UserBo.cs" />
-    <Compile Include="Models\Security\UserCommitBo.cs" />
     <Compile Include="Models\Security\UserSetPasswordBo.cs" />
     <Compile Include="Models\Shared\SystemLanguageBo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -63,8 +63,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BoResources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Validators\UserCommitBoValidator.cs" />
-    <Compile Include="Validators\UserSetPasswordBoValidator.cs" />
+    <Compile Include="Validators\Security\AccountBoValidator.cs" />
+    <Compile Include="Validators\Security\UserBoValidator.cs" />
+    <Compile Include="Validators\Security\UserSetPasswordBoValidator.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BaselineSolution.DAL\BaselineSolution.DAL.csproj">

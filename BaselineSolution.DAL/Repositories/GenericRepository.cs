@@ -21,11 +21,12 @@ namespace BaselineSolution.DAL.Repositories
         {
             IQueryable<TEntity> query = _context.Set<TEntity>();
             query = query.Where(predicate);
-            
+
             totalCount = query.Count();
 
+            query = query.OrderBy(x => x.Id);
 
-            query = query.Skip((page -1) * pageSize);
+            query = query.Skip((page - 1) * pageSize);
             query = query.Take(pageSize);
 
             return query;
@@ -91,7 +92,5 @@ namespace BaselineSolution.DAL.Repositories
                 _context.Set<TEntity>().Remove(item);
             }
         }
-
-
     }
 }

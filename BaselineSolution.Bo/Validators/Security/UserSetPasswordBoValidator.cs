@@ -2,7 +2,7 @@
 using BaselineSolution.Bo.Resources;
 using FluentValidation;
 
-namespace BaselineSolution.Bo.Validators
+namespace BaselineSolution.Bo.Validators.Security
 {
     public class UserSetPasswordBoValidator : AbstractValidator<UserSetPasswordBo>
     {
