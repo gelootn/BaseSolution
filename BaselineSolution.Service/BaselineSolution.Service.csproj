@@ -67,6 +67,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Internal\BaseService.cs" />
+    <Compile Include="Internal\QueryFilter.cs" />
+    <Compile Include="Internal\QuerySorter.cs" />
     <Compile Include="Internal\SecurityService.cs" />
     <Compile Include="Internal\Service.cs" />
     <Compile Include="Internal\UnitOfWorkException.cs" />

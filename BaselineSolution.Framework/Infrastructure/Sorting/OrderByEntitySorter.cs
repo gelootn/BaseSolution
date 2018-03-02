@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Linq.Expressions;
@@ -23,12 +24,24 @@ namespace BaselineSolution.Framework.Infrastructure.Sorting
         /// <summary>
         ///     The _sortDirection.
         /// </summary>
-        private readonly SortDirection _sortDirection;
+        private SortDirection _sortDirection;
 
         /// <summary>
         ///     The _key selector.
         /// </summary>
-        private readonly Expression<Func<TEntity, TKey>> _keySelector;
+        private readonly  Expression<Func<TEntity, TKey>> _keySelector;
+        
+        public SortDirection SortDirection { get => _sortDirection; set => _sortDirection = value; }
+
+        public Expression<Func<TEntity, TKey1>> GetExpression<TKey1>()
+        {
+            return (Expression<Func<TEntity, TKey1>>)Convert.ChangeType(_keySelector, typeof(Expression<Func<TEntity, TKey1>>));
+        }
+
+        public Type GetExpressionType()
+        {
+            return typeof(TKey);
+        }
 
         /// <summary>
         ///     Initializes a new instance of the <see cref="OrderByEntitySorter{TEntity,TKey}" /> class.

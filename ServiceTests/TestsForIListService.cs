@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -54,6 +55,16 @@ namespace ServiceTests
             var filter = EntityFilter<UserBo>.Where(x => x.Name == "LALA");
             var result = _listService.List(EntitySorter<UserBo>.AsQueryable(), filter, 1,50);
             
+            Assert.That(!result.Any());
+        }
+
+        [Test]
+        public void SortedListTest()
+        {
+            var filter = EntityFilter<UserBo>.AsQueryable();
+            var sorter = EntitySorter<UserBo>.OrderBy(x => x.Id).ThenBy(x => x.Name);
+            var result = _listService.List(sorter, filter, 1, 50);
+
             Assert.That(!result.Any());
         }
     }

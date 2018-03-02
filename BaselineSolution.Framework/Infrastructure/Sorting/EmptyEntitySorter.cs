@@ -51,5 +51,17 @@ namespace BaselineSolution.Framework.Infrastructure.Sorting
             // The string representation of IEntitySorter objects is used in the Debugger.
             return string.Empty;
         }
+
+        public System.Linq.Expressions.Expression<Func<TEntity, TKey>> GetExpression<TKey>()
+        {
+            return null;
+        }
+
+        public Type GetExpressionType()
+        {
+            return null;
+        }
+
+        public SortDirection SortDirection { get => SortDirection.Ascending; set { } }
     }
 }

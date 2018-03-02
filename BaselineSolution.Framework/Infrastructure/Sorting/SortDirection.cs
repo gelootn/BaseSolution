@@ -3,7 +3,7 @@ namespace BaselineSolution.Framework.Infrastructure.Sorting
     /// <summary>
     ///     The sort direction.
     /// </summary>
-    internal enum SortDirection
+    public enum SortDirection
     {
         /// <summary>
         ///     The ascending.
