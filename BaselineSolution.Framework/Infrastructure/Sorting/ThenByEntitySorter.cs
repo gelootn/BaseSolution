@@ -27,12 +27,14 @@ namespace BaselineSolution.Framework.Infrastructure.Sorting
         /// <summary>
         ///     The _sortDirection.
         /// </summary>
-        private readonly SortDirection _sortDirection;
+        private SortDirection _sortDirection;
 
         /// <summary>
         ///     The _key selector.
         /// </summary>
         private readonly Expression<Func<TEntity, TKey>> _keySelector;
+
+        public SortDirection SortDirection { get => _sortDirection; set => _sortDirection = value; }
 
         /// <summary>
         ///     Initializes a new instance of the <see cref="ThenByEntitySorter{TEntity,TKey}" /> class.
@@ -93,6 +95,16 @@ namespace BaselineSolution.Framework.Infrastructure.Sorting
             string sortType = _sortDirection == SortDirection.Ascending ? string.Empty : " descending";
 
             return _baseSorter + ", " + _keySelector + sortType;
+        }
+
+        public Expression<Func<TEntity, TKey1>> GetExpression<TKey1>()
+        {
+            return (Expression<Func<TEntity, TKey1>>)Convert.ChangeType(_keySelector, typeof(Expression<Func<TEntity, TKey1>>));
+        }
+
+        public Type GetExpressionType()
+        {
+            return typeof(TKey);
         }
     }
 }

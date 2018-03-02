@@ -8,7 +8,6 @@ namespace BaselineSolution.DAL.Repositories
 {
     public interface IGenericRepository<TEntity> where TEntity : Entity
     {
-        IEnumerable<TEntity> List(Expression<Func<TEntity, bool>> predicate, int page, int pageSize, out int totalCount);
         IQueryable<TEntity> List();
         TEntity FindById(int id);
         TEntity FirstOrDefault(Func<TEntity, bool> predicate);

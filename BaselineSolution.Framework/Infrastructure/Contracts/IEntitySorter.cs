@@ -1,5 +1,7 @@
-﻿using System;
+﻿using BaselineSolution.Framework.Infrastructure.Sorting;
+using System;
 using System.Linq;
+using System.Linq.Expressions;
 
 namespace BaselineSolution.Framework.Infrastructure.Contracts
 {
@@ -33,5 +35,9 @@ namespace BaselineSolution.Framework.Infrastructure.Contracts
         /// <typeparam name="TCast"></typeparam>
         /// <returns></returns>
         IEntitySorter<TCast> Cast<TCast>() where TCast : TEntity;
+
+        Expression<Func<TEntity, TKey>> GetExpression<TKey>();
+        Type GetExpressionType();
+        SortDirection SortDirection { get; set; }
     }
 }

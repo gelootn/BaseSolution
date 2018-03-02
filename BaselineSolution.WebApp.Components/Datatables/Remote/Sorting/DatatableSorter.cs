@@ -1,9 +1,10 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using BaselineSolution.Framework.Infrastructure.Contracts;
 using BaselineSolution.WebApp.Components.Datatables.Remote.Request;
 
 namespace BaselineSolution.WebApp.Components.Datatables.Remote.Sorting
-{    
+{
     /// <summary>
     /// Custom sorter that implements <see cref="Datatable"/> and provides sorting logic for a <see cref="Datatable"/>
     /// </summary>
@@ -14,6 +15,7 @@ namespace BaselineSolution.WebApp.Components.Datatables.Remote.Sorting
 
         private RemoteDatatable<TEntity> Datatable { get; set; }
         private DatatableRequest Request { get; set; }
+        public Framework.Infrastructure.Sorting.SortDirection SortDirection { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         private const string Ascending = "asc";
         private const string Descending = "desc";
@@ -41,13 +43,13 @@ namespace BaselineSolution.WebApp.Components.Datatables.Remote.Sorting
                 switch (Request.SortDirections[i])
                 {
                     case Ascending:
-                        sortDirection = SortDirection.Ascending;
+                        sortDirection = Remote.SortDirection.Ascending;
                         break;
                     case Descending:
-                        sortDirection = SortDirection.Descending;
+                        sortDirection = Remote.SortDirection.Descending;
                         break;
                     default:
-                        sortDirection = SortDirection.Ascending;
+                        sortDirection = Remote.SortDirection.Ascending;
                         break;
                 }
 
@@ -60,7 +62,7 @@ namespace BaselineSolution.WebApp.Components.Datatables.Remote.Sorting
             }
             if (EntitySorter == null)
             {
-                EntitySorter = Datatable.Columns.First(c => c.Sortable).Sort(null, SortDirection.Ascending);
+                EntitySorter = Datatable.Columns.First(c => c.Sortable).Sort(null, Remote.SortDirection.Ascending);
             }
         }
 
@@ -83,6 +85,16 @@ namespace BaselineSolution.WebApp.Components.Datatables.Remote.Sorting
         public override string ToString()
         {
             return string.Format("EntitySorter: {0}", EntitySorter);
+        }
+
+        public System.Linq.Expressions.Expression<Func<TEntity, TKey>> GetExpression<TKey>()
+        {
+            return null;
+        }
+
+        public Type GetExpressionType()
+        {
+            return null;
         }
     }
 }

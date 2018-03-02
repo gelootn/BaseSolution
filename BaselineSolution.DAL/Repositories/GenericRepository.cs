@@ -17,21 +17,6 @@ namespace BaselineSolution.DAL.Repositories
             _context = context;
         }
 
-        public IEnumerable<TEntity> List(Expression<Func<TEntity, bool>> predicate, int page, int pageSize, out int totalCount)
-        {
-            IQueryable<TEntity> query = _context.Set<TEntity>();
-            query = query.Where(predicate);
-
-            totalCount = query.Count();
-
-            query = query.OrderBy(x => x.Id);
-
-            query = query.Skip((page - 1) * pageSize);
-            query = query.Take(pageSize);
-
-            return query;
-        }
-
         public IQueryable<TEntity> List()
         {
             IQueryable<TEntity> query = _context.Set<TEntity>();
