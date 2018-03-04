@@ -304,6 +304,9 @@
     <Compile Include="Extensions\ExtensionsForHtmlHelper.cs" />
     <Compile Include="HtmlHelpers\Forms\FormElementForHelper.cs" />
     <Compile Include="HtmlHelpers\Links\LinkHelper.cs" />
+    <Compile Include="ModelBinders\DateTimeModelBinder.cs" />
+    <Compile Include="ModelBinders\DecimalModelBinder.cs" />
+    <Compile Include="ModelBinders\LinkBuilderModelBinder.cs" />
     <Compile Include="Models\Authentication\AnonymousCustomPrincipal.cs" />
     <Compile Include="Models\Authentication\AnonymousIdentity.cs" />
     <Compile Include="Models\Authentication\AuthenticatedCustomPrincipal.cs" />

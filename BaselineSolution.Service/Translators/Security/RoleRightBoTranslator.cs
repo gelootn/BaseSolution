@@ -6,9 +6,9 @@ using BaselineSolution.Service.Translators.Internal;
 
 namespace BaselineSolution.Service.Translators.Security
 {
-    internal class RoleRightBoTranslator : Translator<RoleRightBo, RoleRight>
+    internal class RoleRightBoTranslator : ITranslator<RoleRightBo, RoleRight>
     {
-        public override RoleRightBo FromModel(RoleRight model)
+        public  RoleRightBo FromModel(RoleRight model)
         {
             var bo = new RoleRightBo();
             
@@ -20,7 +20,7 @@ namespace BaselineSolution.Service.Translators.Security
             return bo;
         }
 
-        public override RoleRight UpdateModel(RoleRightBo bo, RoleRight model)
+        public  RoleRight UpdateModel(RoleRightBo bo, RoleRight model)
         {
             model.RoleId = bo.RoleId;
             model.RightId = bo.RightId;

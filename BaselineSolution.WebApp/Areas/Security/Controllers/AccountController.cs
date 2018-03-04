@@ -37,7 +37,7 @@ namespace BaselineSolution.WebApp.Areas.Security.Controllers
             var datatable = DatatableStorage.Get<AccountBo>(request.DatatableId, () => RazorViews.RenderToString(this, "_AccountList"));
             var baseFilter = EntityFilter<AccountBo>.Where(x => allowedAccounts.Any(a => x.Id == a));
 
-            var processor = new ServiceDatatableProcessor<AccountBo>(_service.AccountListService, baseFilter);
+            var processor = new ServiceDatatableProcessor<AccountBo>(_service.AccountService, baseFilter);
             var replier = new DatatableReplier<AccountBo>(datatable, processor);
             return replier.Reply(request).ToJson();
         }
@@ -47,7 +47,7 @@ namespace BaselineSolution.WebApp.Areas.Security.Controllers
             var account = new AccountBo();
             if (id.HasValue)
             {
-                var response = _service.GetAccountById(id.Value);
+                var response = _service.AccountService.GetById(id.Value);
                 if (response.IsSuccess)
                     account = response.GetValue();
             }
@@ -68,7 +68,7 @@ namespace BaselineSolution.WebApp.Areas.Security.Controllers
                 return View(vm);
 
 
-            var response = _service.AddOrUpdateAccount(accountbo);
+            var response = _service.AccountService.AddOrUpdate(accountbo);
             if (!response.IsSuccess)
                 return View(vm);
 
@@ -78,7 +78,7 @@ namespace BaselineSolution.WebApp.Areas.Security.Controllers
 
         public ActionResult Delete(int id)
         {
-            var response = _service.GetAccountById(id);
+            var response = _service.AccountService.GetById(id);
             if (response.IsSuccess)
             {
 

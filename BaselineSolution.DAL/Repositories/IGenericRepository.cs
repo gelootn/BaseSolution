@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using BaselineSolution.DAL.Infrastructure.Bases;
@@ -15,7 +14,7 @@ namespace BaselineSolution.DAL.Repositories
         void AddOrUpdate(TEntity item);
         void Delete(int id);
         void HardDelete(int id);
-
+        void Commit(int userId);
 
     }
 }

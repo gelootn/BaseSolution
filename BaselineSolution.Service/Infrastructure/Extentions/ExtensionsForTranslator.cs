@@ -7,7 +7,7 @@ namespace BaselineSolution.Service.Infrastructure.Extentions
 {
     internal static class ExtensionsForTranslator
     {
-        public static TBo ToBo<TBo, TModel>(this TModel model,Translator<TBo, TModel> translator)
+        public static TBo ToBo<TBo, TModel>(this TModel model,ITranslator<TBo, TModel> translator)
             where TBo : BaseBo, new()
             where TModel : Entity
 
@@ -23,7 +23,7 @@ namespace BaselineSolution.Service.Infrastructure.Extentions
             return bo;
         }
 
-        public static TModel UpdateModel<TBo, TModel>(this TBo bo, TModel model, Translator<TBo, TModel> translator)
+        public static TModel UpdateModel<TBo, TModel>(this TBo bo, TModel model, ITranslator<TBo, TModel> translator)
             where TBo : BaseBo
             where TModel : Entity
         {

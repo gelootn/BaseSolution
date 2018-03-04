@@ -1,6 +1,10 @@
 ﻿using System;
+using System.Web.ModelBinding;
 using System.Web.Mvc;
 using BaselineSolution.WebApp.Components.Extensions;
+using DefaultModelBinder = System.Web.Mvc.DefaultModelBinder;
+using IModelBinder = System.Web.ModelBinding.IModelBinder;
+using ModelBindingContext = System.Web.Mvc.ModelBindingContext;
 
 namespace BaselineSolution.WebApp.Components.Datatables.Remote.Request
 {
@@ -72,5 +76,10 @@ namespace BaselineSolution.WebApp.Components.Datatables.Remote.Request
         }
 
         #endregion
+
+        public bool BindModel(ModelBindingExecutionContext modelBindingExecutionContext, System.Web.ModelBinding.ModelBindingContext bindingContext)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

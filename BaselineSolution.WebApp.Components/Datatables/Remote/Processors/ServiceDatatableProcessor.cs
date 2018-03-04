@@ -1,16 +1,18 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using BaselineSolution.Bo.Internal;
+using BaselineSolution.Facade.Internal;
 using BaselineSolution.Framework.Infrastructure.Contracts;
-using BaselineSolution.Framework.Services;
+
 using BaselineSolution.WebApp.Components.Datatables.Remote.Filtering;
 using BaselineSolution.WebApp.Components.Datatables.Remote.Request;
 using BaselineSolution.WebApp.Components.Datatables.Remote.Sorting;
 
 namespace BaselineSolution.WebApp.Components.Datatables.Remote.Processors
 {
-    public class ServiceDatatableProcessor<TEntity> : IDatatableProcessor<TEntity> where TEntity : class, IIdentifiable
+    public class ServiceDatatableProcessor<TEntity> : IDatatableProcessor<TEntity> where TEntity : BaseBo
     {
-        private IListService<TEntity> Service { get; set; }
+        private IGenericService<TEntity> Service { get; set; }
         private IEntityFilter<TEntity> BaseFilter { get; set; }
         private IEntitySorter<TEntity> BaseSorter { get; set; }
 
@@ -22,7 +24,7 @@ namespace BaselineSolution.WebApp.Components.Datatables.Remote.Processors
         /// <param name="baseFilter">The base filter that needs to be applied to the data before the request is parsed</param>
         /// <param name="baseSorter">The base sorter that needs to be applied to the data before the request is parsed</param>
         public ServiceDatatableProcessor(
-            IListService<TEntity> service, 
+            IGenericService<TEntity> service, 
             IEntityFilter<TEntity> baseFilter = null,
             IEntitySorter<TEntity> baseSorter = null)
         {
@@ -38,9 +40,11 @@ namespace BaselineSolution.WebApp.Components.Datatables.Remote.Processors
             var sorter = new DatatableSorter<TEntity>(BaseSorter, remoteDatatable, datatableRequest);
             var page = datatableRequest.DisplayStart / datatableRequest.DisplayLength;
             var pageSize = datatableRequest.DisplayLength;
-            totalCount = Service.Count(BaseFilter);
-            filteredCount = datatableRequest.ContainsFiltering || BaseFilter != null ? Service.Count(filter) : totalCount;
-            return Service.List(sorter, filter, page, pageSize).ToList();
+            var countResponse = Service.Count(BaseFilter);
+            totalCount = countResponse.GetValue();
+            var listResponse = Service.List(filter, sorter, page, pageSize);
+            filteredCount = datatableRequest.ContainsFiltering || BaseFilter != null ? Service.Count(filter).GetValue() : totalCount;
+            return listResponse.Values;
         }
     }
 

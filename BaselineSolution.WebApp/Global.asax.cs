@@ -11,9 +11,12 @@ namespace BaselineSolution.WebApp
         protected void Application_Start()
         {
             AutoFacConfig.ConfigureContainer();
+            
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            ModelBinderConfig.RegisterModelBinders(ModelBinders.Binders);
+            DatatableConfig.Register();
         }
 
         protected void Application_PreRequestHandlerExecute()

@@ -5,9 +5,9 @@ using BaselineSolution.Service.Translators.Internal;
 
 namespace BaselineSolution.Service.Translators.Security
 {
-    internal class AccountBoTranslator : Translator<AccountBo, Account>
+    internal class AccountBoTranslator : ITranslator<AccountBo, Account>
     {
-        public override AccountBo FromModel(Account model)
+        public AccountBo FromModel(Account model)
         {
             var bo = new AccountBo();
 
@@ -19,7 +19,7 @@ namespace BaselineSolution.Service.Translators.Security
             return bo;
         }
 
-        public override Account UpdateModel(AccountBo bo, Account model)
+        public Account UpdateModel(AccountBo bo, Account model)
         {
             model.Name = bo.Name;
             model.Description = bo.Description;

@@ -9,7 +9,7 @@ namespace BaselineSolution.Service.Infrastructure.Extentions
     internal static class ExtensionsForICollection
     {
         public static ICollection<TEntity> UpdateWith<TEntity, TBase>(this ICollection<TEntity> original,
-            IEnumerable<TBase> updated, Translator<TBase, TEntity> translator)
+            IEnumerable<TBase> updated, ITranslator<TBase, TEntity> translator)
             where TEntity : Entity, new()
             where TBase : BaseBo
         {

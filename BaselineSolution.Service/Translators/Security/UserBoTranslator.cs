@@ -11,9 +11,9 @@ using BaselineSolution.Service.Translators.Internal;
 
 namespace BaselineSolution.Service.Translators.Security
 {
-    internal class UserBoTranslator : Translator<UserBo, User>
+    internal class UserBoTranslator : ITranslator<UserBo, User>
     {
-        public override UserBo FromModel( User model)
+        public  UserBo FromModel( User model)
         {
             var bo = new UserBo();
             bo.Id = model.Id;
@@ -29,7 +29,7 @@ namespace BaselineSolution.Service.Translators.Security
             return bo;
         }
 
-        public override User UpdateModel(UserBo bo, User model)
+        public  User UpdateModel(UserBo bo, User model)
         {
             model.Id = bo.Id;
             model.Email = bo.Email;

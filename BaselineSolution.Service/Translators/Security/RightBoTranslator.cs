@@ -5,9 +5,9 @@ using BaselineSolution.Service.Translators.Internal;
 
 namespace BaselineSolution.Service.Translators.Security
 {
-    internal class RightBoTranslator : Translator<RightBo, Right>
+    internal class RightBoTranslator : ITranslator<RightBo, Right>
     {
-        public override RightBo FromModel(Right model)
+        public  RightBo FromModel(Right model)
         {
             var bo = new RightBo();
 
@@ -19,7 +19,7 @@ namespace BaselineSolution.Service.Translators.Security
             return bo;
         }
 
-        public override Right UpdateModel(RightBo bo, Right model)
+        public  Right UpdateModel(RightBo bo, Right model)
         {
             model.Key = bo.Key;
             model.ParentId = bo.ParentId;
