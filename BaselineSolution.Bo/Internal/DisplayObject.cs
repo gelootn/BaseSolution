@@ -10,7 +10,8 @@
 
         public DisplayObject(int id, string display)
         {
-            
+            Id = id;
+            Display = display;
         }
 
         public int Id { get; set; }

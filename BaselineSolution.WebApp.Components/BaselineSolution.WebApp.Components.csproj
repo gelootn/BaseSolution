@@ -300,6 +300,7 @@
     <Compile Include="Extensions\ExtensionsForRequestContext.cs" />
     <Compile Include="Extensions\ExtensionsForRouteData.cs" />
     <Compile Include="Extensions\ExtensionsForTagBuilder.cs" />
+    <Compile Include="HtmlHelpers\Forms\SelectForHelper.cs" />
     <Compile Include="HtmlHelpers\Forms\ErrorSummaryHelper.cs" />
     <Compile Include="Extensions\ExtensionsForHtmlHelper.cs" />
     <Compile Include="HtmlHelpers\Forms\FormElementForHelper.cs" />
@@ -318,6 +319,16 @@
     <Compile Include="Models\Links\LinkBuilderFactory.cs" />
     <Compile Include="Models\Links\LinkBuilder.cs" />
     <Compile Include="Models\Links\ILinkBuilder.cs" />
+    <Compile Include="Models\SelectLists\GroupBuilder.cs" />
+    <Compile Include="Models\SelectLists\GroupedOptionsBuilder.cs" />
+    <Compile Include="Models\SelectLists\IGroupBuilder.cs" />
+    <Compile Include="Models\SelectLists\IOptionsBuilder.cs" />
+    <Compile Include="Models\SelectLists\ISelectableBuilder.cs" />
+    <Compile Include="Models\SelectLists\LocalSelectOptions.cs" />
+    <Compile Include="Models\SelectLists\OptionsBuilder.cs" />
+    <Compile Include="Models\SelectLists\RemoteSelectOptions.cs" />
+    <Compile Include="Models\SelectLists\SelectableBuilder.cs" />
+    <Compile Include="Models\SelectLists\SelectOptions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\RazorViews.cs" />
     <Compile Include="Utilities\HttpContextSession.cs" />

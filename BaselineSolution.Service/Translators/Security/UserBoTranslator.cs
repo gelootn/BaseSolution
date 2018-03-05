@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using BaselineSolution.Bo.Internal;
 using BaselineSolution.Bo.Models.Security;
 using BaselineSolution.DAL.Domain.Security;
-using BaselineSolution.Service.Infrastructure.Extentions;
 using BaselineSolution.Service.Translators.Internal;
 
 namespace BaselineSolution.Service.Translators.Security

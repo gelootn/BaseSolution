@@ -10,6 +10,8 @@ namespace BaselineSolution.Service.Translators.Security
         public  RoleBo FromModel(Role model)
         {
             var bo = new RoleBo();
+            bo.Id = model.Id;
+                
             bo.Name = model.Name;
             bo.ParentId = model.ParentId;
             if(model.ParentId.HasValue)

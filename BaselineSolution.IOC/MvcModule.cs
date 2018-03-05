@@ -44,8 +44,8 @@ namespace BaselineSolution.IOC
 
             /*builder.RegisterAssemblyTypes(service)
                 .Where(t => t.Name.EndsWith("Service"))
-                .AsImplementedInterfaces().InstancePerRequest();*/
-
+                .AsImplementedInterfaces().InstancePerRequest();
+                */
             builder.RegisterAssemblyTypes(service)
                 .Where(t => t.Name.EndsWith("Translator"))
                 .AsImplementedInterfaces().InstancePerRequest();

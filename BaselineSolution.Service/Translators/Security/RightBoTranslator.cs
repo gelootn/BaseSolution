@@ -11,6 +11,7 @@ namespace BaselineSolution.Service.Translators.Security
         {
             var bo = new RightBo();
 
+            bo.Id = model.Id;
             bo.Key = model.Key;
             bo.ParentId = model.ParentId;
             if(model.ParentId.HasValue)

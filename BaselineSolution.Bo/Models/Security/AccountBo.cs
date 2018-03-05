@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using BaselineSolution.Bo.Internal;
 using BaselineSolution.Bo.Resources.Security;
 using BaselineSolution.Bo.Validators.Security;
@@ -18,7 +19,9 @@ namespace BaselineSolution.Bo.Models.Security
         public virtual string Description { get; set; }
         [Display(ResourceType = typeof(AccountBoResource), Name = "Parent")]
         public virtual int? ParentId { get; set; }
+
         public virtual DisplayObject Parent { get; set; }
+        public virtual ICollection<DisplayObject> Children { get; set; }
 
     }
 }

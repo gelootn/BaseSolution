@@ -1,5 +1,7 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
+using BaselineSolution.Bo.Internal;
 using BaselineSolution.Bo.Models.Security;
 using BaselineSolution.Facade.Security;
 using BaselineSolution.Framework.Extensions;
@@ -52,17 +54,15 @@ namespace BaselineSolution.WebApp.Areas.Security.Controllers
                     account = response.GetValue();
             }
 
-            var vm = new EditViewModel();
-            vm.AccountBo = account;
+            var vm = CreateEditViewModel(account);
 
             return View(vm);
         }
 
         [HttpPost]
-        public ActionResult Edit(AccountBo accountbo)
+        public ActionResult Edit([Bind(Prefix = "AccountBo")]AccountBo accountbo)
         {
-            var vm = new EditViewModel();
-            vm.AccountBo = accountbo;
+            var vm = CreateEditViewModel(accountbo);
 
             if (!ModelState.IsValid)
                 return View(vm);
@@ -87,6 +87,32 @@ namespace BaselineSolution.WebApp.Areas.Security.Controllers
 
             return HttpNotFound();
 
+        }
+
+        private EditViewModel CreateEditViewModel(AccountBo account)
+        {
+            var vm = new EditViewModel();
+            vm.AccountBo = account;
+
+            vm.ParentAccounts = GetChildAccounts(User.MainAccount.Id);
+
+            return vm;
+        }
+
+        private ICollection<DisplayObject> GetChildAccounts(int accountId)
+        {
+            var response = _service.AccountService.GetById(accountId);
+            if(!response.IsSuccess)
+                return new List<DisplayObject>();
+
+            var account = response.GetValue();
+
+            if (!account.ParentId.HasValue && User.IsAdministrator)
+            {
+                account.Children.Add(new DisplayObject(account.Id, account.Name));
+            }
+
+            return account.Children;
         }
     }
 }

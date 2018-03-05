@@ -11,7 +11,7 @@ namespace BaselineSolution.Service.Translators.Security
         public  RoleRightBo FromModel(RoleRight model)
         {
             var bo = new RoleRightBo();
-            
+            bo.Id = model.Id;
             bo.RoleId = model.RoleId;
             bo.RightId = model.RightId;
             bo.Allow = model.Allow;

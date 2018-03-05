@@ -17,7 +17,7 @@
 @helper Actions(AccountBo bo)
 {
     <div>
-        @Html.Link("Edit", "Account").ToHtml("Edit") &nbsp; 
+        @Html.Link("Edit", "Account", new {Id = bo.Id}).ToHtml("Edit") &nbsp; 
     </div>
 }
 
