@@ -3,20 +3,28 @@
 @using BaselineSolution.WebApp.Components.HtmlHelpers.Links
 @using BaselineSolution.WebApp.Resources
 
-@(
-    Html.Datatable<AccountBo>(Url.Action("AccountList"))
-        .Column(WebApp.Security_AccountName, bo => bo.Name)
-        .Column(WebApp.Securirty_AccountDescription, bo => bo.Description)
-        .Column(WebApp.Security_AccountParent, bo => bo.Parent.Display)
-        .Column("")
-        .Display(x=> Actions(x))
-        .Build()
-        .ToHtml()
-      )
+@(Html.Datatable<AccountBo>(Url.Action("AccountList"))
+      .Column(WebApp.Security_AccountName, bo => bo.Name)
+      .Column(WebApp.Securirty_AccountDescription, bo => bo.Description)
+      .Column(WebApp.Security_AccountParent, bo => bo.Parent.Display)
+      .Display(x=> ParentDisplay(x))
+      .Column("")
+      .Display(x=> Actions(x))
+      .Build()
+      .ToHtml())
+
 
 @helper Actions(AccountBo bo)
 {
     <div>
         @Html.Link("Edit", "Account").ToHtml("Edit") &nbsp; 
     </div>
+}
+
+@helper ParentDisplay(AccountBo bo)
+{
+    if (bo.Parent != null)
+    {
+        <span>@bo.Parent.Display</span>
+    }
 }

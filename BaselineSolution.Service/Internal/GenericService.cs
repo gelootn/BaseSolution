@@ -2,7 +2,6 @@
 using BaselineSolution.Bo.Internal;
 using BaselineSolution.DAL.Infrastructure.Bases;
 using BaselineSolution.DAL.Repositories;
-using BaselineSolution.DAL.UnitOfWork.Interfaces;
 using BaselineSolution.Facade.Internal;
 using BaselineSolution.Framework.Extensions;
 using BaselineSolution.Framework.Infrastructure.Contracts;
@@ -36,7 +35,7 @@ namespace BaselineSolution.Service.Internal
             return new Response<TBo>(item.ToBo(_translator));
         }
 
-        Response<TBo> IGenericService<TBo>.AddOrUpdate(TBo bo)
+        Response<TBo> IGenericService<TBo>.AddOrUpdate(TBo bo, int userId)
         {
             if (!bo.IsValid())
                 return new Response<TBo>().AddValidationMessage(bo.ValidationMessages);
@@ -48,17 +47,19 @@ namespace BaselineSolution.Service.Internal
 
             item = bo.UpdateModel(item, _translator);
             _repository.AddOrUpdate(item);
+            _repository.Commit(userId);
             
             return new Response<TBo>(item.ToBo(_translator));
         }
 
-        Response<bool> IGenericService<TBo>.Delete(int id)
+        Response<bool> IGenericService<TBo>.Delete(int id, int userId)
         {
             var user = _repository.FindById(id);
             if (user == null)
                 return new Response<bool>().AddItemNotFound(id);
 
             _repository.Delete(id);
+            _repository.Commit(userId);
 
 
             return new Response<bool>(true);
@@ -79,7 +80,7 @@ namespace BaselineSolution.Service.Internal
             if (pageSize > 0)
             {
                 list = list.Sort(sorter);
-                list = list.Skip((page - 1) * pageSize);
+                list = list.Skip((page ) * pageSize);
                 list = list.Take(pageSize);
             }
 

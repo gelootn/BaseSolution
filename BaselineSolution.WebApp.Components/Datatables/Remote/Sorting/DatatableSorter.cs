@@ -15,7 +15,12 @@ namespace BaselineSolution.WebApp.Components.Datatables.Remote.Sorting
 
         private RemoteDatatable<TEntity> Datatable { get; set; }
         private DatatableRequest Request { get; set; }
-        public Framework.Infrastructure.Sorting.SortDirection SortDirection { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
+        public Framework.Infrastructure.Sorting.SortDirection SortDirection
+        {
+            get => EntitySorter.SortDirection; 
+            set => EntitySorter.SortDirection = value;
+        }
 
         private const string Ascending = "asc";
         private const string Descending = "desc";
@@ -89,12 +94,12 @@ namespace BaselineSolution.WebApp.Components.Datatables.Remote.Sorting
 
         public System.Linq.Expressions.Expression<Func<TEntity, TKey>> GetExpression<TKey>()
         {
-            return null;
+            return EntitySorter.GetExpression<TKey>();
         }
 
         public Type GetExpressionType()
         {
-            return null;
+            return EntitySorter.GetExpressionType();
         }
     }
 }

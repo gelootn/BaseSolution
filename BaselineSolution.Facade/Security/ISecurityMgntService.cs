@@ -9,6 +9,7 @@ namespace BaselineSolution.Facade.Security
         IGenericService<RoleBo> RoleService { get; }
         IGenericService<AccountBo> AccountService { get; }
 
+        void SomeMethod();
 
     }
 }

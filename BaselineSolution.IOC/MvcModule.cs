@@ -6,6 +6,7 @@ using BaselineSolution.DAL.Domain.Security;
 using BaselineSolution.DAL.Repositories;
 using BaselineSolution.Facade.Internal;
 using BaselineSolution.Facade.Security;
+using BaselineSolution.Service.Configuration;
 using BaselineSolution.Service.Internal;
 using BaselineSolution.Service.Security;
 using Module = Autofac.Module;
@@ -16,6 +17,9 @@ namespace BaselineSolution.IOC
     {
         protected override void Load(ContainerBuilder builder)
         {
+
+            MappingConfiguration.ConfigureMapper();
+
             builder.Register(c => new DatabaseContext()).As<DatabaseContext>().InstancePerRequest();
 
 
