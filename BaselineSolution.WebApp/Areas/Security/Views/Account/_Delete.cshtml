@@ -1,2 +1,36 @@
-﻿@model BaselineSolution.WebApp.Areas.Security.ViewModels.Account.DeleteViewModel
+﻿@using BaselineSolution.WebApp.Resources
+@model BaselineSolution.WebApp.Areas.Security.ViewModels.Account.DeleteViewModel
     
+<form class="form-horizontal" method="POST" action="@Url.Action("Delete", "Account")">
+    <div class="modal-header">
+        <h3 class="modal-title">@WebApp.Title_Accounts</h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+
+    </div>
+
+    <div class="modal-body">
+        <div class="alert">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>@WebApp.Warning</strong> @WebApp.DeleteConfirmation
+        </div>
+
+        @Html.HiddenFor(model => model.AccountBo.Id)
+        
+        <dl class="">
+            <dt>@Html.DisplayNameFor(x=> x.AccountBo.Name)</dt>
+            <dd>@Html.DisplayFor(x=> x.AccountBo.Name)</dd>
+        </dl>
+        <dl>
+            <dt>@Html.DisplayNameFor(x=> x.AccountBo.Description)</dt>
+            <dd>@Html.DisplayFor(x=> x.AccountBo.Description)</dd>
+        </dl>
+       
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-sm btn-danger">@WebApp.Form_Delete</button>
+    </div>
+
+</form>

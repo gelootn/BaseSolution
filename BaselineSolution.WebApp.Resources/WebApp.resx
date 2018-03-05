@@ -133,7 +133,7 @@
     <value>The provided password and username don't match</value>
   </data>
   <data name="NotAuthorized" xml:space="preserve">
-    <value />
+    <value>You are not authorized to view this page</value>
   </data>
   <data name="Password" xml:space="preserve">
     <value>Pass</value>
@@ -147,13 +147,31 @@
   <data name="WebApp_Description" xml:space="preserve">
     <value />
   </data>
-  <data name="Security_AccountName" xml:space="preserve">
-    <value>Name</value>
+  <data name="DeleteConfirmation" xml:space="preserve">
+    <value>Are you sure you want to delete this item?</value>
   </data>
-  <data name="Securirty_AccountDescription" xml:space="preserve">
-    <value>Description</value>
+  <data name="Form_Add" xml:space="preserve">
+    <value>Add</value>
   </data>
-  <data name="Security_AccountParent" xml:space="preserve">
-    <value>Parent</value>
+  <data name="Form_Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Form_Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Form_Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="Form_Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="Title_Account" xml:space="preserve">
+    <value>Account / Customer</value>
+  </data>
+  <data name="Title_Accounts" xml:space="preserve">
+    <value>Accounts / Customers</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Warning</value>
   </data>
 </root>

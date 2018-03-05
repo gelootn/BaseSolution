@@ -61,11 +61,65 @@ namespace BaselineSolution.WebApp.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Are you sure you want to delete this item?.
+        /// </summary>
+        public static string DeleteConfirmation {
+            get {
+                return ResourceManager.GetString("DeleteConfirmation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The field {0} is required.
         /// </summary>
         public static string FieldRequired {
             get {
                 return ResourceManager.GetString("FieldRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add.
+        /// </summary>
+        public static string Form_Add {
+            get {
+                return ResourceManager.GetString("Form_Add", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        public static string Form_Cancel {
+            get {
+                return ResourceManager.GetString("Form_Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete.
+        /// </summary>
+        public static string Form_Delete {
+            get {
+                return ResourceManager.GetString("Form_Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit.
+        /// </summary>
+        public static string Form_Edit {
+            get {
+                return ResourceManager.GetString("Form_Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save.
+        /// </summary>
+        public static string Form_Save {
+            get {
+                return ResourceManager.GetString("Form_Save", resourceCulture);
             }
         }
         
@@ -106,7 +160,7 @@ namespace BaselineSolution.WebApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to You are not authorized to view this page.
         /// </summary>
         public static string NotAuthorized {
             get {
@@ -124,29 +178,20 @@ namespace BaselineSolution.WebApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Description.
+        ///   Looks up a localized string similar to Account / Customer.
         /// </summary>
-        public static string Securirty_AccountDescription {
+        public static string Title_Account {
             get {
-                return ResourceManager.GetString("Securirty_AccountDescription", resourceCulture);
+                return ResourceManager.GetString("Title_Account", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Name.
+        ///   Looks up a localized string similar to Accounts / Customers.
         /// </summary>
-        public static string Security_AccountName {
+        public static string Title_Accounts {
             get {
-                return ResourceManager.GetString("Security_AccountName", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Parent.
-        /// </summary>
-        public static string Security_AccountParent {
-            get {
-                return ResourceManager.GetString("Security_AccountParent", resourceCulture);
+                return ResourceManager.GetString("Title_Accounts", resourceCulture);
             }
         }
         
@@ -156,6 +201,15 @@ namespace BaselineSolution.WebApp.Resources {
         public static string Username {
             get {
                 return ResourceManager.GetString("Username", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Warning.
+        /// </summary>
+        public static string Warning {
+            get {
+                return ResourceManager.GetString("Warning", resourceCulture);
             }
         }
         

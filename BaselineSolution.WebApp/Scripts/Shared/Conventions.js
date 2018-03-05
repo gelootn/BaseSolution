@@ -6,6 +6,9 @@ var datatableLocalConvention = "enable-local-datatable";
 // Represents a table with remote data which should have the datatables plugin initialized on it
 var datatableRemoteConvention = "enable-remote-datatable";
 
+// Represents a button that, when clicked, will load a modal dialog
+var modalConvention = "enable-modal";
+
 
 $(function() {
     initConventions();
@@ -14,6 +17,7 @@ $(function() {
     function initConventions() {
         initLocalDatatableConvention();
         initRemoteDatatableConvention();
+        initModalConvention();
     }
 
     function initLocalDatatableConvention() {
@@ -109,5 +113,54 @@ $(function() {
                 remoteDatatable.fnFilter($(this).val(), $filters.find("td").index($(this).parents('td').first()));
             }
         });
+    }
+
+    function initModalConvention() {
+        var $body = $('body');
+        var id = 'modal-convention-target';
+        var $target = $('#' + id);
+        // if target div exists, this convention is already initialized
+        if ($target.length !== 0)
+            return;
+
+        $target = $(document.createElement('div'))
+            .attr('id', id)
+            .attr('role', "dialog")
+            .addClass('modal hide');
+
+        var $dialog = $(document.createElement('div'))
+            .attr('id', id + '-div')
+            .addClass('modal-dialog');
+
+        var $content = $(document.createElement('div'))
+            .attr('id', id + '-content')
+            .addClass('modal-content');
+
+        $dialog.append($content);
+        $target.append($dialog);
+
+
+        $body.append($target);
+
+        $body.off('click.conventions', '.' + modalConvention);
+        $body.on('click.conventions', '.' + modalConvention, modalHandler);
+
+        function modalHandler(event) {
+            event.preventDefault();
+            var url = $(this).attr('href');
+            $.ajax({
+                url: url,
+                type: 'GET',
+                cache: false,
+                success: function (response) {
+                    $content.html(response);
+                    $target.removeClass("hide");
+                    $target.modal('show');
+                    $target.on('click', '.closebtn', function () {
+                        $target.modal('hide');
+                    });
+                }
+            });
+        }
     }
 });

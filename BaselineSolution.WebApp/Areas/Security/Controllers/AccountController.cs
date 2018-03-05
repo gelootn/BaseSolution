@@ -81,12 +81,20 @@ namespace BaselineSolution.WebApp.Areas.Security.Controllers
             var response = _service.AccountService.GetById(id);
             if (response.IsSuccess)
             {
-
-                return PartialView("_delete");
+                var vm = new DeleteViewModel();
+                vm.AccountBo = response.GetValue();
+                return PartialView("_delete",vm);
             }
 
             return HttpNotFound();
 
+        }
+
+        [HttpPost]
+        public ActionResult Delete(int id, FormCollection collection)
+        {
+            var response = _service.AccountService.Delete(id, User.Id);
+            return RedirectToAction("Index", "Account");
         }
 
         private EditViewModel CreateEditViewModel(AccountBo account)

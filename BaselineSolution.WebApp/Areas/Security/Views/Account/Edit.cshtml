@@ -1,16 +1,42 @@
 ﻿@using BaselineSolution.WebApp.Components.HtmlHelpers.Forms
+@using BaselineSolution.WebApp.Components.HtmlHelpers.Links
+@using BaselineSolution.WebApp.Resources
 @model BaselineSolution.WebApp.Areas.Security.ViewModels.Account.EditViewModel
 
 
-<form method="post">
 
-    @Html.HiddenFor(x=> x.AccountBo.Id)
-    
-    @Html.FormElementFor(x=> x.AccountBo.Name)
-    @Html.FormElementFor(x=> x.AccountBo.Description)
+<div class="row">
+    <div class="col-sm-12">
+        <h1>
+            @if (Model.AccountBo.IsNew)
+            {
+                @WebApp.Form_Add
+            }
+            else
+            {
+                @WebApp.Form_Edit
+            }
 
-    @Html.FormElementFor(x=> x.AccountBo.ParentId, 
-        Html.SelectFor(x => x.AccountBo.ParentId, Model.ParentAccounts).Options(x=> x.Id, x => x.Display))
-    
-    <input type="submit" value="OK"/>
-</form>
+            @WebApp.Title_Account
+        </h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <form method="post">
+
+            @Html.HiddenFor(x => x.AccountBo.Id)
+
+            @Html.FormElementFor(x => x.AccountBo.Name)
+            @Html.FormElementFor(x => x.AccountBo.Description)
+
+            @Html.FormElementFor(x => x.AccountBo.ParentId,
+            Html.SelectFor(x => x.AccountBo.ParentId, Model.ParentAccounts).Options(x => x.Id, x => x.Display))
+
+            @Html.SubmitAndCancel(WebApp.Form_Save, WebApp.Form_Cancel, Url.Action("Index", "Account"))
+        </form>
+    </div>
+</div>
+
+
