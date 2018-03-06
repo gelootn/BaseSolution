@@ -72,7 +72,6 @@ namespace BaselineSolution.WebApp.Areas.Home.Controllers
             User = null;
             Session.Abandon();
 
-
             return RedirectToAction("Login");
         }
     }

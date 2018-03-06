@@ -22,7 +22,7 @@ namespace BaselineSolution.Service.Translators.Security
 
             if (model.Children != null && model.Children.Any())
             {
-                var children = model.Children.Select(x => x.Flatten()).SelectMany(x => x.Select(y => new DisplayObject(y.Id, y.Name)));
+                var children = model.Children.Where(x=> !x.Deleted).Select(x => x.Flatten().Distinct()).SelectMany(x => x.Select(y => new DisplayObject(y.Id, y.Name)));
                 bo.Children = children.ToList();
             }
             else

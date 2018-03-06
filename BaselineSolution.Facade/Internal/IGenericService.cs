@@ -11,6 +11,7 @@ namespace BaselineSolution.Facade.Internal
         Response<TBo> AddOrUpdate(TBo bo, int userId);
         Response<bool> Delete(int id, int userId);
         Response<int> Count(IEntityFilter<TBo> filter);
-        Response<TBo> List(IEntityFilter<TBo> filter, IEntitySorter<TBo> sorter, int page, int pageSize);
+        Response<TBo> List(IEntityFilter<TBo> filter);
+        Response<TBo> List(IEntityFilter<TBo> filter, IEntitySorter<TBo> sorter, int? page, int? pageSize);
     }
 }

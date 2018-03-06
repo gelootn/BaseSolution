@@ -1,15 +1,16 @@
 ﻿using BaselineSolution.Bo.Models.Security;
 using BaselineSolution.Facade.Internal;
+using BaselineSolution.Framework.Response;
 
 namespace BaselineSolution.Facade.Security
 {
     public interface ISecurityMgntService
     {
-        IGenericService<UserBo> UserService { get; } 
+        IGenericService<UserBo> UserService { get; }
         IGenericService<RoleBo> RoleService { get; }
         IGenericService<AccountBo> AccountService { get; }
-
-        void SomeMethod();
+        IGenericService<RightBo> RightService { get; }
+        Response<RightBo> GetTopLevelRights();
 
     }
 }

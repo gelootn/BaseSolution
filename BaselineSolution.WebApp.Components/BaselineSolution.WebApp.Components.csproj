@@ -298,7 +298,6 @@
     <Compile Include="Datatables\Validation\DatatableValidationResult.cs" />
     <Compile Include="Extensions\ExtensionsForModelBindingContext.cs" />
     <Compile Include="Extensions\ExtensionsForRequestContext.cs" />
-    <Compile Include="Extensions\ExtensionsForRouteData.cs" />
     <Compile Include="Extensions\ExtensionsForTagBuilder.cs" />
     <Compile Include="HtmlHelpers\Forms\CancelHelper.cs" />
     <Compile Include="HtmlHelpers\Forms\SubmitAndCancelHelper.cs" />

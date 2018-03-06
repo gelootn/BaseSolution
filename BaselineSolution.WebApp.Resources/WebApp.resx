@@ -156,20 +156,32 @@
   <data name="Form_Cancel" xml:space="preserve">
     <value>Cancel</value>
   </data>
+  <data name="Form_CollapseAll" xml:space="preserve">
+    <value>Collapse all</value>
+  </data>
   <data name="Form_Delete" xml:space="preserve">
     <value>Delete</value>
   </data>
   <data name="Form_Edit" xml:space="preserve">
     <value>Edit</value>
   </data>
+  <data name="Form_ExpandAll" xml:space="preserve">
+    <value>Expand all</value>
+  </data>
   <data name="Form_Save" xml:space="preserve">
     <value>Save</value>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>Refresh</value>
   </data>
   <data name="Title_Account" xml:space="preserve">
     <value>Account / Customer</value>
   </data>
   <data name="Title_Accounts" xml:space="preserve">
     <value>Accounts / Customers</value>
+  </data>
+  <data name="Title_Rights" xml:space="preserve">
+    <value>Rights</value>
   </data>
   <data name="Warning" xml:space="preserve">
     <value>Warning</value>

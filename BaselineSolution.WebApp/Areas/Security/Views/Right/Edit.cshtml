@@ -1,0 +1,23 @@
+﻿@using BaselineSolution.WebApp.Components.HtmlHelpers.Forms
+@model BaselineSolution.WebApp.Areas.Security.ViewModels.Right.EditViewModel
+
+
+<div class="row">
+    <div class="col-sm-12">
+        <h1>
+            Title
+        </h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <form method="post">
+            @Html.HiddenFor(x=> x.RightBo.Id)
+            @Html.FormElementFor(x=> x.RightBo.ParentId, Html.SelectFor(x=> x.RightBo.ParentId, Model.Rights))
+            @Html.FormElementFor(x=> x.RightBo.Key)
+            
+            @Html.SubmitAndCancel(WebApp.Form_Save, WebApp.Form_Cancel, Url.Action("Index","Right"))
+        </form>
+    </div>
+</div>

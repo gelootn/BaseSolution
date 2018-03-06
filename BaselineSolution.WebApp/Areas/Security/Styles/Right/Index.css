@@ -1,0 +1,42 @@
+﻿#content-rights > ul {
+    margin: 0px;
+}
+#rights-list li {
+    list-style: none;
+    padding: 2px 10px;
+    margin: 0px;
+    line-height: 28px;
+ 
+}
+#rights-list li:hover
+{
+}
+
+p {
+    padding: 0px;
+    margin: 0px;
+}
+p.node-title, p.leaf-title {
+    display: inline-block;
+}
+
+p.node-title:hover, p.leaf-title:hover {
+    /*box-shadow: 2px 2px 3px #aaaaaa;*/
+
+}
+i {
+    cursor: pointer;
+}
+.node-title-text {
+    cursor: pointer;
+    margin: 0 5px 0 5px;
+}
+
+.node-title > a.btn, .leaf-title > a.btn  {
+    margin: 0 0 0 3px;
+    display: none;
+}
+
+.node-title:hover > a.btn, .leaf-title:hover > a.btn {
+    display: inline-block;
+}

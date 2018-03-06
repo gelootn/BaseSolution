@@ -4,6 +4,7 @@ using BaselineSolution.DAL.Infrastructure.Bases;
 using BaselineSolution.DAL.Repositories;
 using BaselineSolution.Facade.Internal;
 using BaselineSolution.Framework.Extensions;
+using BaselineSolution.Framework.Infrastructure.Attributes;
 using BaselineSolution.Framework.Infrastructure.Contracts;
 using BaselineSolution.Framework.Response;
 using BaselineSolution.Service.Infrastructure.Extentions;
@@ -11,7 +12,7 @@ using BaselineSolution.Service.Translators.Internal;
 
 namespace BaselineSolution.Service.Internal
 {
-    public class GenericService<TBo, TEntity> : IGenericService<TBo> 
+    public class GenericService<TBo, TEntity> : IGenericService<TBo>
         where TBo : BaseBo, new()
         where TEntity : Entity, new()
     {
@@ -19,9 +20,9 @@ namespace BaselineSolution.Service.Internal
         private readonly IGenericRepository<TEntity> _repository;
         private readonly ITranslator<TBo, TEntity> _translator;
 
-        public GenericService(IGenericRepository<TEntity> repository, ITranslator<TBo,TEntity> translator)
+        public GenericService(IGenericRepository<TEntity> repository, ITranslator<TBo, TEntity> translator)
         {
-;
+            ;
             _repository = repository;
             _translator = translator;
         }
@@ -48,7 +49,9 @@ namespace BaselineSolution.Service.Internal
             item = bo.UpdateModel(item, _translator);
             _repository.AddOrUpdate(item);
             _repository.Commit(userId);
-            
+
+
+
             return new Response<TBo>(item.ToBo(_translator));
         }
 
@@ -72,17 +75,28 @@ namespace BaselineSolution.Service.Internal
             return new Response<int>(list.Count());
         }
 
-        Response<TBo> IGenericService<TBo>.List(IEntityFilter<TBo> filter, IEntitySorter<TBo> sorter, int page, int pageSize)
+        Response<TBo> IGenericService<TBo>.List(IEntityFilter<TBo> filter)
         {
             var list = _repository.List();
             list = list.Filter(filter);
 
-            if (pageSize > 0)
+            var translated = list.ToList().Select(x => x.ToBo(_translator)).ToList();
+            return new Response<TBo>(translated);
+        }
+
+        Response<TBo> IGenericService<TBo>.List(IEntityFilter<TBo> filter, [CanBeNull] IEntitySorter<TBo> sorter, [CanBeNull] int? page, [CanBeNull] int? pageSize)
+        {
+            var list = _repository.List();
+            list = list.Filter(filter);
+
+
+            if (sorter != null && page.HasValue && pageSize.HasValue)
             {
                 list = list.Sort(sorter);
-                list = list.Skip((page ) * pageSize);
-                list = list.Take(pageSize);
+                list = list.Skip((page.Value) * pageSize.Value);
+                list = list.Take(pageSize.Value);
             }
+
 
             var translated = list.ToList().Select(x => x.ToBo(_translator)).ToList();
             return new Response<TBo>(translated);

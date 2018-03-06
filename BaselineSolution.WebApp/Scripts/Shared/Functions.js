@@ -7,17 +7,16 @@ function isLocalStorageSupported() {
     return isDefined(localStorage) && isDefined(localStorage.getItem) && isDefined(localStorage.setItem);
 }
 
+function startLoadingAnimation() {
+    var loadingDiv = $(document.createElement('div')).addClass('ajax-loading').text("Loading ...");
+    $('body').append(loadingDiv);
+}
+
+function stopLoadingAnimation() {
+    $('body').children('.ajax-loading').remove();
+}
+
 function getDefaultRemoteDatatableSettings($datatable) {
-    /*-------------------------------
-        getDefaultRemoteDatatableSettings (Alex)
-    ---------------------------------
-    
-        parameters:
-            datatable
-        summary
-            Gets the default remote settings
-    
-    */
     var $columnHeaders = $datatable.find('thead tr.datatable-column-headers th');
     var dataProperties = _.map($columnHeaders, getDatatableHeaderColumnData);
     var datatableId = $datatable.prop('id');
@@ -143,4 +142,94 @@ function getDefaultRemoteDatatableSettings($datatable) {
 
         return columnData;
     }
+}
+
+function getDefaultRemoteMultiSelectSettings($input) {
+    var optionsUrl = $input.data('options-url');
+    var settings = getDefaultRemoteSelectSettings($input);
+    settings.multiple = true;
+    settings.initSelection = function (element, callback) {
+        var $element = $(element);
+        var id = $element.val();
+        var ids = id.split(',');
+        var data = {};
+        for (var i = 0; i < ids.length; i++) {
+            data["ids[" + i + "]"] = ids[i];
+        }
+        data.page = 0;
+        data.pageSize = 1;
+        if (id !== "") {
+            $.ajax({
+                url: optionsUrl,
+                type: 'GET',
+                data: data
+            }).done(function (response) {
+                callback(response.results);
+            });
+        }
+    };
+    return settings;
+}
+
+function getDefaultRemoteSelectSettings($input) {
+    var optionsUrl = $input.data('options-url');
+    var placeholder = $input.data('placeholder');
+    var type = $input.data('type');
+    var format = function (state) {
+        if (!state.id) return "" + state.results[0].text;
+        return "" + state.text;
+    };
+    return {
+        placeholder: placeholder,
+        minimumInputLength: 0,
+        width: '100%',
+        allowClear: true,
+        selectOnBlur: true,
+        formatResult: format,
+        formatSelection: format,
+        ajax: {
+            url: optionsUrl,
+            dataType:
+            'json',
+            quietMillis:
+            10,
+            // data is a transformation function that returns an object containing the proper url parameters
+            data: function (term, page) {
+                // page is the one-based page number tracked by Select2
+                return {
+                    term: term, //search term
+                    pageSize: 10, // page size
+                    page: page - 1, // page number
+                    type: type // (optional) for ISelectable selectlists
+                };
+            },
+            results: function (data, page) {
+                // notice we return the value of more so Select2 knows if more results can be loaded
+                return { results: data.results, more: data.more, page: page };
+            }
+        },
+        escapeMarkup: function (m) {
+            return m;
+        },
+        initSelection: function (element, callback) {
+            var $element = $(element);
+            var id = $element.val();
+            if (id !== "" && id != 0) {
+                $.ajax({
+                    url: optionsUrl,
+                    type: 'GET',
+                    data: {
+                        id: id,
+                        type: type,
+                        page: 0,
+                        pageSize: 1
+                    }
+                }).done(function (data) {
+                    if (isDefined(data.results) && data.results.length == 0)
+                        return;
+                    callback(data);
+                });
+            }
+        }
+    };
 }

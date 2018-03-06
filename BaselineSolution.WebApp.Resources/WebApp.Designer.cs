@@ -97,6 +97,15 @@ namespace BaselineSolution.WebApp.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Collapse all.
+        /// </summary>
+        public static string Form_CollapseAll {
+            get {
+                return ResourceManager.GetString("Form_CollapseAll", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Delete.
         /// </summary>
         public static string Form_Delete {
@@ -111,6 +120,15 @@ namespace BaselineSolution.WebApp.Resources {
         public static string Form_Edit {
             get {
                 return ResourceManager.GetString("Form_Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Expand all.
+        /// </summary>
+        public static string Form_ExpandAll {
+            get {
+                return ResourceManager.GetString("Form_ExpandAll", resourceCulture);
             }
         }
         
@@ -178,6 +196,15 @@ namespace BaselineSolution.WebApp.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Refresh.
+        /// </summary>
+        public static string Refresh {
+            get {
+                return ResourceManager.GetString("Refresh", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Account / Customer.
         /// </summary>
         public static string Title_Account {
@@ -192,6 +219,15 @@ namespace BaselineSolution.WebApp.Resources {
         public static string Title_Accounts {
             get {
                 return ResourceManager.GetString("Title_Accounts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rights.
+        /// </summary>
+        public static string Title_Rights {
+            get {
+                return ResourceManager.GetString("Title_Rights", resourceCulture);
             }
         }
         

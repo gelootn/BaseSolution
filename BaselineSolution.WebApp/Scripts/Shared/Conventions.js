@@ -9,6 +9,12 @@ var datatableRemoteConvention = "enable-remote-datatable";
 // Represents a button that, when clicked, will load a modal dialog
 var modalConvention = "enable-modal";
 
+//  Represents an input field that has selectable options and should fetch those options remotely
+var remoteSelectConvention = "enable-remote-select";
+
+//  Represents an multi-value input field that has selectable options and should fetch those options remotely
+var remoteMultiSelectConvention = "enable-remote-multi-select";
+
 
 $(function() {
     initConventions();
@@ -18,6 +24,8 @@ $(function() {
         initLocalDatatableConvention();
         initRemoteDatatableConvention();
         initModalConvention();
+        initRemoteSelectConvention();
+        initRemoteMultiSelectConvention();
     }
 
     function initLocalDatatableConvention() {
@@ -162,5 +170,27 @@ $(function() {
                 }
             });
         }
+    }
+
+    function initRemoteSelectConvention() {
+        $('input.' + remoteSelectConvention)
+            .not('.custom-initialize') // don't initialize on fields marked with custom-initialize
+            .not('.select2-offscreen') // don't initialize on already initialized fields
+            .each(function () {
+                var $this = $(this);
+                var settings = getDefaultRemoteSelectSettings($this);
+                $this.select2(settings);
+            });
+    }
+
+    function initRemoteMultiSelectConvention() {
+        $('input.' + remoteMultiSelectConvention)
+            .not('.custom-initialize') // don't initialize on fields marked with custom-initialize
+            .not('.select2-offscreen') // don't initialize on already initialized fields
+            .each(function () {
+                var $this = $(this);
+                var settings = getDefaultRemoteMultiSelectSettings($this);
+                $this.select2(settings);
+            });
     }
 });

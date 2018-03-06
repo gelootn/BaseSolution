@@ -1,0 +1,52 @@
+﻿@using BaselineSolution.WebApp.Components.HtmlHelpers.Links
+@using BaselineSolution.WebApp.Resources
+
+@section scripts
+{
+    <script type="text/javascript" src="~/Areas/Security/Scripts/Right/Index.js"></script>
+}
+
+@section styles
+{
+    <link rel="stylesheet" href="~/Areas/Security/Styles/Right/Index.css"/>
+}
+
+<div class="row">
+    <div class="col-sm-12">
+        <h2>@WebApp.Title_Rights</h2>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-6">
+        <a id="expand-rights" href="#" class="btn btn-sm">
+            <i class="fa fa-plus-circle"></i>
+            @WebApp.Form_ExpandAll
+        </a>
+        <a id="collapse-rights" href="#" class="btn btn-sm">
+            <i class="fa fa-minus-circle"></i>
+            @WebApp.Form_CollapseAll
+        </a>
+
+    </div>
+
+    <div class="col-sm-6">
+        <div class="pull-right">
+            @Html.Link("SaveRights").ToHtml(WebApp.Form_Save, "fa fa-save", new { id = "btn-save-rights", @class = "btn btn-sm btn-success" })
+            @Html.Link("GenerateRights").ToHtml(WebApp.Refresh, "fa fa-refresh", new { id = "btn-generate-rights", @class = "btn btn-sm btn-info" })
+            @Html.Link("Edit").ToHtml(WebApp.Form_Add, "fa fa-plus", new { @class = "btn btn-sm btn-info" })
+        </div>
+
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <div id="content-rights"
+             data-url="@Url.Action("GetRights")"
+             data-url-edit="@Url.Action("Edit")">
+            <ul id="rights-list"></ul>
+        </div>
+    </div>
+</div>
+

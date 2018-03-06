@@ -1,6 +1,8 @@
-﻿using BaselineSolution.Bo.Internal;
+﻿using System.Linq;
+using BaselineSolution.Bo.Internal;
 using BaselineSolution.Bo.Models.Security;
 using BaselineSolution.DAL.Domain.Security;
+using BaselineSolution.Service.Infrastructure.Extentions;
 using BaselineSolution.Service.Translators.Internal;
 
 namespace BaselineSolution.Service.Translators.Security
@@ -14,9 +16,13 @@ namespace BaselineSolution.Service.Translators.Security
             bo.Id = model.Id;
             bo.Key = model.Key;
             bo.ParentId = model.ParentId;
-            if(model.ParentId.HasValue)
+            if (model.ParentId.HasValue && model.Parent != null) 
                 bo.Parent = new DisplayObject(model.Parent.Id, model.Parent.Key);
 
+            if(model.Children != null && model.Children.Any())
+            {
+                bo.Children = model.Children.Select(x => x.ToBo(this)).ToList();
+            }
             return bo;
         }
 
@@ -24,6 +30,8 @@ namespace BaselineSolution.Service.Translators.Security
         {
             model.Key = bo.Key;
             model.ParentId = bo.ParentId;
+
+            model.Children.UpdateWith(bo.Children, this);
 
             return model;
         }

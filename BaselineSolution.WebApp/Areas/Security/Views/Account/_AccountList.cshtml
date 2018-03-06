@@ -5,28 +5,28 @@
 @using BaselineSolution.WebApp.Resources
 
 @(Html.Datatable<AccountBo>(Url.Action("AccountList"))
-      .Column(AccountBoResource.Name, bo => bo.Name)
-      .Column(AccountBoResource.Description, bo => bo.Description)
-      .Column(AccountBoResource.Parent, bo => bo.Parent.Display)
-      .Display(x=> ParentDisplay(x))
-      .Column("")
-      .Display(x=> Actions(x))
-      .Build()
-      .ToHtml())
+          .Column(AccountBoResource.Name, bo => bo.Name)
+          .Column(AccountBoResource.Description, bo => bo.Description)
+          .Column(AccountBoResource.Parent, bo => bo.Parent.Display)
+          .Display(x => ParentDisplay(x))
+          .Column("")
+          .Display(x => Actions(x))
+          .Build()
+          .ToHtml())
 
 
 @helper Actions(AccountBo bo)
-{
-<div class="pull-right">
-    @Html.Link("Edit", "Account", new { Id = bo.Id }).ToHtml(WebApp.Form_Edit, "fa fa-edit", new { @class = "btn btn-sm btn-info" })
-    @Html.Link("Delete", "Account", new { Id = bo.Id }).ToHtml(WebApp.Form_Delete, "fa fa-times", new { @class = "btn btn-sm btn-danger enable-modal" })
-</div>
+    {
+        <div class="pull-right">
+            @Html.Link("Edit", "Account", new { Id = bo.Id }).ToHtml(WebApp.Form_Edit, "fa fa-edit", new { @class = "btn btn-sm btn-info" })
+            @Html.Link("Delete", "Account", new { Id = bo.Id }).ToHtml(WebApp.Form_Delete, "fa fa-times", new { @class = "btn btn-sm btn-danger enable-modal" })
+        </div>
 }
 
 @helper ParentDisplay(AccountBo bo)
-{
-    if (bo.Parent != null)
     {
-        <span>@bo.Parent.Display</span>
-    }
+        if (bo.Parent != null)
+        {
+            <span>@bo.Parent.Display</span>
+        }
 }

@@ -33,6 +33,7 @@ namespace BaselineSolution.IOC
             builder.RegisterType<GenericService<UserBo, User>>().As<IGenericService<UserBo>>();
             builder.RegisterType<GenericService<AccountBo, Account>>().As<IGenericService<AccountBo>>();
             builder.RegisterType<GenericService<RoleBo, Role>>().As<IGenericService<RoleBo>>();
+            builder.RegisterType<GenericService<RightBo, Right>>().As<IGenericService<RightBo>>();
 
             builder.RegisterType<SecurityService>().As<ISecurityService>();
             builder.RegisterType<SecurityMgntService>().As<ISecurityMgntService>();
