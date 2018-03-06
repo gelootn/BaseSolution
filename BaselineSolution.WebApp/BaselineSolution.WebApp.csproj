@@ -137,7 +137,7 @@
     <Content Include="Scripts\Datatables\datatables.min.js" />
     <Content Include="Areas\Security\Views\Account\Index.cshtml" />
     <Content Include="Areas\Security\Views\_ViewStart.cshtml" />
-    <Content Include="Areas\Security\Views\Account\_AccountList.cshtml" />
+    <Content Include="Areas\Security\Views\Account\_List.cshtml" />
     <Content Include="Areas\Security\Views\Account\Edit.cshtml" />
     <Content Include="Areas\Security\Views\Account\_Delete.cshtml" />
     <Content Include="Areas\Security\Views\Right\Index.cshtml" />
@@ -150,6 +150,10 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Areas\Security\Views\Role\Index.cshtml" />
+    <Content Include="Areas\Security\Views\Role\_List.cshtml" />
+    <Content Include="Areas\Security\Views\Role\Edit.cshtml" />
+    <Content Include="Areas\Security\Views\Role\_Delete.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -174,11 +178,14 @@
     <Compile Include="Areas\Home\ViewModels\Authentication\LoginViewModel.cs" />
     <Compile Include="Areas\Security\Controllers\AccountController.cs" />
     <Compile Include="Areas\Security\Controllers\RightController.cs" />
+    <Compile Include="Areas\Security\Controllers\RoleController.cs" />
     <Compile Include="Areas\Security\Controllers\UserController.cs" />
     <Compile Include="Areas\Security\SecurityAreaRegistration.cs" />
     <Compile Include="Areas\Security\ViewModels\Account\DeleteViewModel.cs" />
     <Compile Include="Areas\Security\ViewModels\Account\EditViewModel.cs" />
     <Compile Include="Areas\Security\ViewModels\Right\EditViewModel.cs" />
+    <Compile Include="Areas\Security\ViewModels\Role\DeleteViewModel.cs" />
+    <Compile Include="Areas\Security\ViewModels\Role\EditViewModel.cs" />
     <Compile Include="Areas\Security\ViewModels\User\EditViewModel.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">

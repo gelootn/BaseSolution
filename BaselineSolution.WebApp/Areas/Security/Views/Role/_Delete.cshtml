@@ -1,9 +1,9 @@
-﻿
-@model BaselineSolution.WebApp.Areas.Security.ViewModels.Account.DeleteViewModel
+﻿@model BaselineSolution.WebApp.Areas.Security.ViewModels.Role.DeleteViewModel
     
-<form class="form-horizontal" method="POST" action="@Url.Action("Delete", "Account")">
+
+<form class="form-horizontal" method="POST" action="@Url.Action("Delete", "Role")">
     <div class="modal-header">
-        <h3 class="modal-title">@WebApp.Title_Accounts</h3>
+        <h3 class="modal-title">@WebApp.Title_Roles</h3>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
@@ -16,17 +16,14 @@
             <strong>@WebApp.Warning</strong> @WebApp.DeleteConfirmation
         </div>
 
-        @Html.HiddenFor(model => model.AccountBo.Id)
-        
+        @Html.HiddenFor(model => model.RoleBo.Id)
+
         <dl class="">
-            <dt>@Html.DisplayNameFor(x=> x.AccountBo.Name)</dt>
-            <dd>@Html.DisplayFor(x=> x.AccountBo.Name)</dd>
+            <dt>@Html.DisplayNameFor(x => x.RoleBo.Name)</dt>
+            <dd>@Html.DisplayFor(x => x.RoleBo.Name)</dd>
         </dl>
-        <dl>
-            <dt>@Html.DisplayNameFor(x=> x.AccountBo.Description)</dt>
-            <dd>@Html.DisplayFor(x=> x.AccountBo.Description)</dd>
-        </dl>
-       
+
+
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Close</button>

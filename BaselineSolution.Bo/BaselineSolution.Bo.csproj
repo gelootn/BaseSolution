@@ -93,6 +93,7 @@
       <DependentUpon>UserBoResource.resx</DependentUpon>
     </Compile>
     <Compile Include="Validators\Security\AccountBoValidator.cs" />
+    <Compile Include="Validators\Security\RoleBoValidator.cs" />
     <Compile Include="Validators\Security\RightBoValidator.cs" />
     <Compile Include="Validators\Security\UserBoValidator.cs" />
     <Compile Include="Validators\Security\UserSetPasswordBoValidator.cs" />

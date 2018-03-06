@@ -1,0 +1,22 @@
+﻿@using BaselineSolution.Bo.Models.Security
+@using BaselineSolution.Bo.Resources.Security
+@using BaselineSolution.WebApp.Components.Datatables.Html.HtmlHelpers
+@using BaselineSolution.WebApp.Components.HtmlHelpers.Links
+
+@(
+        Html.Datatable<RoleBo>(Url.Action("List", "Role"))
+            .Column(RoleBoResource.Name, x => x.Name)
+            .Column("")
+            .Display(x=> Actions(x))
+            .Build()
+            .ToHtml()
+
+)
+
+@helper Actions(RoleBo model)
+    {
+        <div class="pull-right">
+            @Html.Link("Edit", "Role", new { Id = model.Id }).ToHtml(WebApp.Form_Edit, "fa fa-edit", new { @class = "btn btn-sm btn-info" })
+            @Html.Link("Delete", "Role", new { Id = model.Id }).ToHtml(WebApp.Form_Delete, "fa fa-times", new { @class = "btn btn-sm btn-danger enable-modal" })
+        </div>
+}

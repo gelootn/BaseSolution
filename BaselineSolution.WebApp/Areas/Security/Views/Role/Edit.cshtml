@@ -1,0 +1,21 @@
+﻿@using BaselineSolution.WebApp.Components.HtmlHelpers.Forms
+@model BaselineSolution.WebApp.Areas.Security.ViewModels.Role.EditViewModel
+
+<div class="row">
+    <div class="col-sm-12">
+        <h1>
+            @WebApp.Title_Role
+        </h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <form method="post">
+            @Html.HiddenFor(x=> x.RoleBo.Id)
+            @Html.FormElementFor(x=> x.RoleBo.Name)
+            
+            @Html.SubmitAndCancel(WebApp.Form_Save, WebApp.Form_Cancel, Url.Action("Index", "Right"))
+        </form>
+    </div>
+</div>

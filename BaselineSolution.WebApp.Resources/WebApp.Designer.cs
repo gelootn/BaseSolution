@@ -232,6 +232,24 @@ namespace BaselineSolution.WebApp.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string Title_Role {
+            get {
+                return ResourceManager.GetString("Title_Role", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Roles.
+        /// </summary>
+        public static string Title_Roles {
+            get {
+                return ResourceManager.GetString("Title_Roles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to User.
         /// </summary>
         public static string Username {

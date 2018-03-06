@@ -186,4 +186,10 @@
   <data name="Warning" xml:space="preserve">
     <value>Warning</value>
   </data>
+  <data name="Title_Role" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Title_Roles" xml:space="preserve">
+    <value>Roles</value>
+  </data>
 </root>

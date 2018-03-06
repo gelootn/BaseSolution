@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using BaselineSolution.Bo.Internal;
 using BaselineSolution.Bo.Resources.Security;
+using BaselineSolution.Bo.Validators.Security;
 
 namespace BaselineSolution.Bo.Models.Security
 {
@@ -9,7 +10,7 @@ namespace BaselineSolution.Bo.Models.Security
     {
         public RoleBo()
         {
-            
+            Validator = new RoleBoValidator();
         }
 
         [Display(ResourceType = typeof(RoleBoResource), Name = "Name")]

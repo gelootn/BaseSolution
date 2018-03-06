@@ -2,9 +2,9 @@
 @using BaselineSolution.Bo.Resources.Security
 @using BaselineSolution.WebApp.Components.Datatables.Html.HtmlHelpers
 @using BaselineSolution.WebApp.Components.HtmlHelpers.Links
-@using BaselineSolution.WebApp.Resources
 
-@(Html.Datatable<AccountBo>(Url.Action("AccountList"))
+
+@(Html.Datatable<AccountBo>(Url.Action("List"))
           .Column(AccountBoResource.Name, bo => bo.Name)
           .Column(AccountBoResource.Description, bo => bo.Description)
           .Column(AccountBoResource.Parent, bo => bo.Parent.Display)

@@ -31,12 +31,12 @@ namespace BaselineSolution.WebApp.Areas.Security.Controllers
             return View();
         }
 
-        public JsonResult AccountList(DatatableRequest request)
+        public JsonResult List(DatatableRequest request)
         {
             var childAccounts = User.MainAccount.Flatten();
             var allowedAccounts = childAccounts.Select(x => x.Id);
 
-            var datatable = DatatableStorage.Get<AccountBo>(request.DatatableId, () => RazorViews.RenderToString(this, "_AccountList"));
+            var datatable = DatatableStorage.Get<AccountBo>(request.DatatableId, () => RazorViews.RenderToString(this, "_List"));
             var baseFilter = EntityFilter<AccountBo>.Where(x => allowedAccounts.Any(a => x.Id == a));
 
             var processor = new ServiceDatatableProcessor<AccountBo>(_service.AccountService, baseFilter);
