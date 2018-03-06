@@ -1,0 +1,37 @@
+﻿
+
+#rights-list {
+    margin: 0px;
+}
+
+    #rights-list .role-right-editor {
+        width: auto;
+    }
+
+ul#rights-list li {
+    list-style: none;
+    padding: 5px 10px;
+}
+
+i {
+    cursor: pointer;
+}
+
+span.node-title:hover {
+    text-decoration: underline;
+}
+
+.node-title {
+    cursor: pointer;
+    color: #111111;
+}
+
+.leaf-title {
+    color: #111111;
+}
+
+.active {
+    background: #999;
+}
+
+

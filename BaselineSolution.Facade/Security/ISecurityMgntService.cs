@@ -11,6 +11,10 @@ namespace BaselineSolution.Facade.Security
         IGenericService<AccountBo> AccountService { get; }
         IGenericService<RightBo> RightService { get; }
         Response<RightBo> GetTopLevelRights();
+        Response<RoleBo> GetAllowedRoles(int userId);
+        Response<RestrictedRightBo> GetRestrictedRights(int userId);
+        Response<RoleFullBo> GetFullRole(int roleId);
+        Response<bool> SaveFullRole(RoleFullBo bo, int userId);
 
     }
 }

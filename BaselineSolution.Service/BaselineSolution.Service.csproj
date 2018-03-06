@@ -80,8 +80,10 @@
     <Compile Include="Translators\Internal\SecurityTranslator.cs" />
     <Compile Include="Translators\Internal\ITranslator.cs" />
     <Compile Include="Translators\Security\AccountBoTranslator.cs" />
+    <Compile Include="Translators\Security\RestrictedRightBoTranslator.cs" />
     <Compile Include="Translators\Security\RightBoTranslator.cs" />
     <Compile Include="Translators\Security\RoleBoTranslator.cs" />
+    <Compile Include="Translators\Security\RoleFullBoTranslator.cs" />
     <Compile Include="Translators\Security\RoleRightBoTranslator.cs" />
     <Compile Include="Translators\Security\UserBoTranslator.cs" />
   </ItemGroup>

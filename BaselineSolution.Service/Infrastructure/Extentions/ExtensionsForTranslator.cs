@@ -12,11 +12,10 @@ namespace BaselineSolution.Service.Infrastructure.Extentions
             where TModel : Entity
 
         {
-            var bo = new TBo();
+            var bo = default(TBo);
 
             if (!Equals(model, default(TModel)) && !model.Deleted)
             {
-                bo.Id = model.Id;
                 bo = translator.FromModel(model);
             }
 

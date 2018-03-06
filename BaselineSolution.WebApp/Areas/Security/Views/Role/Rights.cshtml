@@ -1,0 +1,53 @@
+﻿@using BaselineSolution.Bo.Resources.Security
+@using BaselineSolution.WebApp.Areas.Security.ViewModels.Role
+
+@model RoleRightsViewModel
+
+
+@section scripts
+{
+    <script type="text/javascript" src="~/Areas/Security/Scripts/Role/Rights.js"></script>
+}
+@section styles
+{
+    <link rel="stylesheet" href="~/Areas/Security/Styles/Role/Rights.css"/>
+}
+
+<div class="row">
+    <div class="col-sm-12">
+        <h2>@WebApp.Title_Role</h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        @{ Html.RenderPartial("_Detail", Model.RoleBo); }
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <h2>@WebApp.Title_Rights</h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <a id="expand-rights" href="#" class="btn btn-mini">
+            <i class="fa fa-chevron-down"></i>
+            @WebApp.Form_ExpandAll
+        </a>
+        <a id="collapse-rights" href="#" class="btn btn-mini">
+            <i class="fa fa-chevron-up"></i>
+            @WebApp.Form_CollapseAll
+        </a>
+
+
+        <div id="content-rights">
+            <ul id="rights-list" data-url="@Url.Action("SaveRoleRight")">
+                @foreach (var right in Model.AllowedRights)
+                {
+                    Html.RenderPartial("_Right", new RoleRightViewModel(right, Model.RoleBo));
+                }
+            </ul>
+        </div>
+
+    </div>
+</div>

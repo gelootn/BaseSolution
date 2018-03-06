@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System.Linq;
+using System.Web.Mvc;
 using BaselineSolution.Bo.Models.Security;
 using BaselineSolution.Facade.Security;
 using BaselineSolution.Framework.Infrastructure.Filtering;
@@ -81,6 +82,49 @@ namespace BaselineSolution.WebApp.Areas.Security.Controllers
             _service.RoleService.Delete(id, User.Id);
 
             return RedirectToAction("Index");
+        }
+
+
+        public ActionResult Rights(int id)
+        {
+            if (User.RoleIds.Contains(id) && !User.IsAdministrator)
+            {
+                return RedirectToAction("Index");
+            }
+            var user = _service.UserService.GetById(User.Id);
+            var role = _service.GetFullRole(id);
+            var allowedRights = _service.GetRestrictedRights(User.Id);
+            var vm = new RoleRightsViewModel();
+
+            vm.RoleBo = role.GetValue();
+            vm.User = user.GetValue();
+            vm.AllowedRights = allowedRights.Values;
+
+            return View(vm);
+        }
+
+        [HttpPost]
+        public ActionResult SaveRoleRight(int roleId, int rightId, bool? allow)
+        {
+            var roleResponse = _service.GetFullRole(roleId);
+            if (roleResponse.IsSuccess)
+            {
+                var role = roleResponse.GetValue();
+                var roleRight = role.RoleRights.SingleOrDefault(x => x.RightId == rightId);
+                if (roleRight != null)
+                {
+                    roleRight.Allow = allow;
+                }
+                else
+                {
+                    role.RoleRights.Add(new RoleRightBo { RightId = rightId, Allow = allow });
+                }
+
+                _service.SaveFullRole(role, User.Id);
+                return Json(new { success = true }, JsonRequestBehavior.AllowGet);
+            }
+
+            return Json(new { success = false }, JsonRequestBehavior.AllowGet);
         }
 
         private EditViewModel CreateEditViewModel(RoleBo bo)

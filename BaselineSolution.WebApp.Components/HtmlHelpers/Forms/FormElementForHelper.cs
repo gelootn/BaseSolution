@@ -75,7 +75,7 @@ namespace BaselineSolution.WebApp.Components.HtmlHelpers.Forms
             if (!html.ViewData.ModelState.IsValidField(html.NameFor(propertyExpression).ToString()))
                 controlGroup.Class("has-error");
 
-            var controls = HtmlTags.Div.Class("col-sm-8");
+            var controls = HtmlTags.Div.Class("");
 
 
 
@@ -88,9 +88,12 @@ namespace BaselineSolution.WebApp.Components.HtmlHelpers.Forms
             {
                 var inputGroup =
                     HtmlTags.Div.Class("input-group")
-                        .Append(
-                            HtmlTags.Span.Class("input-group-addon")
-                                .Append(HtmlTags.I.Class(prefixclass))
+                        .Append(HtmlTags.Div.Class("input-group-prepend")
+                            .Append(
+                                HtmlTags.Span.Class("input-group-text")
+                                    .Append(HtmlTags.I.Class(prefixclass)
+                                    )
+                                  )
                         ).Append(parsed);
 
                 controls.Append(inputGroup)
@@ -102,7 +105,7 @@ namespace BaselineSolution.WebApp.Components.HtmlHelpers.Forms
                 .Append(helpInline);
             }
 
-            
+
 
 
 

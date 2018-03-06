@@ -55,8 +55,10 @@
     <Compile Include="Internal\Security\RightSecurityBo.cs" />
     <Compile Include="Internal\Security\AccountSecurityBo.cs" />
     <Compile Include="Models\Security\AccountBo.cs" />
+    <Compile Include="Models\Security\RestrictedRightBo.cs" />
     <Compile Include="Models\Security\RightBo.cs" />
     <Compile Include="Models\Security\RoleBo.cs" />
+    <Compile Include="Models\Security\RoleFullBo.cs" />
     <Compile Include="Models\Security\RoleRightBo.cs" />
     <Compile Include="Models\Security\UserBo.cs" />
     <Compile Include="Models\Security\UserSetPasswordBo.cs" />

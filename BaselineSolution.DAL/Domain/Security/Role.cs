@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.Linq;
 using BaselineSolution.DAL.Infrastructure.Bases;
 using BaselineSolution.Framework.Infrastructure.Contracts;
 
@@ -43,6 +44,42 @@ namespace BaselineSolution.DAL.Domain.Security
         }
 
 
+        /// <summary>
+        /// Returns true if this role is allowed to access the given right
+        /// </summary>
+        /// <param name="right"></param>
+        /// <returns>true if this role is allowed to access the given right or false otherwise</returns>
+        public bool HasRight(Right right)
+        {
+            Right tempRight = right;
+            bool? hasRight = ValidateWithRoleRights(tempRight);
+            if (hasRight != null)
+            {
+                return hasRight.Value;
+            }
+            while (tempRight.Parent != null)
+            {
+                tempRight = tempRight.Parent;
+                hasRight = ValidateWithRoleRights(tempRight);
+                if (hasRight != null)
+                {
+                    return hasRight.Value;
+                }
+            }
+
+            return false;
+        }
+
+        /// <summary>
+        /// Returns true if this role has a RoleRight and that RoleRight's 'Allow' property is set to true.
+        /// </summary>
+        /// <param name="right"></param>
+        /// <returns>True if this role has a RoleRight and that RoleRight's 'Allow' property is set to true.</returns>
+        private bool? ValidateWithRoleRights(Right right)
+        {
+            RoleRight roleRight = RoleRights.SingleOrDefault(r => r.RightId == right.Id);
+            return roleRight != null ? roleRight.Allow : null;
+        }
 
         /// <summary>
         /// Returns a string that represents the current object.

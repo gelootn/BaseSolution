@@ -108,7 +108,9 @@
   <ItemGroup>
     <Content Include="Areas\Home\Styles\Authentication\Login.css" />
     <Content Include="Areas\Security\Scripts\Right\Index.js" />
+    <Content Include="Areas\Security\Scripts\Role\Rights.js" />
     <Content Include="Areas\Security\Styles\Right\Index.css" />
+    <Content Include="Areas\Security\Styles\Role\Rights.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -154,6 +156,9 @@
     <Content Include="Areas\Security\Views\Role\_List.cshtml" />
     <Content Include="Areas\Security\Views\Role\Edit.cshtml" />
     <Content Include="Areas\Security\Views\Role\_Delete.cshtml" />
+    <Content Include="Areas\Security\Views\Role\Rights.cshtml" />
+    <Content Include="Areas\Security\Views\Role\_Right.cshtml" />
+    <Content Include="Areas\Security\Views\Role\_Detail.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -186,6 +191,8 @@
     <Compile Include="Areas\Security\ViewModels\Right\EditViewModel.cs" />
     <Compile Include="Areas\Security\ViewModels\Role\DeleteViewModel.cs" />
     <Compile Include="Areas\Security\ViewModels\Role\EditViewModel.cs" />
+    <Compile Include="Areas\Security\ViewModels\Role\RoleRightsViewModel.cs" />
+    <Compile Include="Areas\Security\ViewModels\Role\RoleRightViewModel.cs" />
     <Compile Include="Areas\Security\ViewModels\User\EditViewModel.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">

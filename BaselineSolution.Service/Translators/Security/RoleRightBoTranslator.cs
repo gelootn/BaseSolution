@@ -15,8 +15,8 @@ namespace BaselineSolution.Service.Translators.Security
             bo.RoleId = model.RoleId;
             bo.RightId = model.RightId;
             bo.Allow = model.Allow;
-            bo.Role = new DisplayObject(model.RoleId, model.Role.Name);
-            bo.Right = new DisplayObject(model.RightId, model.Right.Key);
+            //bo.Role = new DisplayObject(model.RoleId, model.Role.Name);
+            //bo.Right = new DisplayObject(model.RightId, model.Right.Key);
             return bo;
         }
 

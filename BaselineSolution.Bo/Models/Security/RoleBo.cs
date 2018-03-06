@@ -19,7 +19,6 @@ namespace BaselineSolution.Bo.Models.Security
         public virtual int? ParentId { get; set; }
         public virtual DisplayObject Parent { get; set; }
 
-        public virtual ICollection<RoleRightBo> RoleRights { get; set; }
-
+        
     }
 }

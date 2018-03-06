@@ -300,6 +300,7 @@
     <Compile Include="Extensions\ExtensionsForRequestContext.cs" />
     <Compile Include="Extensions\ExtensionsForTagBuilder.cs" />
     <Compile Include="HtmlHelpers\Forms\CancelHelper.cs" />
+    <Compile Include="HtmlHelpers\Forms\DetailElementForHelper.cs" />
     <Compile Include="HtmlHelpers\Forms\SubmitAndCancelHelper.cs" />
     <Compile Include="HtmlHelpers\Forms\SubmitHelper.cs" />
     <Compile Include="HtmlHelpers\Forms\SelectForHelper.cs" />

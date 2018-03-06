@@ -16,7 +16,7 @@ namespace BaselineSolution.Bo.Internal.Security
         public string Email { get; set; }
         public DateTime? LastLogin { get; set; }
         public string DefaultCulture { get; set; }
-        public string Rijksregisternummer { get; set; }
+
 
         public AccountSecurityBo Account { get; set; }
         public ICollection<RoleSecurityBo> Roles

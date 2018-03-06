@@ -1,0 +1,51 @@
+﻿
+@using BaselineSolution.WebApp.Areas.Security.ViewModels.Role
+@model RoleRightViewModel
+@{
+    var children = Model.Right.Children;
+    var isNode = children.Any();
+    var isRestricted = Model.Right.IsRestricted;
+
+    var name = RightKeysResource.ResourceManager.GetString(Model.Right.Key.Replace('.', '_'));
+    if (string.IsNullOrWhiteSpace(name))
+    {
+        name = Model.Right.Key;
+    }
+}
+
+<li>
+    @if (!isRestricted || User.IsAdministrator)
+    {
+        <select class="role-right-editor" data-right-id="@Model.Right.Id" data-role-id="@Model.Role.Id" data-width="auto">
+            <option value="@true.ToString()" @if (Model.Allow.HasValue && Model.Allow.Value) { <text> selected="selected" </text>  }>
+                @WebApp.Allow
+            </option>
+            <option value="@false.ToString()" @if (Model.Allow.HasValue && !Model.Allow.Value) { <text> selected="selected" </text>  }>
+                @WebApp.Deny
+            </option>
+            <option @if (!Model.Allow.HasValue) { <text> selected="selected" </text>  }>
+                @WebApp.NotSet
+            </option>
+        </select>
+    }
+    else
+    {
+        var value = Model.Allow.HasValue ? (Model.Allow.Value ? WebApp.Allow : WebApp.Deny) : WebApp.NotSet;
+        <input type="text" disabled="disabled" value="@value" />
+    }
+    @{
+        var titleClass = Model.Allow.HasValue ? (Model.Allow.Value ? "badge badge-success" : "badge badge-danger") : "badge";
+    }
+    <span data-right-id="@Model.Right.Id" class="@(isNode ? "node-title" : "leaf-title") @titleClass">
+        @name
+    </span>
+    @if (isNode)
+    {
+        <ul class="node-content">
+            @foreach (var child in Model.Right.Children)
+            {
+                Html.RenderPartial("_Right", new RoleRightViewModel(child, Model.Role));
+            }
+        </ul>
+    }
+</li>

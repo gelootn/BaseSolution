@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using BaselineSolution.DAL.Infrastructure.Bases;
 
 namespace BaselineSolution.DAL.Domain.Security
@@ -76,6 +77,12 @@ namespace BaselineSolution.DAL.Domain.Security
         public override string ToString()
         {
             return $"{base.ToString()}, Username: {Username}, Email: {Email}, AccountId: {AccountId}";
+        }
+
+
+        public bool HasRight(Right right)
+        {
+            return Roles.Any(r => r.HasRight(right));
         }
 
 
