@@ -1,0 +1,13 @@
+﻿@using BaselineSolution.Bo.Models.Security
+@using BaselineSolution.Bo.Resources.Security
+@using BaselineSolution.WebApp.Components.Datatables.Html.HtmlHelpers
+
+@(
+      Html.Datatable<UserBo>(Url.Action("List", "User"))
+          .Column(UserBoResource.UserName, x=> x.Username)
+          .Column(UserBoResource.Email, x => x.Email)
+          .Column(UserBoResource.LastLogin, x=> x.LastLogin)
+          .Column(UserBoResource.AccountId, x => x.Account.Display)
+          .Build()
+          .ToHtml()
+      )

@@ -279,6 +279,24 @@ namespace BaselineSolution.WebApp.Resources {
         /// <summary>
         ///   Looks up a localized string similar to User.
         /// </summary>
+        public static string Title_User {
+            get {
+                return ResourceManager.GetString("Title_User", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Users.
+        /// </summary>
+        public static string Title_Users {
+            get {
+                return ResourceManager.GetString("Title_Users", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User.
+        /// </summary>
         public static string Username {
             get {
                 return ResourceManager.GetString("Username", resourceCulture);

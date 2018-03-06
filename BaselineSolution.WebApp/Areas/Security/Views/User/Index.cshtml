@@ -1,1 +1,9 @@
-﻿<h1>USers</h1>
+﻿@using BaselineSolution.WebApp.Components.HtmlHelpers.Links
+
+<div class="row">
+    <div class="col-sm-12">
+        <h2>@WebApp.Title_Users @Html.Link("Edit", "User").ToHtml(WebApp.Form_Add, "fa fa-plus", new { @class = "btn btn-sm btn-success" })</h2>
+    </div>
+</div>
+
+@{Html.RenderPartial("_List");}

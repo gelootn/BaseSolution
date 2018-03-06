@@ -159,6 +159,7 @@
     <Content Include="Areas\Security\Views\Role\Rights.cshtml" />
     <Content Include="Areas\Security\Views\Role\_Right.cshtml" />
     <Content Include="Areas\Security\Views\Role\_Detail.cshtml" />
+    <Content Include="Areas\Security\Views\User\_List.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

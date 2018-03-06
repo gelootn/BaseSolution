@@ -201,4 +201,10 @@
   <data name="NotSet" xml:space="preserve">
     <value>Not set</value>
   </data>
+  <data name="Title_User" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="Title_Users" xml:space="preserve">
+    <value>Users</value>
+  </data>
 </root>

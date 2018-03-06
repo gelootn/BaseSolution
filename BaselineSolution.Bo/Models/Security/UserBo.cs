@@ -12,7 +12,7 @@ namespace BaselineSolution.Bo.Models.Security
         /// <summary>
         ///     The _roles.
         /// </summary>
-        private ICollection<DisplayObject> _roles;
+        private ICollection<RoleBo> _roles;
 
         /// <summary>
         ///     Gets or sets the username.
@@ -68,10 +68,10 @@ namespace BaselineSolution.Bo.Models.Security
         /// <summary>
         ///     Gets or sets the roles.
         /// </summary>
-        public virtual ICollection<DisplayObject> Roles
+        public virtual ICollection<RoleBo> Roles
         {
-            get { return _roles ?? (_roles = new List<DisplayObject>()); }
-            set { _roles = new List<DisplayObject>(value); }
+            get { return _roles ?? (_roles = new List<RoleBo>()); }
+            set { _roles = new List<RoleBo>(value); }
         }
     }
 
