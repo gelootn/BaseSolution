@@ -9,7 +9,7 @@ namespace BaselineSolution.Bo.Validators.Security
         public UserSetPasswordBoValidator()
         {
             RuleFor(x => x.Id).GreaterThan(0);
-            RuleFor(x => x.NewPassword).NotEmpty().Length(min: 6, max: 255).WithMessage(BoResources.PasswordLength);
+            RuleFor(x => x.Password).Must(PasswordValidator.ValidatePassword).WithMessage(BoResources.PasswordLength);
         }    
     }
 }

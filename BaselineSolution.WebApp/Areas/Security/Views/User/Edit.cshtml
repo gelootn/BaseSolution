@@ -1,2 +1,42 @@
-﻿@model BaselineSolution.WebApp.Areas.Security.ViewModels.User.EditViewModel
+﻿@using BaselineSolution.WebApp.Components.HtmlHelpers.Forms
+@using BaselineSolution.WebApp.Components.Models.SelectLists
+@model BaselineSolution.WebApp.Areas.Security.ViewModels.User.EditViewModel
 
+
+<div class="row">
+    <div class="col-sm-12">
+        <h1>
+            @WebApp.Title_User
+        </h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <form method="post">
+            @Html.HiddenFor(x => x.User.Id)
+            
+            @Html.ErrorSummary(WebApp.Errors)
+
+            @Html.FormElementFor(x => x.User.AccountId, Html.SelectFor(x => x.User.AccountId, Model.Accounts,
+                  new LocalSelectOptions { Placeholder = WebApp.Select }).Options(x => x.Id, x => x.Name))
+
+            @Html.FormElementFor(x => x.User.Name)
+            @Html.FormElementFor(x => x.User.Email, prefixClass: "fa fa-envelope")
+            @Html.FormElementFor(x => x.User.Username, prefixClass: "fa fa-user")
+            @if (Model.User.IsNew)
+            {
+                @Html.FormElementFor(x => x.User.Password, Html.PasswordFor(x=> x.User.Password), prefixClass: "fa fa-lock")
+                @Html.FormElementFor(x => x.User.PasswordConfirm, Html.PasswordFor(x=> x.User.PasswordConfirm), prefixClass: "fa fa-lock")
+            }
+            
+            @Html.FormElementFor(x=> x.User.RoleIds, Html.ListBoxFor(x=> x.User.RoleIds, Model.Roles, new { data_available = WebApp.Available, data_linked = WebApp.Linked } ))
+            
+            
+            
+
+            @Html.SubmitAndCancel(WebApp.Form_Save,WebApp.Form_Cancel, Url.Action("Index", "User"))
+
+        </form>
+    </div>
+</div>

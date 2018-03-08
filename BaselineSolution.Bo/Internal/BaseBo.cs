@@ -31,6 +31,7 @@ namespace BaselineSolution.Bo.Internal
 
             if (!result.IsValid)
             {
+                
                 ValidationMessages.AddRange(result.Errors.Select(x => $"{x.ErrorMessage}"));
             }
 

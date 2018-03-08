@@ -207,4 +207,37 @@
   <data name="Title_Users" xml:space="preserve">
     <value>Users</value>
   </data>
+  <data name="Select" xml:space="preserve">
+    <value>--- Select ---</value>
+  </data>
+  <data name="Available" xml:space="preserve">
+    <value>Available</value>
+  </data>
+  <data name="Linked" xml:space="preserve">
+    <value>Linked</value>
+  </data>
+  <data name="Errors" xml:space="preserve">
+    <value>Errors</value>
+  </data>
+  <data name="UserExists" xml:space="preserve">
+    <value>The user is already in the system</value>
+  </data>
+  <data name="CannotDeleteSelf" xml:space="preserve">
+    <value>You can not delete your own users....</value>
+  </data>
+  <data name="ResetPassword" xml:space="preserve">
+    <value>Reset Password</value>
+  </data>
+  <data name="Form_All" xml:space="preserve">
+    <value>-- All --</value>
+  </data>
+  <data name="Form_No" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="Form_NotSet" xml:space="preserve">
+    <value>Not Set</value>
+  </data>
+  <data name="Form_Yes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
 </root>

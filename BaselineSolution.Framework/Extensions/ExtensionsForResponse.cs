@@ -46,6 +46,18 @@ namespace BaselineSolution.Framework.Extensions
             response.Messages.AddRange(messages.Select(x => new Message { MessageText = x, Type = MessageType.None }));
             return response;
         }
+
+        public static Response<T> AddSuccessMessage<T>(this Response<T> response, string message)
+        {
+            response.Messages.Add(new Message { MessageText = message, Type = MessageType.Success });
+            return response;
+        }
+
+        public static Response<T> AddSuccessMessage<T>(this Response<T> response, List<string> messages)
+        {
+            response.Messages.AddRange(messages.Select(x => new Message { MessageText = x, Type = MessageType.Success }));
+            return response;
+        }
     }
 
 

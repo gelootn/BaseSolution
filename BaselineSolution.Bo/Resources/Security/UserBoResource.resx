@@ -138,6 +138,12 @@
   <data name="Password" xml:space="preserve">
     <value>Password</value>
   </data>
+  <data name="PasswordConfirm" xml:space="preserve">
+    <value>Confirm Password</value>
+  </data>
+  <data name="PasswordReset" xml:space="preserve">
+    <value>The password was reset</value>
+  </data>
   <data name="UserName" xml:space="preserve">
     <value>Username</value>
   </data>

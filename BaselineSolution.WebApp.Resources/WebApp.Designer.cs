@@ -70,6 +70,24 @@ namespace BaselineSolution.WebApp.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Available.
+        /// </summary>
+        public static string Available {
+            get {
+                return ResourceManager.GetString("Available", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You can not delete your own users.....
+        /// </summary>
+        public static string CannotDeleteSelf {
+            get {
+                return ResourceManager.GetString("CannotDeleteSelf", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Are you sure you want to delete this item?.
         /// </summary>
         public static string DeleteConfirmation {
@@ -88,6 +106,15 @@ namespace BaselineSolution.WebApp.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Errors.
+        /// </summary>
+        public static string Errors {
+            get {
+                return ResourceManager.GetString("Errors", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The field {0} is required.
         /// </summary>
         public static string FieldRequired {
@@ -102,6 +129,15 @@ namespace BaselineSolution.WebApp.Resources {
         public static string Form_Add {
             get {
                 return ResourceManager.GetString("Form_Add", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to -- All --.
+        /// </summary>
+        public static string Form_All {
+            get {
+                return ResourceManager.GetString("Form_All", resourceCulture);
             }
         }
         
@@ -151,11 +187,47 @@ namespace BaselineSolution.WebApp.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No.
+        /// </summary>
+        public static string Form_No {
+            get {
+                return ResourceManager.GetString("Form_No", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Not Set.
+        /// </summary>
+        public static string Form_NotSet {
+            get {
+                return ResourceManager.GetString("Form_NotSet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Save.
         /// </summary>
         public static string Form_Save {
             get {
                 return ResourceManager.GetString("Form_Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yes.
+        /// </summary>
+        public static string Form_Yes {
+            get {
+                return ResourceManager.GetString("Form_Yes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Linked.
+        /// </summary>
+        public static string Linked {
+            get {
+                return ResourceManager.GetString("Linked", resourceCulture);
             }
         }
         
@@ -232,6 +304,24 @@ namespace BaselineSolution.WebApp.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Reset Password.
+        /// </summary>
+        public static string ResetPassword {
+            get {
+                return ResourceManager.GetString("ResetPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to --- Select ---.
+        /// </summary>
+        public static string Select {
+            get {
+                return ResourceManager.GetString("Select", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Account / Customer.
         /// </summary>
         public static string Title_Account {
@@ -291,6 +381,15 @@ namespace BaselineSolution.WebApp.Resources {
         public static string Title_Users {
             get {
                 return ResourceManager.GetString("Title_Users", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The user is already in the system.
+        /// </summary>
+        public static string UserExists {
+            get {
+                return ResourceManager.GetString("UserExists", resourceCulture);
             }
         }
         

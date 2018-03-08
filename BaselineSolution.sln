@@ -33,7 +33,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaselineSolution.WebApp.Com
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaselineSolution.WebApp.Resources", "BaselineSolution.WebApp.Resources\BaselineSolution.WebApp.Resources.csproj", "{1C166D87-3869-4E6B-BD94-5B675DCA5573}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceTests", "ServiceTests\ServiceTests.csproj", "{89E3DEED-9BE7-4015-8931-2DE183529D86}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaselineSolution.Tests", "ServiceTests\BaselineSolution.Tests.csproj", "{89E3DEED-9BE7-4015-8931-2DE183529D86}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

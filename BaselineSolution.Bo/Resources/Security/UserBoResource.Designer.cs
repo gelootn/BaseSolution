@@ -124,6 +124,24 @@ namespace BaselineSolution.Bo.Resources.Security {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Confirm Password.
+        /// </summary>
+        public static string PasswordConfirm {
+            get {
+                return ResourceManager.GetString("PasswordConfirm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The password was reset.
+        /// </summary>
+        public static string PasswordReset {
+            get {
+                return ResourceManager.GetString("PasswordReset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Username.
         /// </summary>
         public static string UserName {

@@ -1,0 +1,17 @@
+﻿@{
+    var alerts = new[]
+    {
+        new {Type = "Warning", ClassName = "alert-warning"},
+        new {Type = "Error", ClassName = "alert-danger"},
+        new {Type = "Success", ClassName = "alert-success"},
+        new {Type = "Info", ClassName = "alert-info"}
+    };
+}
+
+@foreach (var alert in alerts.Where(alert => TempData[alert.Type] != null))
+{
+    <div class="alert @alert.ClassName" role="alert">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <span>@TempData[alert.Type]</span>
+    </div>
+}

@@ -4,11 +4,17 @@ using System.ComponentModel.DataAnnotations;
 using BaselineSolution.Bo.Internal;
 using BaselineSolution.Bo.Resources;
 using BaselineSolution.Bo.Resources.Security;
+using BaselineSolution.Bo.Validators.Security;
 
 namespace BaselineSolution.Bo.Models.Security
 {
     public class UserBo : BaseBo
     {
+
+        public UserBo()
+        {
+            Validator = new UserBoValidator();
+        }
         /// <summary>
         ///     The _roles.
         /// </summary>
@@ -26,6 +32,9 @@ namespace BaselineSolution.Bo.Models.Security
         /// </summary>
         [Display(ResourceType = typeof(UserBoResource), Name = "Password")]
         public virtual string Password { get; set; }
+
+        [Display(ResourceType = typeof(UserBoResource), Name = "PasswordConfirm")]
+        public virtual string PasswordConfirm { get; set; }
 
         /// <summary>
         ///     Gets or sets the name.
@@ -73,6 +82,8 @@ namespace BaselineSolution.Bo.Models.Security
             get { return _roles ?? (_roles = new List<RoleBo>()); }
             set { _roles = new List<RoleBo>(value); }
         }
+
+        public int[] RoleIds { get; set; }
     }
 
    

@@ -1,14 +1,13 @@
-﻿using AutoMapper;
-using AutoMapper.XpressionMapper.Extensions;
-using BaselineSolution.Framework.Infrastructure.Contracts;
-using BaselineSolution.Framework.Infrastructure.Sorting;
-using System;
+﻿using System;
 using System.Linq;
 using System.Linq.Expressions;
+using AutoMapper;
+using AutoMapper.XpressionMapper.Extensions;
+using BaselineSolution.Framework.Infrastructure.Contracts;
 
-namespace BaselineSolution.Service.Internal
+namespace BaselineSolution.Framework.Infrastructure.Sorting
 {
-    internal static class QuerySorter
+    public static class QuerySorter
     {
         public static IQueryable<TEntity> Sort<TBoEntity, TEntity>(this IQueryable<TEntity> query, IEntitySorter<TBoEntity> sorter)
         {

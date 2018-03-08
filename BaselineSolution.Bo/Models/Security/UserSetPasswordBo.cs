@@ -11,9 +11,12 @@ namespace BaselineSolution.Bo.Models.Security
         {
             Validator = new UserSetPasswordBoValidator();
         }
-        
+
+        [Display(ResourceType = typeof(UserBoResource), Name = "PasswordConfirm")]
+        public string PasswordConfirm { get; set; } 
+
         [Display(ResourceType = typeof(UserBoResource), Name = "Password")]
-        public string NewPassword { get; set; }
+        public string Password { get; set; }
     }
 }
 

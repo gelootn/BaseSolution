@@ -353,6 +353,10 @@
       <Project>{804156a9-9126-443e-b5da-9a701ad742de}</Project>
       <Name>BaselineSolution.Framework</Name>
     </ProjectReference>
+    <ProjectReference Include="..\BaselineSolution.WebApp.Resources\BaselineSolution.WebApp.Resources.csproj">
+      <Project>{1c166d87-3869-4e6b-bd94-5b675dca5573}</Project>
+      <Name>BaselineSolution.WebApp.Resources</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

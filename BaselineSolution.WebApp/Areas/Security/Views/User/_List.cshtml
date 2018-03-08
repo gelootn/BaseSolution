@@ -1,13 +1,26 @@
 ﻿@using BaselineSolution.Bo.Models.Security
 @using BaselineSolution.Bo.Resources.Security
 @using BaselineSolution.WebApp.Components.Datatables.Html.HtmlHelpers
+@using BaselineSolution.WebApp.Components.HtmlHelpers.Links
 
 @(
-      Html.Datatable<UserBo>(Url.Action("List", "User"))
-          .Column(UserBoResource.UserName, x=> x.Username)
-          .Column(UserBoResource.Email, x => x.Email)
-          .Column(UserBoResource.LastLogin, x=> x.LastLogin)
-          .Column(UserBoResource.AccountId, x => x.Account.Display)
-          .Build()
-          .ToHtml()
-      )
+          Html.Datatable<UserBo>(Url.Action("List", "User"))
+              .Column(UserBoResource.UserName, x => x.Username)
+              .Column(UserBoResource.Email, x => x.Email)
+              .Column(UserBoResource.LastLogin, x => x.LastLogin)
+              
+              .Column(UserBoResource.AccountId, x => x.Account.Display)
+              .Column("")
+              .Display(x=> Actions(x))
+              .Build()
+              .ToHtml()
+)
+@helper Actions(UserBo bo)
+    {
+    <div class="pull-right ">
+        @Html.Link("ResetPassword","User", new { Id = bo.Id}).ToHtml(WebApp.ResetPassword, "fa fa-lock", new { @class = "btn btn-sm btn-warning" })
+        @Html.Link("Edit", "User", new {Id = bo.Id}).ToHtml(WebApp.Form_Edit, "fa fa-edit", new {@class = "btn btn-sm btn-info"})
+        @Html.Link("Delete", "User", new {Id = bo.Id}).ToHtml(WebApp.Form_Delete, "fa fa-times", new {@class = "btn btn-sm btn-danger enable-modal"})
+
+    </div>
+}

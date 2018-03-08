@@ -10,7 +10,7 @@ using BaselineSolution.Framework.Response;
 using BaselineSolution.Framework.Security;
 using BaselineSolution.Service.Translators.Internal;
 
-namespace BaselineSolution.Service.Internal
+namespace BaselineSolution.Service.Infrastructure.Internal
 {
     public class SecurityService : ISecurityService
     {

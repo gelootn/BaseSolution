@@ -44,7 +44,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Filters\Security\UserFilter.cs" />
     <Compile Include="Internal\BaseBo.cs" />
     <Compile Include="Internal\BaseSorter.cs" />
     <Compile Include="Internal\CollumnSorter.cs" />
@@ -95,10 +94,12 @@
       <DependentUpon>UserBoResource.resx</DependentUpon>
     </Compile>
     <Compile Include="Validators\Security\AccountBoValidator.cs" />
+    <Compile Include="Validators\Security\PasswordValidator.cs" />
     <Compile Include="Validators\Security\RoleBoValidator.cs" />
     <Compile Include="Validators\Security\RightBoValidator.cs" />
     <Compile Include="Validators\Security\UserBoValidator.cs" />
     <Compile Include="Validators\Security\UserSetPasswordBoValidator.cs" />
+    <Compile Include="Validators\Shared\SystemLanguageBoValidator.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BaselineSolution.DAL\BaselineSolution.DAL.csproj">

@@ -9,8 +9,9 @@ namespace BaselineSolution.Bo.Validators.Security
         public UserBoValidator()
         {
             RuleFor(x => x.Username).NotEmpty();
-            RuleFor(x => x.Password).NotEmpty().Length(min: 6, max: 255).WithMessage(BoResources.PasswordLength).When(x => x.IsNew);
-            RuleFor(x => x.Password).Empty().When(x => !x.IsNew);
+            RuleFor(x => x.Password).Must(PasswordValidator.ValidatePassword).WithMessage(BoResources.PasswordLength).When(x => x.IsNew);
+            RuleFor(x => x.PasswordConfirm).Matches(x => x.PasswordConfirm).When(x => x.IsNew);
+
         }
     }
 }

@@ -13,15 +13,19 @@
     <link rel="stylesheet" href="~/Content/bootstrap.min.css" />
     <link rel="stylesheet" href="~/Content/font-awesome.min.css" />
     <link rel="stylesheet" href="~/Content/Datatables/datatables.min.css" />
+    <link rel="stylesheet" href="~/Content/css/select2.min.css" />
 
     @RenderSection("styles", false)
 
 </head>
 <body>
-<div class="container">
-    @RenderBody()
+    <div class="container">
 
-</div>
+
+        @RenderBody()
+
+        @{ Html.RenderPartial("_Alerts");}
+    </div>
 
 
 <script type="text/javascript" src="~/Scripts/jquery-3.3.1.min.js"></script>
@@ -35,6 +39,7 @@
 <script type="text/javascript" src="~/Scripts/Shared/Functions.js"></script>
 <script type="text/javascript" src="~/Scripts/Shared/Conventions.js"></script>
 <script type="text/javascript" src="~/Scripts/Shared/Plugins.js"></script>
+<script type="text/javascript" src="~/Scripts/Shared/Defaults.js"></script>
 
 @RenderSection("scripts", false)
 

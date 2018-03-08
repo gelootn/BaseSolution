@@ -8,7 +8,13 @@ namespace BaselineSolution.Facade.Internal
             where TBo : BaseBo
     {
         Response<TBo> GetById(int id);
-        Response<TBo> AddOrUpdate(TBo bo, int userId);
+        /// <summary>
+        /// Add or Update. returns the Id of the processed item
+        /// </summary>
+        /// <param name="bo"></param>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        Response<int> AddOrUpdate(TBo bo, int userId);
         Response<bool> Delete(int id, int userId);
         Response<int> Count(IEntityFilter<TBo> filter);
         Response<TBo> List(IEntityFilter<TBo> filter);

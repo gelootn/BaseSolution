@@ -1,6 +1,6 @@
 ﻿using NLog;
 
-namespace BaselineSolution.Service.Internal
+namespace BaselineSolution.Service.Infrastructure.Internal
 {
     public abstract class BaseService : Service
     {

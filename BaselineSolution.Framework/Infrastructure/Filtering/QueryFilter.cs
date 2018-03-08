@@ -1,14 +1,14 @@
-﻿using AutoMapper;
+﻿using System;
+using System.Linq;
+using System.Linq.Expressions;
+using AutoMapper;
 using AutoMapper.XpressionMapper.Extensions;
 using BaselineSolution.Framework.Infrastructure.Contracts;
 using LinqKit;
-using System;
-using System.Linq;
-using System.Linq.Expressions;
 
-namespace BaselineSolution.Service.Internal
+namespace BaselineSolution.Framework.Infrastructure.Filtering
 {
-    internal static class QueryFilter
+    public static class QueryFilter
     {
         public static IQueryable<TEntity> Filter<TBoEntity, TEntity>(this IQueryable<TEntity> query, IEntityFilter<TBoEntity> filters)
         {

@@ -68,24 +68,25 @@
   <ItemGroup>
     <Compile Include="Configuration\MappingConfiguration.cs" />
     <Compile Include="Infrastructure\Extentions\ExtensionsForICollection.cs" />
-    <Compile Include="Internal\BaseService.cs" />
-    <Compile Include="Internal\GenericService.cs" />
-    <Compile Include="Internal\QueryFilter.cs" />
-    <Compile Include="Internal\QuerySorter.cs" />
-    <Compile Include="Internal\SecurityService.cs" />
-    <Compile Include="Internal\Service.cs" />
+    <Compile Include="Infrastructure\Internal\BaseService.cs" />
+    <Compile Include="Infrastructure\Internal\GenericService.cs" />
+    <Compile Include="Infrastructure\Internal\SecurityService.cs" />
+    <Compile Include="Infrastructure\Internal\Service.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security\SecurityMgntService.cs" />
     <Compile Include="Infrastructure\Extentions\ExtensionsForTranslator.cs" />
+    <Compile Include="Shared\SharedService.cs" />
     <Compile Include="Translators\Internal\SecurityTranslator.cs" />
     <Compile Include="Translators\Internal\ITranslator.cs" />
     <Compile Include="Translators\Security\AccountBoTranslator.cs" />
+    <Compile Include="Translators\Security\UserSetPasswordBoTranslator.cs" />
     <Compile Include="Translators\Security\RestrictedRightBoTranslator.cs" />
     <Compile Include="Translators\Security\RightBoTranslator.cs" />
     <Compile Include="Translators\Security\RoleBoTranslator.cs" />
     <Compile Include="Translators\Security\RoleFullBoTranslator.cs" />
     <Compile Include="Translators\Security\RoleRightBoTranslator.cs" />
     <Compile Include="Translators\Security\UserBoTranslator.cs" />
+    <Compile Include="Translators\Shared\SystemLanguageBoTranslator.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BaselineSolution.Bo\BaselineSolution.Bo.csproj">

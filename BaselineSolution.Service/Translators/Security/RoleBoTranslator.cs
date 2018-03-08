@@ -24,9 +24,6 @@ namespace BaselineSolution.Service.Translators.Security
         {
             model.Name = bo.Name;
             model.ParentId = bo.ParentId;
-
-
-
             return model;
         }
     }

@@ -6,11 +6,13 @@ using BaselineSolution.Facade.Internal;
 using BaselineSolution.Framework.Extensions;
 using BaselineSolution.Framework.Infrastructure.Attributes;
 using BaselineSolution.Framework.Infrastructure.Contracts;
+using BaselineSolution.Framework.Infrastructure.Filtering;
+using BaselineSolution.Framework.Infrastructure.Sorting;
 using BaselineSolution.Framework.Response;
 using BaselineSolution.Service.Infrastructure.Extentions;
 using BaselineSolution.Service.Translators.Internal;
 
-namespace BaselineSolution.Service.Internal
+namespace BaselineSolution.Service.Infrastructure.Internal
 {
     public class GenericService<TBo, TEntity> : IGenericService<TBo>
         where TBo : BaseBo, new()
@@ -36,23 +38,21 @@ namespace BaselineSolution.Service.Internal
             return new Response<TBo>(item.ToBo(_translator));
         }
 
-        Response<TBo> IGenericService<TBo>.AddOrUpdate(TBo bo, int userId)
+        Response<int> IGenericService<TBo>.AddOrUpdate(TBo bo, int userId)
         {
             if (!bo.IsValid())
-                return new Response<TBo>().AddValidationMessage(bo.ValidationMessages);
+                return new Response<int>().AddValidationMessage(bo.ValidationMessages);
 
             var item = bo.IsNew ? new TEntity() : _repository.FindById(bo.Id);
 
             if (item == null)
-                return new Response<TBo>().AddItemNotFound(bo.Id);
+                return new Response<int>().AddItemNotFound(bo.Id);
 
             item = bo.UpdateModel(item, _translator);
             _repository.AddOrUpdate(item);
             _repository.Commit(userId);
 
-
-
-            return new Response<TBo>(item.ToBo(_translator));
+            return new Response<int>(item.Id);
         }
 
         Response<bool> IGenericService<TBo>.Delete(int id, int userId)

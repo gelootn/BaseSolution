@@ -5,6 +5,8 @@ using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using BaselineSolution.Framework.Infrastructure.Attributes;
+using BaselineSolution.Framework.Response;
 using BaselineSolution.WebApp.Components.Models.Authentication;
 using BaselineSolution.WebApp.Infrastructure.Constants;
 
@@ -147,10 +149,10 @@ namespace BaselineSolution.WebApp.Infrastructure.Bases
             {
                 var accountCultures = User.CurrentAccount.AccountCultures.ToArray();
 
-/*              
- *              EnvironmentInfo.Current.ActiveCultures = accountCultures.Select(a => a.Culture);
-                EnvironmentInfo.Current.Culture = User.DefaultCulture;
-                */
+                /*              
+                 *              EnvironmentInfo.Current.ActiveCultures = accountCultures.Select(a => a.Culture);
+                                EnvironmentInfo.Current.Culture = User.DefaultCulture;
+                                */
                 Thread.CurrentThread.CurrentUICulture = new CultureInfo(User.DefaultCulture ?? "nl-BE");
 
             }
@@ -195,6 +197,74 @@ namespace BaselineSolution.WebApp.Infrastructure.Bases
         #endregion
 
 
+        #region Messages
+
+        /// <summary>
+        ///     Displays a success message above the content body
+        /// </summary>
+        /// <param name="message">The message to display</param>
+        /// <param name="parameters">The parameters that need to be used for string.format</param>
+        [StringFormatMethod("message")]
+        protected void Success(string message, params object[] parameters)
+        {
+            TempData["Success"] = string.Format(message, parameters);
+        }
+
+        /// <summary>
+        ///     Displays a warning message above the content body
+        /// </summary>
+        /// <param name="message">The message to display</param>
+        /// <param name="parameters">The parameters that need to be used for string.format</param>
+        [StringFormatMethod("message")]
+        protected void Warning(string message, params object[] parameters)
+        {
+            TempData["Warning"] = string.Format(message, parameters);
+        }
+
+        /// <summary>
+        ///     Displays an error message above the content body
+        /// </summary>
+        /// <param name="message">The message to display</param>
+        /// <param name="parameters">The parameters that need to be used for string.format</param>
+        [StringFormatMethod("message")]
+        protected void Error(string message, params object[] parameters)
+        {
+            TempData["Error"] = string.Format(message, parameters);
+        }
+
+        /// <summary>
+        ///     Displays an info message above the content body
+        /// </summary>
+        /// <param name="message">The message to display</param>
+        /// <param name="parameters">The parameters that need to be used for string.format</param>
+        [StringFormatMethod("message")]
+        protected void Info(string message, params object[] parameters)
+        {
+            TempData["Info"] = string.Format(message, parameters);
+        }
+
+        protected void SetMessage<T>(Response<T> response)
+        {
+            var errorMessages = response.Messages.Where(x=> x.Type == MessageType.Error).Select(x=> x.MessageText).ToList();
+            var warningMessages = response.Messages.Where(x=> x.Type == MessageType.Warning).Select(x=> x.MessageText).ToList();
+            var validationMessages = response.Messages.Where(x=> x.Type == MessageType.Validation).Select(x=> x.MessageText).ToList();
+            var successMessages = response.Messages.Where(x=> x.Type == MessageType.Success).Select(x=> x.MessageText).ToList();
+
+            if (errorMessages.Any())
+                Error(string.Join(", ", errorMessages));
+
+            if(warningMessages.Any())
+                Warning(string.Join(", ", warningMessages));
+
+            if(validationMessages.Any())
+                Info(string.Join(", ", validationMessages));
+
+            if(successMessages.Any())
+                Success(string.Join(", ", successMessages));
+        }
+
+        #endregion
+
         private const string FileDownloadCookieName = "fileDownload";
 
         /// <summary>
@@ -208,7 +278,7 @@ namespace BaselineSolution.WebApp.Infrastructure.Bases
                 //jquery.fileDownload uses this cookie to determine that a file download has completed successfully
                 Response.SetCookie(new HttpCookie(FileDownloadCookieName, "true") { Path = "/" });
             else
-                //ensure that the cookie is removed in case someone did a file download without using jquery.fileDownload
+            //ensure that the cookie is removed in case someone did a file download without using jquery.fileDownload
             if (Request.Cookies[FileDownloadCookieName] != null)
                 Response.Cookies[FileDownloadCookieName].Expires = DateTime.Now.AddYears(-1);
         }

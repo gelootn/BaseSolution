@@ -160,6 +160,8 @@
     <Content Include="Areas\Security\Views\Role\_Right.cshtml" />
     <Content Include="Areas\Security\Views\Role\_Detail.cshtml" />
     <Content Include="Areas\Security\Views\User\_List.cshtml" />
+    <Content Include="Areas\Security\Views\User\_Delete.cshtml" />
+    <Content Include="Areas\Security\Views\User\ResetPassword.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -168,6 +170,7 @@
     <Content Include="Scripts\select2.js" />
     <Content Include="Scripts\select2.min.js" />
     <Content Include="Scripts\Shared\Conventions.js" />
+    <Content Include="Scripts\Shared\Defaults.js" />
     <Content Include="Scripts\Shared\Functions.js" />
     <Content Include="Scripts\Shared\Plugins.js" />
     <Content Include="Scripts\underscore.min.js" />
@@ -194,7 +197,9 @@
     <Compile Include="Areas\Security\ViewModels\Role\EditViewModel.cs" />
     <Compile Include="Areas\Security\ViewModels\Role\RoleRightsViewModel.cs" />
     <Compile Include="Areas\Security\ViewModels\Role\RoleRightViewModel.cs" />
+    <Compile Include="Areas\Security\ViewModels\User\DeleteViewModel.cs" />
     <Compile Include="Areas\Security\ViewModels\User\EditViewModel.cs" />
+    <Compile Include="Areas\Security\ViewModels\User\ResetPasswordViewModel.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -219,6 +224,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+    <Content Include="Views\Shared\_Alerts.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
