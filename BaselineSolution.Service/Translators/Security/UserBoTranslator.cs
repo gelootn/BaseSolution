@@ -20,6 +20,7 @@ namespace BaselineSolution.Service.Translators.Security
             bo.Account = new DisplayObject(model.AccountId, model.Account.Name);
             bo.FirstName = model.FirstName;
             bo.Name = model.Name;
+            bo.DefaultLanguage = model.DefaultCulture;
             bo.LastLogin = model.LastLogin;
             bo.LoginCount = model.LoginCount;
             bo.Roles = model.Roles.Select(x => x.ToBo(new RoleBoTranslator())).ToList();
@@ -40,6 +41,7 @@ namespace BaselineSolution.Service.Translators.Security
             model.FirstName = bo.FirstName;
             model.Name = bo.Name;
             model.Username = bo.Username;
+            model.DefaultCulture = bo.DefaultLanguage;
 
             return model;
         }

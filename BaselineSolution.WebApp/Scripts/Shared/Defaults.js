@@ -1,4 +1,4 @@
-﻿(function() {
+﻿$(function() {
 
     var defaultDatepickerInputType = "datetime";
 
@@ -10,6 +10,7 @@
     function initDefaults() {
         initDefaultSelectTransformation();
         initDefaultDatepickerInputType();
+        initFormating();
     }
 
     function initDefaultSelectTransformation() {
@@ -55,7 +56,10 @@
                 });
             });
     }
+    function initFormating() {
+        $("input[type=search]").addClass("form-control");
 
+    }
     function initDefaultDatatableSettings() {
         if (!isDefined($.fn.dataTable))
             return;

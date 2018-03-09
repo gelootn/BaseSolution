@@ -76,6 +76,10 @@
     <Compile Include="Migrations\201802270753057_UserPasswordSalt.Designer.cs">
       <DependentUpon>201802270753057_UserPasswordSalt.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803091241021_UserDefaultCulture.cs" />
+    <Compile Include="Migrations\201803091241021_UserDefaultCulture.Designer.cs">
+      <DependentUpon>201803091241021_UserDefaultCulture.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\GenericRepository.cs" />
@@ -110,6 +114,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201802270753057_UserPasswordSalt.resx">
       <DependentUpon>201802270753057_UserPasswordSalt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803091241021_UserDefaultCulture.resx">
+      <DependentUpon>201803091241021_UserDefaultCulture.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

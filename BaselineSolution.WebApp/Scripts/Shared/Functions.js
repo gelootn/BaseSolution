@@ -176,7 +176,7 @@ function getDefaultRemoteSelectSettings($input) {
     var placeholder = $input.data('placeholder');
     var type = $input.data('type');
     var format = function (state) {
-        if (!state.id) return "" + state.results[0].text;
+        if (isDefined( state.results)) return "" + state.results[0].text;
         return "" + state.text;
     };
     return {

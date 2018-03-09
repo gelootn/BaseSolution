@@ -3,6 +3,13 @@
 @model BaselineSolution.WebApp.Areas.Security.ViewModels.User.EditViewModel
 
 
+@section scripts
+{
+    <script>
+        //$("select").select2();
+    </script>
+}
+
 <div class="row">
     <div class="col-sm-12">
         <h1>
@@ -24,6 +31,9 @@
             @Html.FormElementFor(x => x.User.Name)
             @Html.FormElementFor(x => x.User.Email, prefixClass: "fa fa-envelope")
             @Html.FormElementFor(x => x.User.Username, prefixClass: "fa fa-user")
+            @Html.FormElementFor(x=> x.User.DefaultLanguage, Html.SelectFor(x=> x.User.DefaultLanguage, Model.Languages, new LocalSelectOptions { Placeholder = WebApp.Select}).Options(x=> x.Culture, x => x.Label))
+           
+
             @if (Model.User.IsNew)
             {
                 @Html.FormElementFor(x => x.User.Password, Html.PasswordFor(x=> x.User.Password), prefixClass: "fa fa-lock")

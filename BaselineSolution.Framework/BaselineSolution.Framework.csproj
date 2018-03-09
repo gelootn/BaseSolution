@@ -135,6 +135,7 @@
     <Compile Include="Response\MessageType.cs" />
     <Compile Include="Response\Response.cs" />
     <Compile Include="Security\PasswordHasher.cs" />
+    <Compile Include="Utilities\EnvironmentInfo.cs" />
     <Compile Include="Utilities\Enums.cs" />
   </ItemGroup>
   <ItemGroup>

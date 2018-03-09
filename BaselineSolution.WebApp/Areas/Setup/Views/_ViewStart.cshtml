@@ -1,0 +1,19 @@
+﻿@using BaselineSolution.WebApp.Components.HtmlHelpers.Links
+@using BaselineSolution.WebApp.Resources
+@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse">
+        <ul class="navbar-nav">
+            @Html.Link("Index", "SystemLanguage").SurroundedBy("li", new {@class = "nav-item"}).ToHtml("System Languages", new { @class="nav-link"})
+        </ul>
+    </div>
+</nav>
+
+

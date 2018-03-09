@@ -1,3 +1,43 @@
 ﻿@using BaselineSolution.WebApp.Components.HtmlHelpers.Links
+@using BaselineSolution.WebApp.Resources
 
-@Html.Link("index","Account", new { Area = "Security"} ).ToHtml("Security Mgnt")
+
+<div class="row">
+    <div class="col-sm-12">
+        <h1>@WebApp.WebApp_BaseTitle</h1>
+    </div>
+</div>
+
+
+
+<div class="row">
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-header bg-dark text-light">
+                <h5>Security</h5>
+            </div>
+            <ul class="list-group list-group-flush">
+                @Html.Link("index", "Account", new { Area = "Security" }).SurroundedBy("li", new { @class="list-group-item"}).ToHtml("Account Mgnt")
+                @Html.Link("index", "Right", new { Area = "Security" }).SurroundedBy("li", new { @class = "list-group-item" }).ToHtml("Right Mgnt")
+                @Html.Link("index", "Role", new { Area = "Security" }).SurroundedBy("li", new { @class = "list-group-item" }).ToHtml("Role Mgnt")
+                @Html.Link("index", "User", new { Area = "Security" }).SurroundedBy("li", new { @class = "list-group-item" }).ToHtml("User Mgnt")
+
+            </ul>
+        </div>
+        
+    </div>
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-header bg-dark text-light">
+                <h5>Setup</h5>
+            </div>
+            <ul  class="list-group list-group-flush">
+                @Html.Link("Index", "SystemLanguage", new {Area = "Setup"}).SurroundedBy("li", new { @class = "list-group-item"}).ToHtml("System languages")
+            </ul>
+        </div>
+        
+    </div>
+</div>
+
+
+

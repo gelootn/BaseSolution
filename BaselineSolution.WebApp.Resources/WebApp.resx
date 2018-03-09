@@ -240,4 +240,10 @@
   <data name="Form_Yes" xml:space="preserve">
     <value>Yes</value>
   </data>
+  <data name="Title_SystemLanguage" xml:space="preserve">
+    <value>System Language</value>
+  </data>
+  <data name="Title_SystemLanguages" xml:space="preserve">
+    <value>System Languages</value>
+  </data>
 </root>

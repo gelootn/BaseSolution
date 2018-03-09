@@ -1,10 +1,13 @@
-﻿@{
+﻿@using BaselineSolution.WebApp.Infrastructure.Utilities
+@{
     var alerts = new[]
     {
-        new {Type = "Warning", ClassName = "alert-warning"},
-        new {Type = "Error", ClassName = "alert-danger"},
-        new {Type = "Success", ClassName = "alert-success"},
-        new {Type = "Info", ClassName = "alert-info"}
+        new {Type = TempDataEnum.Warning.ToString(), ClassName = "alert-warning"},
+        new {Type = TempDataEnum.Error.ToString(), ClassName = "alert-danger"},
+        new {Type = TempDataEnum.Success.ToString(), ClassName = "alert-success"},
+        new {Type = TempDataEnum.Info.ToString(), ClassName = "alert-info"},
+        new {Type = TempDataEnum.Default.ToString(), ClassName = "alert-dark"},
+
     };
 }
 
@@ -12,6 +15,6 @@
 {
     <div class="alert @alert.ClassName" role="alert">
         <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <span>@TempData[alert.Type]</span>
+        <span>@Html.Raw(TempData[alert.Type])</span>
     </div>
 }

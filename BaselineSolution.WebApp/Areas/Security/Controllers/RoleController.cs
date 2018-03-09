@@ -131,6 +131,9 @@ namespace BaselineSolution.WebApp.Areas.Security.Controllers
         {
             var vm = new EditViewModel();
             vm.RoleBo = bo;
+            var roleResponse = _service.GetAllowedRoles(User.Id);
+            if(roleResponse.IsSuccess)
+                vm.AllowedRoles = roleResponse.Values;
             return vm;
         }
 

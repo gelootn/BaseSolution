@@ -87,6 +87,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>UserBoResource.resx</DependentUpon>
     </Compile>
+    <Compile Include="Resources\Shared\SystemLanguageBoResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SystemLanguageBoResource.resx</DependentUpon>
+    </Compile>
     <Compile Include="Validators\Security\AccountBoValidator.cs" />
     <Compile Include="Validators\Security\PasswordValidator.cs" />
     <Compile Include="Validators\Security\RoleBoValidator.cs" />
@@ -129,6 +134,10 @@
     <EmbeddedResource Include="Resources\Security\UserBoResource.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>UserBoResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Shared\SystemLanguageBoResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>SystemLanguageBoResource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

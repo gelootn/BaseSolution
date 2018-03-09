@@ -14,6 +14,7 @@ namespace BaselineSolution.Service.Translators.Internal
             user.Id = model.Id;
             user.UserName = model.Username;
             user.Email = model.Email;
+            user.DefaultCulture = model.DefaultCulture;
             user.Account = model.Account.ToAccountSecurity();
             if (model.Roles.Any())
             {

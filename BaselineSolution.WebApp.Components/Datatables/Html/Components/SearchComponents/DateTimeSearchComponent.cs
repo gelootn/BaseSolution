@@ -15,6 +15,7 @@ namespace BaselineSolution.WebApp.Components.Datatables.Html.Components.SearchCo
                         .Append(HtmlTags.I.Class("icon-search")))
                     .Append(HtmlTags.Input.DateTime
                         .Class("datatable-column-filter")
+                        .Class("form-control")
                         .Name(column.Name.Replace(" ", "."))
                         .Attribute("placeholder", column.Header)
                         .Render(TagRenderMode.SelfClosing)));

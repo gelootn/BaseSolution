@@ -115,11 +115,19 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\css\select2.css" />
-    <Content Include="Content\css\select2.min.css" />
     <Content Include="Content\Datatables\datatables.min.css" />
+    <Content Include="Content\Datatables\sort_asc.png" />
+    <Content Include="Content\Datatables\sort_asc_disabled.png" />
+    <Content Include="Content\Datatables\sort_both.png" />
+    <Content Include="Content\Datatables\sort_desc.png" />
+    <Content Include="Content\Datatables\sort_desc_disabled.png" />
+    <Content Include="Content\Datepicker\bootstrap-datepicker.min.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\Select2\select2-spinner.gif" />
+    <Content Include="Content\Select2\select2.css" />
+    <Content Include="Content\Select2\select2.png" />
+    <Content Include="Content\Select2\select2x2.png" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -162,13 +170,19 @@
     <Content Include="Areas\Security\Views\User\_List.cshtml" />
     <Content Include="Areas\Security\Views\User\_Delete.cshtml" />
     <Content Include="Areas\Security\Views\User\ResetPassword.cshtml" />
+    <Content Include="Areas\Setup\Views\web.config" />
+    <Content Include="Areas\Setup\Views\SystemLanguage\Index.cshtml" />
+    <Content Include="Areas\Setup\Views\SystemLanguage\_List.cshtml" />
+    <Content Include="Areas\Setup\Views\SystemLanguage\Edit.cshtml" />
+    <Content Include="Areas\Setup\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Setup\Views\SystemLanguage\_Delete.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\Datepicker\bootstrap-datepicker.min.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
-    <Content Include="Scripts\select2.js" />
-    <Content Include="Scripts\select2.min.js" />
+    <Content Include="Scripts\Select2\select2.min.js" />
     <Content Include="Scripts\Shared\Conventions.js" />
     <Content Include="Scripts\Shared\Defaults.js" />
     <Content Include="Scripts\Shared\Functions.js" />
@@ -200,6 +214,10 @@
     <Compile Include="Areas\Security\ViewModels\User\DeleteViewModel.cs" />
     <Compile Include="Areas\Security\ViewModels\User\EditViewModel.cs" />
     <Compile Include="Areas\Security\ViewModels\User\ResetPasswordViewModel.cs" />
+    <Compile Include="Areas\Setup\Controllers\SystemLanguageController.cs" />
+    <Compile Include="Areas\Setup\SetupAreaRegistration.cs" />
+    <Compile Include="Areas\Setup\ViewModels\SystemLanguage\DeleteViewModel.cs" />
+    <Compile Include="Areas\Setup\ViewModels\SystemLanguage\EditViewModel.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -214,6 +232,7 @@
     <Compile Include="Infrastructure\Utilities\RouteUtil.cs" />
     <Compile Include="Infrastructure\Utilities\RouteInfo.cs" />
     <Compile Include="Infrastructure\Utilities\RouteKey.cs" />
+    <Compile Include="Infrastructure\Utilities\TempDataEnum.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -236,6 +255,8 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Home\Views\Shared\" />
     <Folder Include="Areas\Security\Views\Shared\" />
+    <Folder Include="Areas\Setup\Models\" />
+    <Folder Include="Areas\Setup\Views\Shared\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

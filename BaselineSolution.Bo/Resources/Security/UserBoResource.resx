@@ -120,6 +120,9 @@
   <data name="AccountId" xml:space="preserve">
     <value>Account</value>
   </data>
+  <data name="DefaultLanguage" xml:space="preserve">
+    <value>Language</value>
+  </data>
   <data name="Email" xml:space="preserve">
     <value>Email</value>
   </data>
@@ -143,6 +146,9 @@
   </data>
   <data name="PasswordReset" xml:space="preserve">
     <value>The password was reset</value>
+  </data>
+  <data name="Roles" xml:space="preserve">
+    <value>Roles</value>
   </data>
   <data name="UserName" xml:space="preserve">
     <value>Username</value>

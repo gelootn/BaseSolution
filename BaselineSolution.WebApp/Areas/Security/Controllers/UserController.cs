@@ -5,7 +5,6 @@ using BaselineSolution.Facade.Security;
 using BaselineSolution.Facade.Shared;
 using BaselineSolution.Framework.Extensions;
 using BaselineSolution.Framework.Infrastructure.Filtering;
-using BaselineSolution.Framework.Infrastructure.Sorting;
 using BaselineSolution.WebApp.Areas.Security.ViewModels.User;
 using BaselineSolution.WebApp.Components.Datatables.Remote;
 using BaselineSolution.WebApp.Components.Datatables.Remote.Processors;
@@ -37,6 +36,8 @@ namespace BaselineSolution.WebApp.Areas.Security.Controllers
         {
             var datatable = DatatableStorage.Get<UserBo>(request.DatatableId, () => RazorViews.RenderToString(this, "_List"));
             var baseFilter = EntityFilter<UserBo>.AsQueryable();
+            if (!User.IsAdministrator)
+                baseFilter = baseFilter.Where(x => x.AccountId == User.MainAccount.Id);
 
             var processor = new ServiceDatatableProcessor<UserBo>(_service.UserService, baseFilter);
             var replier = new DatatableReplier<UserBo>(datatable, processor);
@@ -139,13 +140,10 @@ namespace BaselineSolution.WebApp.Areas.Security.Controllers
             var roleRespone = _service.GetAllowedRoles(User.Id);
             if (roleRespone.IsSuccess)
                 vm.Roles = roleRespone.Values.ToMultiSelectList(x => x.Id, x => x.Name);
-            var accountResponse = _service.AccountService.List(EntityFilter<AccountBo>.AsQueryable(),
-                EntitySorter<AccountBo>.OrderBy(x => x.Name), 0, 1000);
+            var accountResponse = _service.AccountService.List(EntityFilter<AccountBo>.AsQueryable());
             if (accountResponse.IsSuccess)
                 vm.Accounts = accountResponse.Values;
-            var languageResponse = _sharedService.SystemLanguageService.List(
-                EntityFilter<SystemLanguageBo>.AsQueryable(), EntitySorter<SystemLanguageBo>.OrderBy(x => x.Culture), 0,
-                1000);
+            var languageResponse = _sharedService.SystemLanguageService.List(EntityFilter<SystemLanguageBo>.AsQueryable());
             if (languageResponse.IsSuccess)
                 vm.Languages = languageResponse.Values;
 

@@ -17,6 +17,7 @@ namespace BaselineSolution.Service.Translators.Security
             bo.Id = model.Id;
             bo.Name = model.Name;
             bo.Description = model.Description;
+            bo.ParentId = model.ParentId;
             if (model.ParentId.HasValue)
                 bo.Parent = new DisplayObject(model.Parent.Id, model.Parent.Name);
 

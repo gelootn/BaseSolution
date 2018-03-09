@@ -1,0 +1,24 @@
+﻿@using BaselineSolution.Bo.Models.Shared
+@using BaselineSolution.Bo.Resources.Shared
+@using BaselineSolution.WebApp.Components.Datatables.Html.HtmlHelpers
+@using BaselineSolution.WebApp.Components.HtmlHelpers.Links
+
+@(
+    Html.Datatable<SystemLanguageBo>(Url.Action("List","SystemLanguage"))
+        .Column(SystemLanguageBoResource.Culture_text, x=> x.Culture)
+        .Column(SystemLanguageBoResource.Label, x=> x.Label)
+        .Column("")
+        .Display(x=> Actions(x))
+        .Build()
+        .ToHtml()
+              
+      )
+
+
+@helper Actions(SystemLanguageBo bo)
+{
+    <div class="pull-right">
+        @Html.Link("Edit", "SystemLanguage", new { Id = bo.Id }).ToHtml(WebApp.Form_Edit, "fa fa-edit", new { @class = "btn btn-sm btn-info" })
+        @Html.Link("Delete", "SystemLanguage", new { Id = bo.Id }).ToHtml(WebApp.Form_Delete, "fa fa-times", new { @class = "btn btn-sm btn-danger enable-modal" })
+    </div>
+}

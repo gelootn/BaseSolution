@@ -13,9 +13,10 @@
     <div class="col-sm-12">
         <form method="post">
             @Html.HiddenFor(x=> x.RoleBo.Id)
+            @Html.FormElementFor(x=> x.RoleBo.ParentId, Html.SelectFor(x=> x.RoleBo.ParentId, Model.AllowedRoles).Options(x=> x.Id, x => x.Name))
             @Html.FormElementFor(x=> x.RoleBo.Name)
             
-            @Html.SubmitAndCancel(WebApp.Form_Save, WebApp.Form_Cancel, Url.Action("Index", "Right"))
+            @Html.SubmitAndCancel(WebApp.Form_Save, WebApp.Form_Cancel, Url.Action("Index", "Role"))
         </form>
     </div>
 </div>

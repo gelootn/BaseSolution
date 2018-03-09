@@ -44,20 +44,14 @@ namespace BaselineSolution.WebApp.Areas.Home.Controllers
             }
             else
             {
-                response.Messages.ForEach(x =>
-                {
-                    ModelState.AddModelError("", x.MessageText);
-                });
+                SetMessage(response);
                 return View(model);
             }
 
             var languagesResponse = _securityService.GetLanguages();
             if (!languagesResponse.IsSuccess)
             {
-                languagesResponse.Messages.ForEach(x =>
-                {
-                    ModelState.AddModelError("", x.MessageText);
-                });
+                SetMessage(languagesResponse);
                 return View(model);
             }
 

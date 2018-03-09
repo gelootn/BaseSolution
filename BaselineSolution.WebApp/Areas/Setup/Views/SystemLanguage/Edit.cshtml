@@ -1,0 +1,22 @@
+﻿@using BaselineSolution.WebApp.Components.HtmlHelpers.Forms
+@model BaselineSolution.WebApp.Areas.Setup.ViewModels.SystemLanguage.EditViewModel
+
+<div class="row">
+    <div class="col-sm-12">
+        <h1>
+            @WebApp.Title_SystemLanguage
+        </h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <form method="post">
+            @Html.HiddenFor(x=> x.SystemLanguage.Id)
+            @Html.FormElementFor(x=> x.SystemLanguage.Label)
+            @Html.FormElementFor(x=> x.SystemLanguage.Culture, Html.SelectFor(x => x.SystemLanguage.Culture).ToHtml(Url.Action("Cultures")))
+            
+            @Html.SubmitAndCancel(WebApp.Form_Save, WebApp.Form_Cancel, Url.Action("Index", "SystemLanguage"))
+        </form>
+    </div>
+</div>

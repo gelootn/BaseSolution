@@ -1,6 +1,5 @@
 ﻿@using BaselineSolution.WebApp.Components.HtmlHelpers.Forms
-@using BaselineSolution.WebApp.Components.HtmlHelpers.Links
-@using BaselineSolution.WebApp.Resources
+@using BaselineSolution.WebApp.Components.Models.SelectLists
 @model BaselineSolution.WebApp.Areas.Security.ViewModels.Account.EditViewModel
 
 
@@ -8,15 +7,6 @@
 <div class="row">
     <div class="col-sm-12">
         <h1>
-            @if (Model.AccountBo.IsNew)
-            {
-                @WebApp.Form_Add
-            }
-            else
-            {
-                @WebApp.Form_Edit
-            }
-
             @WebApp.Title_Account
         </h1>
     </div>
@@ -32,7 +22,7 @@
             @Html.FormElementFor(x => x.AccountBo.Description)
 
             @Html.FormElementFor(x => x.AccountBo.ParentId,
-            Html.SelectFor(x => x.AccountBo.ParentId, Model.ParentAccounts).Options(x => x.Id, x => x.Display))
+            Html.SelectFor(x => x.AccountBo.ParentId, Model.ParentAccounts, new LocalSelectOptions{Placeholder = WebApp.Select}).Options(x => x.Id, x => x.Display))
 
             @Html.SubmitAndCancel(WebApp.Form_Save, WebApp.Form_Cancel, Url.Action("Index", "Account"))
         </form>

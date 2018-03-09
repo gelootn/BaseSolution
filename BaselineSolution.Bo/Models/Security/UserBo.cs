@@ -51,6 +51,9 @@ namespace BaselineSolution.Bo.Models.Security
         [Display(ResourceType = typeof(UserBoResource), Name = "Email")]
         public virtual string Email { get; set; }
 
+        [Display(ResourceType = typeof(UserBoResource), Name = "DefaultLanguage")]
+        public virtual string DefaultLanguage { get; set; }
+
         /// <summary>
         ///     Gets or sets the login count.
         /// </summary>
@@ -83,6 +86,7 @@ namespace BaselineSolution.Bo.Models.Security
             set { _roles = new List<RoleBo>(value); }
         }
 
+        [Display(ResourceType = typeof(UserBoResource), Name = "Roles")]
         public int[] RoleIds { get; set; }
     }
 

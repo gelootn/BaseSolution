@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Threading;
@@ -7,8 +8,10 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using BaselineSolution.Framework.Infrastructure.Attributes;
 using BaselineSolution.Framework.Response;
+using BaselineSolution.Framework.Utilities;
 using BaselineSolution.WebApp.Components.Models.Authentication;
 using BaselineSolution.WebApp.Infrastructure.Constants;
+using BaselineSolution.WebApp.Infrastructure.Utilities;
 
 namespace BaselineSolution.WebApp.Infrastructure.Bases
 {
@@ -149,10 +152,10 @@ namespace BaselineSolution.WebApp.Infrastructure.Bases
             {
                 var accountCultures = User.CurrentAccount.AccountCultures.ToArray();
 
-                /*              
-                 *              EnvironmentInfo.Current.ActiveCultures = accountCultures.Select(a => a.Culture);
-                                EnvironmentInfo.Current.Culture = User.DefaultCulture;
-                                */
+
+                EnvironmentInfo.Current.ActiveCultures = accountCultures.Select(a => a.Culture);
+                EnvironmentInfo.Current.Culture = User.DefaultCulture;
+
                 Thread.CurrentThread.CurrentUICulture = new CultureInfo(User.DefaultCulture ?? "nl-BE");
 
             }
@@ -207,7 +210,7 @@ namespace BaselineSolution.WebApp.Infrastructure.Bases
         [StringFormatMethod("message")]
         protected void Success(string message, params object[] parameters)
         {
-            TempData["Success"] = string.Format(message, parameters);
+            SetTempData(TempDataEnum.Success, string.Format(message, parameters));
         }
 
         /// <summary>
@@ -218,7 +221,7 @@ namespace BaselineSolution.WebApp.Infrastructure.Bases
         [StringFormatMethod("message")]
         protected void Warning(string message, params object[] parameters)
         {
-            TempData["Warning"] = string.Format(message, parameters);
+            SetTempData(TempDataEnum.Warning, string.Format(message, parameters));
         }
 
         /// <summary>
@@ -229,7 +232,7 @@ namespace BaselineSolution.WebApp.Infrastructure.Bases
         [StringFormatMethod("message")]
         protected void Error(string message, params object[] parameters)
         {
-            TempData["Error"] = string.Format(message, parameters);
+            SetTempData(TempDataEnum.Error, string.Format(message, parameters));
         }
 
         /// <summary>
@@ -240,27 +243,40 @@ namespace BaselineSolution.WebApp.Infrastructure.Bases
         [StringFormatMethod("message")]
         protected void Info(string message, params object[] parameters)
         {
-            TempData["Info"] = string.Format(message, parameters);
+            SetTempData(TempDataEnum.Info, string.Format(message, parameters));
         }
 
         protected void SetMessage<T>(Response<T> response)
         {
-            var errorMessages = response.Messages.Where(x=> x.Type == MessageType.Error).Select(x=> x.MessageText).ToList();
-            var warningMessages = response.Messages.Where(x=> x.Type == MessageType.Warning).Select(x=> x.MessageText).ToList();
-            var validationMessages = response.Messages.Where(x=> x.Type == MessageType.Validation).Select(x=> x.MessageText).ToList();
-            var successMessages = response.Messages.Where(x=> x.Type == MessageType.Success).Select(x=> x.MessageText).ToList();
+            var errorMessages = response.Messages.Where(x => x.Type == MessageType.Error).Select(x => x.MessageText).ToList();
+            var warningMessages = response.Messages.Where(x => x.Type == MessageType.Warning).Select(x => x.MessageText).ToList();
+            var validationMessages = response.Messages.Where(x => x.Type == MessageType.Validation).Select(x => x.MessageText).ToList();
+            var successMessages = response.Messages.Where(x => x.Type == MessageType.Success).Select(x => x.MessageText).ToList();
 
             if (errorMessages.Any())
-                Error(string.Join(", ", errorMessages));
+                SetTempData(TempDataEnum.Error, errorMessages);
 
-            if(warningMessages.Any())
-                Warning(string.Join(", ", warningMessages));
+            if (warningMessages.Any())
+                SetTempData(TempDataEnum.Warning, warningMessages);
 
-            if(validationMessages.Any())
-                Info(string.Join(", ", validationMessages));
+            if (validationMessages.Any())
+                SetTempData(TempDataEnum.Info, validationMessages);
 
-            if(successMessages.Any())
-                Success(string.Join(", ", successMessages));
+            if (successMessages.Any())
+                SetTempData(TempDataEnum.Success, successMessages);
+        }
+
+        private void SetTempData(TempDataEnum type, string message)
+        {
+            if (TempData[type.ToString()] == null)
+                TempData[type.ToString()] = message;
+            else
+                TempData[type.ToString()] += "<br/>" + message;
+        }
+
+        private void SetTempData(TempDataEnum type, List<string> messages)
+        {
+            messages.ForEach(x => SetTempData(type, x));
         }
 
         #endregion
