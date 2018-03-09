@@ -79,15 +79,6 @@ namespace BaselineSolution.WebApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to You can not delete your own users.....
-        /// </summary>
-        public static string CannotDeleteSelf {
-            get {
-                return ResourceManager.GetString("CannotDeleteSelf", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Are you sure you want to delete this item?.
         /// </summary>
         public static string DeleteConfirmation {
@@ -268,15 +259,6 @@ namespace BaselineSolution.WebApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to You are not authorized to view this page.
-        /// </summary>
-        public static string NotAuthorized {
-            get {
-                return ResourceManager.GetString("NotAuthorized", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Not set.
         /// </summary>
         public static string NotSet {
@@ -318,96 +300,6 @@ namespace BaselineSolution.WebApp.Resources {
         public static string Select {
             get {
                 return ResourceManager.GetString("Select", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Account / Customer.
-        /// </summary>
-        public static string Title_Account {
-            get {
-                return ResourceManager.GetString("Title_Account", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Accounts / Customers.
-        /// </summary>
-        public static string Title_Accounts {
-            get {
-                return ResourceManager.GetString("Title_Accounts", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Rights.
-        /// </summary>
-        public static string Title_Rights {
-            get {
-                return ResourceManager.GetString("Title_Rights", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        public static string Title_Role {
-            get {
-                return ResourceManager.GetString("Title_Role", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Roles.
-        /// </summary>
-        public static string Title_Roles {
-            get {
-                return ResourceManager.GetString("Title_Roles", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to System Language.
-        /// </summary>
-        public static string Title_SystemLanguage {
-            get {
-                return ResourceManager.GetString("Title_SystemLanguage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to System Languages.
-        /// </summary>
-        public static string Title_SystemLanguages {
-            get {
-                return ResourceManager.GetString("Title_SystemLanguages", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to User.
-        /// </summary>
-        public static string Title_User {
-            get {
-                return ResourceManager.GetString("Title_User", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Users.
-        /// </summary>
-        public static string Title_Users {
-            get {
-                return ResourceManager.GetString("Title_Users", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The user is already in the system.
-        /// </summary>
-        public static string UserExists {
-            get {
-                return ResourceManager.GetString("UserExists", resourceCulture);
             }
         }
         

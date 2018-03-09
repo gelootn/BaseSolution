@@ -64,7 +64,7 @@ namespace BaselineSolution.WebApp.Areas.Security.Controllers
 
             var existingUserResponse = _service.IsUsernameTaken(bo.Name, bo.Id);
             if (existingUserResponse.IsSuccess && !existingUserResponse.GetValue())
-                ModelState.AddModelError("Username", Resources.WebApp.UserExists);
+                ModelState.AddModelError("Username", Resources.SecurityResource.UserExists);
 
             if (!ModelState.IsValid)
                 return View(CreateEditViewModel(bo));
@@ -92,7 +92,7 @@ namespace BaselineSolution.WebApp.Areas.Security.Controllers
         {
             if (id == User.Id)
             {
-                Error(Resources.WebApp.CannotDeleteSelf);
+                Error(Resources.SecurityResource.CannotDeleteSelf);
                 return RedirectToAction("Index", "User");
             }
 

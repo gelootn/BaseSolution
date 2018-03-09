@@ -14,13 +14,13 @@
     <div class="col-sm-6">
         <div class="card">
             <div class="card-header bg-dark text-light">
-                <h5>Security</h5>
+                <h5>@SecurityResource.Module_Title</h5>
             </div>
             <ul class="list-group list-group-flush">
-                @Html.Link("index", "Account", new { Area = "Security" }).SurroundedBy("li", new { @class="list-group-item"}).ToHtml("Account Mgnt")
-                @Html.Link("index", "Right", new { Area = "Security" }).SurroundedBy("li", new { @class = "list-group-item" }).ToHtml("Right Mgnt")
-                @Html.Link("index", "Role", new { Area = "Security" }).SurroundedBy("li", new { @class = "list-group-item" }).ToHtml("Role Mgnt")
-                @Html.Link("index", "User", new { Area = "Security" }).SurroundedBy("li", new { @class = "list-group-item" }).ToHtml("User Mgnt")
+                @Html.Link("index", "Account", new { Area = "Security" }).SurroundedBy("li", new { @class="list-group-item"}).ToHtml(SecurityResource.Title_Accounts)
+                @Html.Link("index", "Right", new { Area = "Security" }).SurroundedBy("li", new { @class = "list-group-item" }).ToHtml(SecurityResource.Title_Rights)
+                @Html.Link("index", "Role", new { Area = "Security" }).SurroundedBy("li", new { @class = "list-group-item" }).ToHtml(SecurityResource.Title_Roles)
+                @Html.Link("index", "User", new { Area = "Security" }).SurroundedBy("li", new { @class = "list-group-item" }).ToHtml(SecurityResource.Title_Users)
 
             </ul>
         </div>
@@ -29,10 +29,10 @@
     <div class="col-sm-6">
         <div class="card">
             <div class="card-header bg-dark text-light">
-                <h5>Setup</h5>
+                <h5>@SetupResource.Module_Title</h5>
             </div>
             <ul  class="list-group list-group-flush">
-                @Html.Link("Index", "SystemLanguage", new {Area = "Setup"}).SurroundedBy("li", new { @class = "list-group-item"}).ToHtml("System languages")
+                @Html.Link("Index", "SystemLanguage", new {Area = "Setup"}).SurroundedBy("li", new { @class = "list-group-item"}).ToHtml(SetupResource.Title_SystemLanguages)
             </ul>
         </div>
         

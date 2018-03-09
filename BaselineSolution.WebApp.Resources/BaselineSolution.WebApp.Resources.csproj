@@ -46,6 +46,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>RightKeysResource.resx</DependentUpon>
     </Compile>
+    <Compile Include="SecurityResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SecurityResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SetupResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SetupResource.resx</DependentUpon>
+    </Compile>
     <Compile Include="WebApp.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -56,6 +66,14 @@
     <EmbeddedResource Include="RightKeysResource.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>RightKeysResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecurityResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>SecurityResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SetupResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>SetupResource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="WebApp.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

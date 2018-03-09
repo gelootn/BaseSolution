@@ -1,10 +1,10 @@
 ﻿@using BaselineSolution.WebApp.Components.HtmlHelpers.Links
-@using BaselineSolution.WebApp.Resources
+
 
 
 <div class="row">
     <div class="col-sm-12">
-        <h1>@WebApp.Title_Accounts @Html.Link("Edit", "Account").ToHtml(WebApp.Form_Add,"fa fa-plus", new {@class = "btn btn-sm btn-success"})</h1>
+        <h1>@SecurityResource.Title_Accounts @Html.Link("Edit", "Account").ToHtml(WebApp.Form_Add,"fa fa-plus", new {@class = "btn btn-sm btn-success"})</h1>
     </div>
 </div>
 

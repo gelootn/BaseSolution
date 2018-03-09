@@ -11,10 +11,10 @@
     </button>
     <div class="collapse navbar-collapse">
         <ul class="navbar-nav">
-            @Html.Link("Index", "Account").SurroundedBy("li", new {@class = "nav-item"}).ToHtml(WebApp.Title_Accounts, new { @class="nav-link"})
-            @Html.Link("Index", "Right").SurroundedBy("li", new {@class = "nav-item"}).ToHtml(WebApp.Title_Rights, new { @class = "nav-link" })
-            @Html.Link("Index", "Role").SurroundedBy("li", new {@class = "nav-item"}).ToHtml(WebApp.Title_Roles, new { @class = "nav-link" })
-            @Html.Link("Index", "User").SurroundedBy("li", new {@class = "nav-item"}).ToHtml(WebApp.Title_Users, new { @class = "nav-link" })
+            @Html.Link("Index", "Account").SurroundedBy("li", new {@class = "nav-item"}).ToHtml(SecurityResource.Title_Accounts, new { @class="nav-link"})
+            @Html.Link("Index", "Right").SurroundedBy("li", new {@class = "nav-item"}).ToHtml(SecurityResource.Title_Rights, new { @class = "nav-link" })
+            @Html.Link("Index", "Role").SurroundedBy("li", new {@class = "nav-item"}).ToHtml(SecurityResource.Title_Roles, new { @class = "nav-link" })
+            @Html.Link("Index", "User").SurroundedBy("li", new {@class = "nav-item"}).ToHtml(SecurityResource.Title_Users, new { @class = "nav-link" })
         </ul>
     </div>
 </nav>

@@ -16,7 +16,7 @@
 @helper Actions(RoleBo model)
     {
     <div class="pull-right">
-        @Html.Link("Rights", "Role", new {Id = model.Id}).ToHtml(WebApp.Title_Rights, "fa fa-lock", new {@class= "btn btn-sm btn-info" })
+        @Html.Link("Rights", "Role", new {Id = model.Id}).ToHtml(SecurityResource.Title_Rights, "fa fa-lock", new {@class= "btn btn-sm btn-info" })
         @Html.Link("Edit", "Role", new {Id = model.Id}).ToHtml(WebApp.Form_Edit, "fa fa-edit", new {@class = "btn btn-sm btn-info"})
         @Html.Link("Delete", "Role", new {Id = model.Id}).ToHtml(WebApp.Form_Delete, "fa fa-times", new {@class = "btn btn-sm btn-danger enable-modal"})
     </div>
