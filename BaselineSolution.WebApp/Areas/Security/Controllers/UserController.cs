@@ -12,6 +12,7 @@ using BaselineSolution.WebApp.Components.Datatables.Remote.Reply;
 using BaselineSolution.WebApp.Components.Datatables.Remote.Request;
 using BaselineSolution.WebApp.Components.Utilities;
 using BaselineSolution.WebApp.Infrastructure.Bases;
+using BaselineSolution.WebApp.Infrastructure.Extensions;
 
 namespace BaselineSolution.WebApp.Areas.Security.Controllers
 {
@@ -60,7 +61,7 @@ namespace BaselineSolution.WebApp.Areas.Security.Controllers
         public ActionResult Edit([Bind(Prefix = "User")]UserBo bo)
         {
             if (!bo.IsValid())
-                bo.ValidationMessages.ForEach(x => ModelState.AddModelError("", x));
+                bo.ValidationMessages.ForEach(x => { ModelState.AddResponseValidationError(x); });
 
             var existingUserResponse = _service.IsUsernameTaken(bo.Name, bo.Id);
             if (existingUserResponse.IsSuccess && !existingUserResponse.GetValue())

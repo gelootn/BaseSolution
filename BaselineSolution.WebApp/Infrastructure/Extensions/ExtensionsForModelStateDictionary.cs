@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Web.Mvc;
+using BaselineSolution.Bo.Internal;
+using BaselineSolution.Framework.Extensions;
 
 namespace BaselineSolution.WebApp.Infrastructure.Extensions
 {
@@ -13,6 +15,19 @@ namespace BaselineSolution.WebApp.Infrastructure.Extensions
             string errorMessage)
         {
             modelState.AddModelError(ExpressionHelper.GetExpressionText(property), errorMessage);
+        }
+
+        public static void AddResponseValidationError(this ModelStateDictionary modelState, ValidationMessage message)
+        {
+            if (message.FieldName.IsNullOrEmpty())
+            {
+                modelState.AddModelError("", message.Message);
+            }
+            else
+            {
+                var state = modelState.FirstOrDefault(x => x.Key.EndsWith(message.FieldName));
+                modelState.AddModelError(state.Key, message.Message);
+            }
         }
 
         public static List<string> GetErrorMessages(this ModelStateDictionary modelState)

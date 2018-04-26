@@ -93,6 +93,7 @@
     <Compile Include="Exporting\ExportColumn.cs" />
     <Compile Include="Exporting\IExportColumn.cs" />
     <Compile Include="Exporting\ExportBuilder.cs" />
+    <Compile Include="Extensions\ExtensionsForString.cs" />
     <Compile Include="Extensions\ExtensionsForIEnumerable.cs" />
     <Compile Include="Extensions\ExtensionsForRouteData.cs" />
     <Compile Include="Extensions\ExtensionsForITreeHierarchy.cs" />

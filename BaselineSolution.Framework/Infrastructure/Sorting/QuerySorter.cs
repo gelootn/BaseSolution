@@ -43,6 +43,12 @@ namespace BaselineSolution.Framework.Infrastructure.Sorting
             { repoSorter = GetRepoSorter<TBo, TEntity, string>(sorter); }
             else if (sortExprType == typeof(DateTime))
             { repoSorter = GetRepoSorter<TBo, TEntity, DateTime>(sorter); }
+            else if (sortExprType == typeof(DateTime?))
+            { repoSorter = GetRepoSorter<TBo, TEntity, DateTime?>(sorter); }
+            else if (sortExprType == typeof(bool))
+            { repoSorter = GetRepoSorter<TBo, TEntity, bool>(sorter); }
+            else if (sortExprType == typeof(bool?))
+            { repoSorter = GetRepoSorter<TBo, TEntity, bool?>(sorter); }
             else if (sortExprType == typeof(decimal))
             { repoSorter = GetRepoSorter<TBo, TEntity, decimal>(sorter); }
             else if(sortExprType == typeof(char))

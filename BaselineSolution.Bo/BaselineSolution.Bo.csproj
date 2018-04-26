@@ -39,8 +39,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Internal\BaseBo.cs" />
-    <Compile Include="Internal\BaseSorter.cs" />
-    <Compile Include="Internal\CollumnSorter.cs" />
+    <Compile Include="Internal\Extensions\ExtensionsForResponse.cs" />
+    <Compile Include="Internal\ValidationMessage.cs" />
     <Compile Include="Internal\DisplayObject.cs" />
     <Compile Include="Internal\Security\UserSecurityBo.cs" />
     <Compile Include="Internal\Security\RoleSecurityBo.cs" />

@@ -12,7 +12,7 @@ using BaselineSolution.Service.Translators.Internal;
 
 namespace BaselineSolution.Service.Infrastructure.Internal
 {
-    public class SecurityService : ISecurityService
+    public class SecurityService : BaseService, ISecurityService
     {
         private readonly ISecurityUnitOfWork _unitOfWork;
 
@@ -66,10 +66,10 @@ namespace BaselineSolution.Service.Infrastructure.Internal
                     return new Response<bool>(true);
                 }
                 user = null;
-                return new Response<bool>(false).AddValidationMessage(BoResources.PasswordsDoNotMatch);
+                return new Response<bool>(false).AddErrorMessage(BoResources.PasswordsDoNotMatch);
             }
             user = null;
-            return new Response<bool>(false).AddValidationMessage(BoResources.UserNotFound);
+            return new Response<bool>(false).AddErrorMessage(BoResources.UserNotFound);
         }
 
         Response<SystemLanguageBo> ISecurityService.GetLanguages()

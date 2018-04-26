@@ -63,7 +63,6 @@
     <Compile Include="Infrastructure\Internal\BaseService.cs" />
     <Compile Include="Infrastructure\Internal\GenericService.cs" />
     <Compile Include="Infrastructure\Internal\SecurityService.cs" />
-    <Compile Include="Infrastructure\Internal\Service.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security\SecurityMgntService.cs" />
     <Compile Include="Infrastructure\Extentions\ExtensionsForTranslator.cs" />

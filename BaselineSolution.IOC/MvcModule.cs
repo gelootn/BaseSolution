@@ -29,8 +29,8 @@ namespace BaselineSolution.IOC
             builder.RegisterGeneric(typeof(GenericRepository<>)).As(typeof(IGenericRepository<>)).InstancePerRequest();
             builder.RegisterGeneric(typeof(GenericService<,>)).As(typeof(IGenericService<>)).InstancePerRequest();
 
-            var dal = Assembly.GetAssembly(typeof(BaselineSolution.DAL.Repositories.GenericRepository<>));
-            var service = Assembly.GetAssembly(typeof(Service.Infrastructure.Internal.Service));
+            var dal = Assembly.GetAssembly(typeof(GenericRepository<>));
+            var service = Assembly.GetAssembly(typeof(BaseService));
 
             builder.RegisterType<GenericService<UserBo, User>>().As<IGenericService<UserBo>>();
             builder.RegisterType<GenericService<AccountBo, Account>>().As<IGenericService<AccountBo>>();

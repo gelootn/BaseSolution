@@ -78,9 +78,13 @@ namespace BaselineSolution.Framework.Exporting
             return report;
         }
 
-        public ReportResult ToExcelReportResult([CanBeNull] IEnumerable<KeyValuePair<string, string>> headers)
+        public ReportResult ToExcelReportResult([CanBeNull] IEnumerable<KeyValuePair<string, string>> headers,string fileName = "")
         {
-            return new ReportResult(ToReport(headers), new ExcelReportWriter(), "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+            var result = new ReportResult(ToReport(headers), new ExcelReportWriter(), "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+            if(!string.IsNullOrWhiteSpace(fileName))
+                result.FileName = fileName;
+
+            return result;
         }
     }
 }

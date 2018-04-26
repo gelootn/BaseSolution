@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using BaselineSolution.Framework.Response;
 
@@ -12,21 +13,18 @@ namespace BaselineSolution.Framework.Extensions
             return response;
         }
 
+        public static Response<T> AddErrorMessage<T>(this Response<T> response, Exception ex)
+        {
+            response.Messages.Add(new Message{ MessageText = ex.Message, Type = MessageType.Error});
+            if (ex.InnerException != null)
+                response.AddErrorMessage(ex.InnerException);
+
+            return response;
+        }
+
         public static Response<T> AddErrorMessage<T>(this Response<T> response, List<string> messages)
         {
             response.Messages.AddRange(messages.Select(x => new Message { MessageText = x, Type = MessageType.Error }));
-            return response;
-        }
-
-        public static Response<T> AddValidationMessage<T>(this Response<T> response, string message)
-        {
-            response.Messages.Add(new Message { MessageText = message, Type = MessageType.Validation });
-            return response;
-        }
-
-        public static Response<T> AddValidationMessage<T>(this Response<T> response, List<string> messages)
-        {
-            response.Messages.AddRange(messages.Select(x => new Message { MessageText = x, Type = MessageType.Validation }));
             return response;
         }
 

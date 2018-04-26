@@ -10,13 +10,13 @@ namespace BaselineSolution.Bo.Internal
     public abstract class BaseBo : IIdentifiable
     {
         protected IValidator Validator;
-        private List<string> _validationMessages;
+        private List<ValidationMessage> _validationMessages;
 
         public int Id { get; set; }
 
-        public List<string> ValidationMessages
+        public List<ValidationMessage> ValidationMessages
         {
-            get { return _validationMessages ?? (_validationMessages = new List<string>()); }
+            get { return _validationMessages ?? (_validationMessages = new List<ValidationMessage>()); }
             set { _validationMessages = value; }
         }
 
@@ -32,7 +32,12 @@ namespace BaselineSolution.Bo.Internal
             if (!result.IsValid)
             {
                 
-                ValidationMessages.AddRange(result.Errors.Select(x => $"{x.ErrorMessage}"));
+                ValidationMessages.AddRange(result.Errors.Select(x => new ValidationMessage
+                {
+                    FieldName = x.PropertyName,
+                    Message = x.ErrorMessage,
+                    AttemptedValue = $"{x.AttemptedValue}"
+                }));
             }
 
             return result.IsValid;

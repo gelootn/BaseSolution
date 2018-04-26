@@ -19,6 +19,8 @@ namespace BaselineSolution.Framework.Response
 
         public MessageType Type { get; set; }
 
+        public string FieldName { get; set; }
+
         public override string ToString()
         {
             return $"Property \t Message \t {MessageText}";
