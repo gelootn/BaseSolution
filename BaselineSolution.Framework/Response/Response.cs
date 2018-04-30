@@ -9,31 +9,26 @@ namespace BaselineSolution.Framework.Response
     /// <summary>
     /// Messages is initiated in the constructor (so never null)
     /// </summary>
-    public class Response<T>
+    public class Response<T> : BaseResponse<T>
     {
-        private List<Message> _messages;
-        private List<T> _values;
+
 
         public Response()
         {
-            
+
         }
 
-        public Response(T value)
-        {   
-            Values.Add(value);
-        }
-
-        public Response(ICollection<T> values)
+        public Response(T value) : base(value)
         {
-            Values.AddRange(values);
+
         }
 
-        public List<T> Values
+        public Response(ICollection<T> values) : base(values)
         {
-            get { return _values ?? (_values = new List<T>()); }
-            set { _values = value; }
+
         }
+
+
 
         public bool HasValue => Values.Count != 0;
 
@@ -57,11 +52,7 @@ namespace BaselineSolution.Framework.Response
             get { return Messages.Any(c => c.Type == MessageType.Warning); }
         }
 
-        public List<Message> Messages
-        {
-            get { return _messages ?? (_messages = new List<Message>()); }
-            set { _messages = value; }
-        }
+
 
         public override string ToString()
         {

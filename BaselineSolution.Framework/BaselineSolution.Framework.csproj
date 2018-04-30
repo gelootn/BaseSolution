@@ -93,6 +93,7 @@
     <Compile Include="Exporting\ExportColumn.cs" />
     <Compile Include="Exporting\IExportColumn.cs" />
     <Compile Include="Exporting\ExportBuilder.cs" />
+    <Compile Include="Extensions\ExtensionsForBaseResponse.cs" />
     <Compile Include="Extensions\ExtensionsForString.cs" />
     <Compile Include="Extensions\ExtensionsForIEnumerable.cs" />
     <Compile Include="Extensions\ExtensionsForRouteData.cs" />
@@ -132,6 +133,8 @@
     <Compile Include="Infrastructure\Sorting\SortDirection.cs" />
     <Compile Include="Infrastructure\Sorting\ThenByEntitySorter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Response\BaseResponse.cs" />
+    <Compile Include="Response\ApiResponse.cs" />
     <Compile Include="Response\Message.cs" />
     <Compile Include="Response\MessageType.cs" />
     <Compile Include="Response\Response.cs" />

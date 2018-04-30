@@ -9,22 +9,19 @@ namespace BaselineSolution.Framework.Extensions
     {
         public static Response<T> AddErrorMessage<T>(this Response<T> response, string message)
         {
-            response.Messages.Add(new Message{ MessageText = message, Type = MessageType.Error});
-            return response;
-        }
-
-        public static Response<T> AddErrorMessage<T>(this Response<T> response, Exception ex)
-        {
-            response.Messages.Add(new Message{ MessageText = ex.Message, Type = MessageType.Error});
-            if (ex.InnerException != null)
-                response.AddErrorMessage(ex.InnerException);
-
+            response.Error(message);
             return response;
         }
 
         public static Response<T> AddErrorMessage<T>(this Response<T> response, List<string> messages)
         {
-            response.Messages.AddRange(messages.Select(x => new Message { MessageText = x, Type = MessageType.Error }));
+            response.Error(messages);
+            return response;
+        }
+
+        public static Response<T> AddErrorMessage<T>(this Response<T> response, Exception ex)
+        {
+            response.Error(ex);
             return response;
         }
 
@@ -35,25 +32,25 @@ namespace BaselineSolution.Framework.Extensions
 
         public static Response<T> AddMessage<T>(this Response<T> response, string message)
         {
-            response.Messages.Add(new Message { MessageText = message, Type = MessageType.None });
+            response.Message(message);
             return response;
         }
 
         public static Response<T> AddMessage<T>(this Response<T> response, List<string> messages)
         {
-            response.Messages.AddRange(messages.Select(x => new Message { MessageText = x, Type = MessageType.None }));
+            response.Message(messages);
             return response;
         }
 
         public static Response<T> AddSuccessMessage<T>(this Response<T> response, string message)
         {
-            response.Messages.Add(new Message { MessageText = message, Type = MessageType.Success });
+            response.Success(message);
             return response;
         }
 
         public static Response<T> AddSuccessMessage<T>(this Response<T> response, List<string> messages)
         {
-            response.Messages.AddRange(messages.Select(x => new Message { MessageText = x, Type = MessageType.Success }));
+            response.Success(messages);
             return response;
         }
     }
