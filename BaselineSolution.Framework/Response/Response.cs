@@ -32,12 +32,15 @@ namespace BaselineSolution.Framework.Response
 
         public bool HasValue => Values.Count != 0;
 
-        public T GetValue()
+        public T Value
         {
-            if (Values != null && Values.Count == 1)
-                return Values.First();
-            else
+            get
+            {
+                if (Values != null && Values.Count == 1)
+                    return Values.First();
                 return default(T);
+            }
+
         }
 
         public bool IsSuccess

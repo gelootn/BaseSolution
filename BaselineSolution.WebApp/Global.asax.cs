@@ -1,4 +1,5 @@
 ﻿using System.Web;
+using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Routing;
 using BaselineSolution.WebApp.Components.Models.Authentication;
@@ -10,7 +11,8 @@ namespace BaselineSolution.WebApp
     {
         protected void Application_Start()
         {
-            AutoFacConfig.ConfigureContainer();
+            GlobalConfiguration.Configure(WebApiConfig.Register);
+            AutoFacConfig.ConfigureContainer(GlobalConfiguration.Configuration);
             
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);

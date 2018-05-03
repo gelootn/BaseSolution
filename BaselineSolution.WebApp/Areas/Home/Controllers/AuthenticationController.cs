@@ -35,7 +35,7 @@ namespace BaselineSolution.WebApp.Areas.Home.Controllers
             var response = _securityService.Login(model.UserName, model.Password, out bo);
             if (response.IsSuccess)
             {
-                if (!response.GetValue())
+                if (!response.Value)
                 {
                     ModelState.AddModelErrorFor((LoginViewModel x) => x.Password,
                         Resources.WebApp.NoMatchingUsernameAndPassword);

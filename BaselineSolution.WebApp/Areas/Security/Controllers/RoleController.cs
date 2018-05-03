@@ -46,7 +46,7 @@ namespace BaselineSolution.WebApp.Areas.Security.Controllers
             {
                 var response = _service.RoleService.GetById(id.Value);
                 if (response.IsSuccess)
-                    bo = response.GetValue();
+                    bo = response.Value;
             }
             return View(CreateEditViewModel(bo));
         }
@@ -68,7 +68,7 @@ namespace BaselineSolution.WebApp.Areas.Security.Controllers
             if (response.IsSuccess)
             {
                 var vm = new DeleteViewModel();
-                vm.RoleBo = response.GetValue();
+                vm.RoleBo = response.Value;
                 return PartialView("_Delete", vm);
             }
 
@@ -96,8 +96,8 @@ namespace BaselineSolution.WebApp.Areas.Security.Controllers
             var allowedRights = _service.GetRestrictedRights(User.Id);
             var vm = new RoleRightsViewModel();
 
-            vm.RoleBo = role.GetValue();
-            vm.User = user.GetValue();
+            vm.RoleBo = role.Value;
+            vm.User = user.Value;
             vm.AllowedRights = allowedRights.Values;
 
             return View(vm);
@@ -109,7 +109,7 @@ namespace BaselineSolution.WebApp.Areas.Security.Controllers
             var roleResponse = _service.GetFullRole(roleId);
             if (roleResponse.IsSuccess)
             {
-                var role = roleResponse.GetValue();
+                var role = roleResponse.Value;
                 var roleRight = role.RoleRights.SingleOrDefault(x => x.RightId == rightId);
                 if (roleRight != null)
                 {

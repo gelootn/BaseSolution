@@ -10,6 +10,7 @@ using BaselineSolution.Framework.Infrastructure.Attributes;
 using BaselineSolution.Framework.Infrastructure.Contracts;
 using BaselineSolution.Framework.Infrastructure.Filtering;
 using BaselineSolution.Framework.Infrastructure.Sorting;
+using BaselineSolution.Framework.Logging;
 using BaselineSolution.Framework.Response;
 using BaselineSolution.Service.Infrastructure.Extentions;
 using BaselineSolution.Service.Translators.Internal;
@@ -24,7 +25,7 @@ namespace BaselineSolution.Service.Infrastructure.Internal
         private readonly IGenericRepository<TEntity> _repository;
         private readonly ITranslator<TBo, TEntity> _translator;
 
-        public GenericService(IGenericRepository<TEntity> repository, ITranslator<TBo, TEntity> translator)
+        public GenericService(IGenericRepository<TEntity> repository, ITranslator<TBo, TEntity> translator, ILogging log) : base(log)
         {
             _repository = repository;
             _translator = translator;

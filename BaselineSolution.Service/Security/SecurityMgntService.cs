@@ -9,6 +9,7 @@ using BaselineSolution.DAL.UnitOfWork.Interfaces.Security;
 using BaselineSolution.Facade.Internal;
 using BaselineSolution.Facade.Security;
 using BaselineSolution.Framework.Extensions;
+using BaselineSolution.Framework.Logging;
 using BaselineSolution.Framework.Response;
 using BaselineSolution.Service.Infrastructure.Extentions;
 using BaselineSolution.Service.Infrastructure.Internal;
@@ -24,7 +25,13 @@ namespace BaselineSolution.Service.Security
         private readonly IGenericService<AccountBo> _accountService;
         private readonly IGenericService<RightBo> _rightService;
 
-        public SecurityMgntService(ISecurityUnitOfWork unitOfWork, IGenericService<UserBo> userService, IGenericService<RoleBo> roleService, IGenericService<AccountBo> accountService, IGenericService<RightBo> rightService)
+        public SecurityMgntService(
+            ILogging log,
+            ISecurityUnitOfWork unitOfWork, 
+            IGenericService<UserBo> userService, 
+            IGenericService<RoleBo> roleService, 
+            IGenericService<AccountBo> accountService, 
+            IGenericService<RightBo> rightService) : base(log)
         {
             _unitOfWork = unitOfWork;
             _userService = userService;

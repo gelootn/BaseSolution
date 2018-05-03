@@ -47,7 +47,7 @@ namespace BaselineSolution.WebApp.Areas.Setup.Controllers
             {
                 var response = _service.SystemLanguageService.GetById(id.Value);
                 if (response.IsSuccess)
-                    bo = response.GetValue();
+                    bo = response.Value;
                 else
                     SetMessage(response);
             }
@@ -75,7 +75,7 @@ namespace BaselineSolution.WebApp.Areas.Setup.Controllers
             if (response.IsSuccess)
             {
                 var vm = new DeleteViewModel();
-                vm.SystemLanguage = response.GetValue();
+                vm.SystemLanguage = response.Value;
                 return PartialView("_Delete", vm );
             }
 

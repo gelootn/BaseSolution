@@ -113,7 +113,7 @@ namespace BaselineSolution.WebApp.Components.Models.Authentication
             var userHasRight = security.CheckUserRight(user, rightKey);
             if (userHasRight.IsSuccess)
             {
-                bool hasRight = user != null && (user.IsAdministrator() || userHasRight.GetValue());
+                bool hasRight = user != null && (user.IsAdministrator() || userHasRight.Value);
 
                 // cache this information to avoid multiple service calls for the same rightkey
                 _cache.SetRight(rightKey, hasRight);
@@ -184,7 +184,7 @@ namespace BaselineSolution.WebApp.Components.Models.Authentication
             var userResponse = security.FindUserByUsername(username);
             if (userResponse.IsSuccess)
             {
-                UserSecurityBo user = userResponse.GetValue();
+                UserSecurityBo user = userResponse.Value;
                 _cache.SetUser(user);
                 return user;
             }

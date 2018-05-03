@@ -36,20 +36,6 @@ namespace BaselineSolution.WebApp.Components.Models.SelectLists
             _selectOptions = selectOptions;
         }
 
-        public MvcHtmlString ToHtml<TSelectable>() where TSelectable : ISelectable
-        {
-            return ToHtml<TSelectable>(null);
-        }
-
-        public MvcHtmlString ToHtml<TSelectable>(object htmlAttributes) where TSelectable : ISelectable
-        {
-            var urlHelper = new UrlHelper(_htmlHelper.ViewContext.RequestContext);
-            var url = urlHelper.Action("Options", "Selectable", new { area = string.Empty });
-            var htmlAttributesDictionary = HtmlHelper.AnonymousObjectToHtmlAttributes(htmlAttributes ?? new {});
-            htmlAttributesDictionary["data-type"] = typeof (TSelectable).AssemblyQualifiedName;
-            return ToHtml(url, htmlAttributesDictionary);
-        }
-
         public MvcHtmlString ToHtml(string url)
         {
             return ToHtml(url, null);

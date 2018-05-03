@@ -74,7 +74,7 @@ namespace BaselineSolution.WebApp.Areas.Security.Controllers
                 var response = _service.RightService.GetById(id.Value);
                 if (response.IsSuccess)
                 {
-                    rightBo = response.GetValue();
+                    rightBo = response.Value;
                 }
             }
 

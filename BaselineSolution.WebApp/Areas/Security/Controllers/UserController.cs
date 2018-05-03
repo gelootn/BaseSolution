@@ -52,7 +52,7 @@ namespace BaselineSolution.WebApp.Areas.Security.Controllers
             {
                 var response = _service.UserService.GetById(id.Value);
                 if (response.IsSuccess)
-                    bo = response.GetValue();
+                    bo = response.Value;
             }
             return View(CreateEditViewModel(bo));
         }
@@ -64,7 +64,7 @@ namespace BaselineSolution.WebApp.Areas.Security.Controllers
                 bo.ValidationMessages.ForEach(x => { ModelState.AddResponseValidationError(x); });
 
             var existingUserResponse = _service.IsUsernameTaken(bo.Name, bo.Id);
-            if (existingUserResponse.IsSuccess && !existingUserResponse.GetValue())
+            if (existingUserResponse.IsSuccess && !existingUserResponse.Value)
                 ModelState.AddModelError("Username", Resources.SecurityResource.UserExists);
 
             if (!ModelState.IsValid)
@@ -81,7 +81,7 @@ namespace BaselineSolution.WebApp.Areas.Security.Controllers
             if (response.IsSuccess)
             {
                 var vm = new DeleteViewModel();
-                vm.Bo = response.GetValue();
+                vm.Bo = response.Value;
                 return PartialView("_Delete", vm);
             }
 
@@ -109,7 +109,7 @@ namespace BaselineSolution.WebApp.Areas.Security.Controllers
 
             if (userResponse.IsSuccess)
             {
-                var user = userResponse.GetValue();
+                var user = userResponse.Value;
                 var vm = new ResetPasswordViewModel(user);
                 return View(vm);
             }
@@ -124,7 +124,7 @@ namespace BaselineSolution.WebApp.Areas.Security.Controllers
             if (!ModelState.IsValid)
             {
                 var userResponse = _service.UserService.GetById(passwordBo.Id);
-                return View(new ResetPasswordViewModel(userResponse.GetValue()));
+                return View(new ResetPasswordViewModel(userResponse.Value));
             }
 
             var response =_service.ResetUserPassword(passwordBo, User.Id);

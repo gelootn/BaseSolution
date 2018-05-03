@@ -41,9 +41,9 @@ namespace BaselineSolution.WebApp.Components.Datatables.Remote.Processors
             var page = datatableRequest.DisplayStart / datatableRequest.DisplayLength;
             var pageSize = datatableRequest.DisplayLength;
             var countResponse = Service.Count(BaseFilter);
-            totalCount = countResponse.GetValue();
+            totalCount = countResponse.Value;
             var listResponse = Service.List(filter, sorter, page, pageSize);
-            filteredCount = datatableRequest.ContainsFiltering || BaseFilter != null ? Service.Count(filter).GetValue() : totalCount;
+            filteredCount = datatableRequest.ContainsFiltering || BaseFilter != null ? Service.Count(filter).Value : totalCount;
             return listResponse.Values;
         }
     }

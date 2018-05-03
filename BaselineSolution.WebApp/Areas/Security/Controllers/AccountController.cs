@@ -51,7 +51,7 @@ namespace BaselineSolution.WebApp.Areas.Security.Controllers
             {
                 var response = _service.AccountService.GetById(id.Value);
                 if (response.IsSuccess)
-                    account = response.GetValue();
+                    account = response.Value;
             }
 
             var vm = CreateEditViewModel(account);
@@ -82,7 +82,7 @@ namespace BaselineSolution.WebApp.Areas.Security.Controllers
             if (response.IsSuccess)
             {
                 var vm = new DeleteViewModel();
-                vm.AccountBo = response.GetValue();
+                vm.AccountBo = response.Value;
                 return PartialView("_delete",vm);
             }
 
@@ -113,7 +113,7 @@ namespace BaselineSolution.WebApp.Areas.Security.Controllers
             if(!response.IsSuccess)
                 return new List<DisplayObject>();
 
-            var account = response.GetValue();
+            var account = response.Value;
 
             if (!account.ParentId.HasValue && User.IsAdministrator)
             {

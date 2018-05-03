@@ -6,6 +6,7 @@ using BaselineSolution.Bo.Resources;
 using BaselineSolution.DAL.UnitOfWork.Interfaces.Security;
 using BaselineSolution.Facade.Internal;
 using BaselineSolution.Framework.Extensions;
+using BaselineSolution.Framework.Logging;
 using BaselineSolution.Framework.Response;
 using BaselineSolution.Framework.Security;
 using BaselineSolution.Service.Translators.Internal;
@@ -16,7 +17,7 @@ namespace BaselineSolution.Service.Infrastructure.Internal
     {
         private readonly ISecurityUnitOfWork _unitOfWork;
 
-        public SecurityService(ISecurityUnitOfWork unitOfWork)
+        public SecurityService(ISecurityUnitOfWork unitOfWork, ILogging log) : base(log)
         {
             _unitOfWork = unitOfWork;
         }

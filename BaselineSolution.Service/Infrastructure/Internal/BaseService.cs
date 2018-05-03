@@ -1,10 +1,16 @@
 ﻿using BaselineSolution.Facade.Internal;
-using NLog;
+using BaselineSolution.Framework.Logging;
+
 
 namespace BaselineSolution.Service.Infrastructure.Internal
 {
     public abstract class BaseService : IService
     {
-        protected Logger Log = LogManager.GetCurrentClassLogger();
+        protected ILogging Log;
+
+        protected BaseService(ILogging log)
+        {
+            Log = log;
+        }
     }
 }
