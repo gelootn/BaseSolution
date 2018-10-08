@@ -7,7 +7,6 @@ using System.Web.Http;
 
 namespace BaselineSolution.WebApp.Controllers.Api
 {
-    []
     public class LoggingController : ApiController
     {
     }
