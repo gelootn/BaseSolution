@@ -5,7 +5,7 @@ using NLog.Config;
 using NLog.Layouts;
 using NLog.Targets;
 
-namespace BaselineSolution.WebApp
+namespace BaselineSolution.Framework.Logging
 {
     public class NlogConfig
     {

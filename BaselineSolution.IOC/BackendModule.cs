@@ -17,7 +17,7 @@ using Module = Autofac.Module;
 
 namespace BaselineSolution.IOC
 {
-    public class MvcModule : Module
+    public class BackendModule : Module
     {
         protected override void Load(ContainerBuilder builder)
         {
