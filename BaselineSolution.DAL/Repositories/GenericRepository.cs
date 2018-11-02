@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using BaselineSolution.DAL.Database;
+using BaselineSolution.DAL.Infrastructure.Bases;
+using System;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
-using BaselineSolution.DAL.Database;
-using BaselineSolution.DAL.Infrastructure.Bases;
+using System.Threading.Tasks;
 
 namespace BaselineSolution.DAL.Repositories
 {
@@ -37,14 +37,33 @@ namespace BaselineSolution.DAL.Repositories
             return null;
         }
 
+        public async Task<TEntity> FindByIdAsync(int id)
+        {
+            var item = await _context.Set<TEntity>().FindAsync(id);
+            if (item == null) return null;
+            return !item.Deleted ? item : null;
+        }
+
         public TEntity FirstOrDefault(Func<TEntity, bool> predicate)
         {
             return _context.Set<TEntity>().Where(x => !x.Deleted).FirstOrDefault(predicate);
         }
 
+        public async Task<TEntity> FirstOrDefaultAsync(Expression<Func<TEntity, bool>> predicate)
+        {
+            var result = await _context.Set<TEntity>().Where(x => !x.Deleted).FirstOrDefaultAsync(predicate);
+            return result;
+        }
+
         public int Count(Expression<Func<TEntity, bool>> predicate)
         {
-            return _context.Set<TEntity>().Where(predicate).Count();
+            return _context.Set<TEntity>().Count(predicate);
+        }
+
+        public async Task<int> CountAsync(Expression<Func<TEntity, bool>> predicate)
+        {
+            var result = await  _context.Set<TEntity>().CountAsync(predicate);
+            return result;
         }
 
         public void AddOrUpdate(TEntity item)
@@ -58,6 +77,7 @@ namespace BaselineSolution.DAL.Repositories
                 _context.Entry(item).State = EntityState.Modified;
             }
         }
+
 
         public void Delete(int id)
         {

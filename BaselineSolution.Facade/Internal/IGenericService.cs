@@ -1,4 +1,5 @@
-﻿using BaselineSolution.Bo.Internal;
+﻿using System.Threading.Tasks;
+using BaselineSolution.Bo.Internal;
 using BaselineSolution.Framework.Infrastructure.Contracts;
 using BaselineSolution.Framework.Response;
 
@@ -8,6 +9,7 @@ namespace BaselineSolution.Facade.Internal
             where TBo : BaseBo
     {
         Response<TBo> GetById(int id);
+        Task<Response<TBo>> GetByIdAsync(int id);
         /// <summary>
         /// Add or Update. returns the Id of the processed item
         /// </summary>

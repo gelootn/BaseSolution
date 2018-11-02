@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Threading.Tasks;
 using BaselineSolution.Bo.Internal;
 using BaselineSolution.Bo.Internal.Extensions;
 using BaselineSolution.DAL.Infrastructure.Bases;
@@ -47,6 +48,23 @@ namespace BaselineSolution.Service.Infrastructure.Internal
                 return new Response<TBo>().AddErrorMessage(e);
             }
 ;
+        }
+
+        public async Task<Response<TBo>> GetByIdAsync(int id)
+        {
+            try
+            {
+                TEntity item = await _repository.FindByIdAsync(id);
+                if (item == null)
+                    return new Response<TBo>().AddItemNotFound(id);
+
+                return new Response<TBo>(item.ToBo(_translator));
+            }
+            catch (Exception e)
+            {
+                Log.Error(e);
+                return new Response<TBo>().AddErrorMessage(e);
+            }
         }
 
         Response<int> IGenericService<TBo>.AddOrUpdate(TBo bo, int userId)

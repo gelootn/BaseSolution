@@ -224,7 +224,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\AutoFacConfig.cs" />
-    <Compile Include="App_Start\NlogConfig.cs" />
     <Compile Include="App_Start\DatatableConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\ModelBinderConfig.cs" />

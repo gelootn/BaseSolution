@@ -4,6 +4,7 @@ using System.Web.Mvc;
 using Autofac;
 using Autofac.Integration.Mvc;
 using Autofac.Integration.WebApi;
+using BaselineSolution.Framework.Logging;
 using BaselineSolution.IOC;
 
 namespace BaselineSolution.WebApp

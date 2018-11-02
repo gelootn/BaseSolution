@@ -17,14 +17,12 @@ namespace BaselineSolution.Framework.Logging
             var fileTarget = GetFileTarget(logName);
 
             config.AddTarget(fileTarget);
-            //config.AddTarget(webTarget);
 
 #if DEBUG
             config.LoggingRules.Add(new LoggingRule("*", LogLevel.Debug, fileTarget));
             //config.LoggingRules.Add(new LoggingRule("*", LogLevel.Debug, webTarget));
 #else
             config.LoggingRules.Add(new LoggingRule("*", LogLevel.Info, fileTarget));
-            config.LoggingRules.Add(new LoggingRule("*", LogLevel.Info, webTarget));
 #endif
 
             return config;
