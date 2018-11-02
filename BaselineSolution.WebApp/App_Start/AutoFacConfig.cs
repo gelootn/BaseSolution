@@ -18,7 +18,7 @@ namespace BaselineSolution.WebApp
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
 
             builder.RegisterModule<MvcModule>();
-
+            builder.RegisterModule(new LogModule(NlogConfig.GetConfig("YP.Portal"), "YP.Portal"));
             var container = builder.Build();
 
             config.DependencyResolver = new AutofacWebApiDependencyResolver(container);
