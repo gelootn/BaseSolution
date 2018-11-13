@@ -124,7 +124,7 @@ namespace BaselineSolution.DAL.Repositories
                 }
                 try
                 {
-                    _context.SaveChanges();
+                    var response =  _context.SaveChangesAsync();
                     transaction.Commit();
                 }
                 catch (Exception ex)
