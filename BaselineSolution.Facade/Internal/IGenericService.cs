@@ -20,6 +20,8 @@ namespace BaselineSolution.Facade.Internal
         Response<bool> Delete(int id, int userId);
         Response<int> Count(IEntityFilter<TBo> filter);
         Response<TBo> List(IEntityFilter<TBo> filter);
+        Task<Response<TBo>> ListAsync(IEntityFilter<TBo> filter);
         Response<TBo> List(IEntityFilter<TBo> filter, IEntitySorter<TBo> sorter, int? page, int? pageSize);
+        Task<Response<TBo>> ListAsync(IEntityFilter<TBo> filter, IEntitySorter<TBo> sorter, int? page, int? pageSize);
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 using BaselineSolution.Bo.Internal;
@@ -50,7 +51,7 @@ namespace BaselineSolution.Service.Infrastructure.Internal
 ;
         }
 
-        public async Task<Response<TBo>> GetByIdAsync(int id)
+        async Task<Response<TBo>> IGenericService<TBo>.GetByIdAsync(int id)
         {
             try
             {
@@ -148,6 +149,26 @@ namespace BaselineSolution.Service.Infrastructure.Internal
 
         }
 
+        async Task<Response<TBo>> IGenericService<TBo>.ListAsync(IEntityFilter<TBo> filter)
+        {
+            try
+            {
+                var list = _repository.List();
+                list = list.Filter(filter);
+
+                var filteredList = await list.ToListAsync();
+                    
+                var translated =  filteredList.Select(x => x.ToBo(_translator)).ToList();
+                return new Response<TBo>(translated);
+            }
+            catch (Exception e)
+            {
+                Log.Error(e);
+                return new Response<TBo>().AddErrorMessage(e);
+            }
+
+        }
+
         Response<TBo> IGenericService<TBo>.List(IEntityFilter<TBo> filter, [CanBeNull] IEntitySorter<TBo> sorter, [CanBeNull] int? page, [CanBeNull] int? pageSize)
         {
             try
@@ -168,8 +189,30 @@ namespace BaselineSolution.Service.Infrastructure.Internal
                 Log.Error(e);
                 return new Response<TBo>().AddErrorMessage(e);
             }
+        }
 
+        async Task<Response<TBo>> IGenericService<TBo>.ListAsync(IEntityFilter<TBo> filter, [CanBeNull] IEntitySorter<TBo> sorter, [CanBeNull] int? page, [CanBeNull] int? pageSize)
+        {
+            try
+            {
+                var list = _repository.List();
+                list = list.Filter(filter);
+                if (sorter != null && page.HasValue && pageSize.HasValue)
+                {
+                    list = list.Sort(sorter);
+                    list = list.Skip((page.Value) * pageSize.Value);
+                    list = list.Take(pageSize.Value);
+                }
+                var filteredList = await list.ToListAsync();  
+                var translated = filteredList.Select(x => x.ToBo(_translator)).ToList();
 
+                return new Response<TBo>(translated);
+            }
+            catch (Exception e)
+            {
+                Log.Error(e);
+                return new Response<TBo>().AddErrorMessage(e);
+            }
         }
     }
 }
