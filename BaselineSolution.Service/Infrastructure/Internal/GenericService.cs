@@ -35,37 +35,13 @@ namespace BaselineSolution.Service.Infrastructure.Internal
 
         Response<TBo> IGenericService<TBo>.GetById(int id)
         {
-            try
-            {
-                TEntity item = _repository.FindById(id);
-                if (item == null)
-                    return new Response<TBo>().AddItemNotFound(id);
-
-                return new Response<TBo>(item.ToBo(_translator));
-            }
-            catch (Exception e)
-            {
-                Log.Error(e);
-                return new Response<TBo>().AddErrorMessage(e);
-            }
+            return GetByIdAsyncInternal(id).Result;
 ;
         }
 
         async Task<Response<TBo>> IGenericService<TBo>.GetByIdAsync(int id)
         {
-            try
-            {
-                TEntity item = await _repository.FindByIdAsync(id);
-                if (item == null)
-                    return new Response<TBo>().AddItemNotFound(id);
-
-                return new Response<TBo>(item.ToBo(_translator));
-            }
-            catch (Exception e)
-            {
-                Log.Error(e);
-                return new Response<TBo>().AddErrorMessage(e);
-            }
+            return await GetByIdAsyncInternal(id);
         }
 
         Response<int> IGenericService<TBo>.AddOrUpdate(TBo bo, int userId)
@@ -98,8 +74,8 @@ namespace BaselineSolution.Service.Infrastructure.Internal
         {
             try
             {
-                var user = _repository.FindById(id);
-                if (user == null)
+                var item = _repository.FindById(id);
+                if (item == null)
                     return new Response<bool>().AddItemNotFound(id);
 
                 _repository.Delete(id);
@@ -118,80 +94,35 @@ namespace BaselineSolution.Service.Infrastructure.Internal
 
         Response<int> IGenericService<TBo>.Count(IEntityFilter<TBo> filter)
         {
-            try
-            {
-                var list = _repository.List();
-                list = list.Filter(filter);
-                return new Response<int>(list.Count());
-            }
-            catch (Exception e)
-            {
-                Log.Error(e);
-                return new Response<int>().AddErrorMessage(e);
-            }
+            return CountAsyncInternal(filter).Result;
+        }
+
+        async Task<Response<int>> IGenericService<TBo>.CountAsync(IEntityFilter<TBo> filter)
+        {
+            return await CountAsyncInternal(filter);
         }
 
         Response<TBo> IGenericService<TBo>.List(IEntityFilter<TBo> filter)
         {
-            try
-            {
-                var list = _repository.List();
-                list = list.Filter(filter);
-
-                var translated = list.ToList().Select(x => x.ToBo(_translator)).ToList();
-                return new Response<TBo>(translated);
-            }
-            catch (Exception e)
-            {
-                Log.Error(e);
-                return new Response<TBo>().AddErrorMessage(e);
-            }
-
+            return ListAsyncInternal(filter, null, null, null).Result;
         }
 
         async Task<Response<TBo>> IGenericService<TBo>.ListAsync(IEntityFilter<TBo> filter)
         {
-            try
-            {
-                var list = _repository.List();
-                list = list.Filter(filter);
-
-                var filteredList = await list.ToListAsync();
-                    
-                var translated =  filteredList.Select(x => x.ToBo(_translator)).ToList();
-                return new Response<TBo>(translated);
-            }
-            catch (Exception e)
-            {
-                Log.Error(e);
-                return new Response<TBo>().AddErrorMessage(e);
-            }
-
+            return await ListAsyncInternal(filter, null, null, null);
         }
 
         Response<TBo> IGenericService<TBo>.List(IEntityFilter<TBo> filter, [CanBeNull] IEntitySorter<TBo> sorter, [CanBeNull] int? page, [CanBeNull] int? pageSize)
         {
-            try
-            {
-                var list = _repository.List();
-                list = list.Filter(filter);
-                if (sorter != null && page.HasValue && pageSize.HasValue)
-                {
-                    list = list.Sort(sorter);
-                    list = list.Skip((page.Value) * pageSize.Value);
-                    list = list.Take(pageSize.Value);
-                }
-                var translated = list.ToList().Select(x => x.ToBo(_translator)).ToList();
-                return new Response<TBo>(translated);
-            }
-            catch (Exception e)
-            {
-                Log.Error(e);
-                return new Response<TBo>().AddErrorMessage(e);
-            }
+            return ListAsyncInternal(filter, sorter, page, pageSize).Result;
         }
 
         async Task<Response<TBo>> IGenericService<TBo>.ListAsync(IEntityFilter<TBo> filter, [CanBeNull] IEntitySorter<TBo> sorter, [CanBeNull] int? page, [CanBeNull] int? pageSize)
+        {
+            return await ListAsyncInternal(filter, sorter, page, pageSize);
+        }
+
+        private async Task<Response<TBo>> ListAsyncInternal(IEntityFilter<TBo> filter, IEntitySorter<TBo> sorter, int? page, int? pageSize)
         {
             try
             {
@@ -203,7 +134,8 @@ namespace BaselineSolution.Service.Infrastructure.Internal
                     list = list.Skip((page.Value) * pageSize.Value);
                     list = list.Take(pageSize.Value);
                 }
-                var filteredList = await list.ToListAsync();  
+
+                var filteredList = await list.ToListAsync();
                 var translated = filteredList.Select(x => x.ToBo(_translator)).ToList();
 
                 return new Response<TBo>(translated);
@@ -212,6 +144,39 @@ namespace BaselineSolution.Service.Infrastructure.Internal
             {
                 Log.Error(e);
                 return new Response<TBo>().AddErrorMessage(e);
+            }
+        }
+
+        private async Task<Response<TBo>> GetByIdAsyncInternal(int id)
+        {
+            try
+            {
+                TEntity item = await _repository.FindByIdAsync(id);
+                if (item == null)
+                    return new Response<TBo>().AddItemNotFound(id);
+
+                return new Response<TBo>(item.ToBo(_translator));
+            }
+            catch (Exception e)
+            {
+                Log.Error(e);
+                return new Response<TBo>().AddErrorMessage(e);
+            }
+        }
+
+        private async Task<Response<int>> CountAsyncInternal(IEntityFilter<TBo> filter)
+        {
+            try
+            {
+                var list = _repository.List();
+                list = list.Filter(filter);
+                var result = await list.CountAsync();
+                return new Response<int>(result);
+            }
+            catch (Exception e)
+            {
+                Log.Error(e);
+                return new Response<int>().AddErrorMessage(e);
             }
         }
     }

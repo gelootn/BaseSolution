@@ -39,7 +39,14 @@ namespace BaselineSolution.WebApi
                         // hold additional metadata for an API. Version and title are required but you can also provide
                         // additional fields by chaining methods off SingleApiVersion.
                         //
-                        c.SingleApiVersion("v1", "BaselineSolution.WebApi");
+                        c.SingleApiVersion("v1", "BaselineSolution.WebApi")
+                            .Description("")
+                            .Contact(contact =>
+                            {
+                                contact.Name("Angelo Dejaeghere");
+                                contact.Email("angelo@gelootn.be");
+                                contact.Url("https://www.gelootn.be");
+                            });
 
                         // Taking to long to load the swagger docs? Enable this option to start caching it
                         //
@@ -192,6 +199,7 @@ namespace BaselineSolution.WebApi
                         // alternative implementation for ISwaggerProvider with the CustomProvider option.
                         //
                         //c.CustomProvider((defaultProvider) => new CachingSwaggerProvider(defaultProvider));
+                        
                     })
                 .EnableSwaggerUi(c =>
                     {
@@ -199,6 +207,7 @@ namespace BaselineSolution.WebApi
                         // Very helpful when you have multiple Swagger pages open, to tell them apart.
                         //
                         c.DocumentTitle("Baseline Solution Api Docs");
+                       
 
                         // Use the "CssTheme" to add a theme to your UI.
                         // Options are:

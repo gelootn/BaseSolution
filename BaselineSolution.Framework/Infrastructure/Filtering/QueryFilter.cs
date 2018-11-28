@@ -24,6 +24,7 @@ namespace BaselineSolution.Framework.Infrastructure.Filtering
                 return repofilter;
             }
 
+
             foreach (var filter in filters.Predicates)
             {
                 var filterExp = Mapper.Instance.MapExpression<Expression<Func<TBo, bool>>, Expression<Func<TEntity, bool>>>(filter);

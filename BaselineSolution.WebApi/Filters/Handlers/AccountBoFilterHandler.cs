@@ -18,6 +18,8 @@ namespace BaselineSolution.WebApi.Filters.Handlers
             var localFilter = EntityFilter<AccountBo>.AsQueryable();
             if (!filter.Name.IsNullOrEmpty())
                 localFilter = localFilter.Where(x => x.Name.Contains(filter.Name));
+            if (!filter.Description.IsNullOrEmpty())
+                localFilter = localFilter.Where(x => x.Description.Contains(filter.Description));
 
             return localFilter;
         }

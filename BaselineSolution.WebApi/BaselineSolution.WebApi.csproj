@@ -64,7 +64,7 @@
       <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
-      <HintPath>..\packages\NLog.4.5.10\lib\net45\NLog.dll</HintPath>
+      <HintPath>..\packages\NLog.4.5.11\lib\net45\NLog.dll</HintPath>
     </Reference>
     <Reference Include="Swagger.Net, Version=8.3.19.301, Culture=neutral, PublicKeyToken=cd1bb07a5ac7c7bc, processorArchitecture=MSIL">
       <HintPath>..\packages\Swagger-Net.8.3.19.301\lib\net45\Swagger.Net.dll</HintPath>
@@ -116,8 +116,11 @@
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\RoleController.cs" />
     <Compile Include="Filters\Account\AccountBoFilter.cs" />
+    <Compile Include="Filters\Account\RoleBofilter.cs" />
     <Compile Include="Filters\Handlers\AccountBoFilterHandler.cs" />
+    <Compile Include="Filters\Handlers\RoleBoFilter.cs" />
     <Compile Include="Infrastructure\Filters\IFilterHandler.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

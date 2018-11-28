@@ -11,6 +11,10 @@ namespace BaselineSolution.WebApi.Filters.Account
         /// Filter the account name
         /// </summary>
         public string Name { get; set; }
+        /// <summary>
+        /// Filter the account description
+        /// </summary>
+        public string Description { get; set; }
 
     }
 }

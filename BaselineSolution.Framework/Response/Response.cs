@@ -47,7 +47,7 @@ namespace BaselineSolution.Framework.Response
         {
             get
             {
-                return Messages.Any(c => c.Type == MessageType.Error) == false;
+                return Messages.Any(c => c.Type == MessageType.Error || c.Type == MessageType.Validation) == false;
             }
         }
         public bool HasWarnings

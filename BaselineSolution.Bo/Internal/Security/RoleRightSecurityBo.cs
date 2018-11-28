@@ -1,4 +1,5 @@
 ﻿using System;
+using FluentValidation;
 
 namespace BaselineSolution.Bo.Internal.Security
 {
@@ -11,5 +12,6 @@ namespace BaselineSolution.Bo.Internal.Security
 
         public bool? Allow { get; set; }
         public int RightId { get; set; }
+
     }
 }

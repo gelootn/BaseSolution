@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using BaselineSolution.Framework.Infrastructure.Contracts;
+using FluentValidation;
 
 namespace BaselineSolution.Bo.Internal.Security
 {

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BaselineSolution.Bo.Models.Security;
+﻿using BaselineSolution.Bo.Models.Security;
 using NUnit.Framework;
 
 namespace BaselineSolution.Tests.Validators
@@ -15,7 +10,7 @@ namespace BaselineSolution.Tests.Validators
         public void NewBoUsernameEmptyNotValidTest()
         {
             var bo = new UserBo();
-           
+
             bo.Password = "123456";
             bo.PasswordConfirm = "123456";
 

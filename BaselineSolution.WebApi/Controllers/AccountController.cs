@@ -1,16 +1,14 @@
 ﻿using BaselineSolution.Bo.Models.Security;
 using BaselineSolution.Facade.Internal;
 using BaselineSolution.Framework.Extensions;
-using BaselineSolution.Framework.Infrastructure.Filtering;
 using BaselineSolution.Framework.Logging;
 using BaselineSolution.Framework.Response;
 using BaselineSolution.WebApi.Filters.Account;
 using BaselineSolution.WebApi.Infrastructure.Controllers;
+using BaselineSolution.WebApi.Infrastructure.Filters;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
-using BaselineSolution.WebApi.Filters.Handlers;
-using BaselineSolution.WebApi.Infrastructure.Filters;
 
 namespace BaselineSolution.WebApi.Controllers
 {
@@ -28,7 +26,7 @@ namespace BaselineSolution.WebApi.Controllers
         /// <param name="accountService"></param>
         /// <param name="listFilterHandler"></param>
         /// <param name="logger"></param>
-        public AccountController(IGenericService<AccountBo> accountService, IFilterHandler<AccountBo,AccountBoFilter> listFilterHandler, ILogging logger) : base(logger)
+        public AccountController(IGenericService<AccountBo> accountService, IFilterHandler<AccountBo, AccountBoFilter> listFilterHandler, ILogging logger) : base(logger)
         {
             _accountService = accountService;
             _listFilterHandler = listFilterHandler;
@@ -47,7 +45,7 @@ namespace BaselineSolution.WebApi.Controllers
             var localFilter = _listFilterHandler.CreateFilter(filter);
 
             var result = await _accountService.ListAsync(localFilter);
-            return Ok(result);
+            return Ok(result.ToApiResponse());
         }
 
         /// <summary>

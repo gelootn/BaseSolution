@@ -17,6 +17,7 @@ namespace BaselineSolution.Service.Infrastructure.Extentions
             if (!Equals(model, default(TModel)) && !model.Deleted)
             {
                 bo = translator.FromModel(model);
+                bo.Id = model.Id;
             }
 
             return bo;

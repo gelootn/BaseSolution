@@ -10,7 +10,6 @@ namespace BaselineSolution.WebApi.Infrastructure.Filters
     /// <typeparam name="TFilter">Business object filter</typeparam>
     public interface IFilterHandler<TBo, in TFilter>
         where TBo : BaseBo
-        where TFilter : BoFilter
     {
         /// <summary>
         /// Create a <see cref="IEntityFilter{TEntity}"/> from the given API filter
