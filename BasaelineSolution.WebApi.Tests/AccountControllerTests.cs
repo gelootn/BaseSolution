@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using BaselineSolution.Bo.Models.Security;
 using BaselineSolution.Facade.Internal;
 using BaselineSolution.Framework.Logging;
@@ -12,6 +13,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Results;
 using BaselineSolution.Framework.Infrastructure.Filtering;
+using BaselineSolution.WebApi.ViewModels.Account;
 using Moq;
 
 namespace BasaelineSolution.WebApi.Tests
@@ -48,7 +50,7 @@ namespace BasaelineSolution.WebApi.Tests
                 .Returns(Task.FromResult(response));
 
             var actionResult = _controller.GetById(1);
-            var contentResult = actionResult.Result as OkNegotiatedContentResult<ApiResponse<AccountBo>>;
+            var contentResult = actionResult.Result as OkNegotiatedContentResult<ApiResponse<AccountViewModel>>;
 
 
             Assert.That(contentResult, Is.Not.Null);
@@ -72,7 +74,7 @@ namespace BasaelineSolution.WebApi.Tests
                 .Returns(Task.FromResult(response));
 
             var actionResult = _controller.List(null);
-            var contentResult = actionResult.Result as OkNegotiatedContentResult<ApiResponse<AccountBo>>;
+            var contentResult = actionResult.Result as OkNegotiatedContentResult<ApiResponse<AccountViewModel>>;
 
 
             Assert.That(contentResult, Is.Not.Null);
@@ -99,7 +101,7 @@ namespace BasaelineSolution.WebApi.Tests
                 .Returns(Task.FromResult(serviceResponse));
 
             var actionResult = _controller.List(filter);
-            var contentResult = actionResult.Result as OkNegotiatedContentResult<ApiResponse<AccountBo>>;
+            var contentResult = actionResult.Result as OkNegotiatedContentResult<ApiResponse<AccountViewModel>>;
 
             _listFilterHandler.VerifyAll();
             _accountService.VerifyAll();
@@ -110,6 +112,71 @@ namespace BasaelineSolution.WebApi.Tests
 
             Assert.That(apiResult.Values.Count, Is.EqualTo(1));
             Assert.That(apiResult.Messages.Count, Is.EqualTo(0));
+        }
+
+        [Test]
+        public void AddNewAccount()
+        {
+            var account = new AccountBo{ Id = 0, Name = "Test Account"};
+            var serviceResponse = new Response<int>(10);
+
+
+            _accountService.Setup(x => x.AddOrUpdate(It.IsAny<AccountBo>(), 0))
+                .Returns(serviceResponse);
+
+            var actionResult = _controller.Add(account);
+            var contentResult = actionResult as OkNegotiatedContentResult<ApiResponse<int>>;
+            Assert.That(contentResult, Is.Not.Null);
+            Assert.That(contentResult.Content, Is.Not.Null);
+
+            var apiResult = contentResult.Content;
+            Assert.That(apiResult.Values.Count, Is.EqualTo(1));
+            Assert.That(apiResult.Messages.Count, Is.EqualTo(0));
+            Assert.That(apiResult.Values.First(), Is.EqualTo(10));
+        }
+
+
+        [Test]
+        public void UpdateAccount()
+        {
+            var account = new AccountBo{ Id = 0, Name = "Test Account"};
+            var serviceResponse = new Response<int>(10);
+
+
+            _accountService.Setup(x => x.AddOrUpdate(It.IsAny<AccountBo>(), 0))
+                .Returns(serviceResponse);
+
+            var actionResult = _controller.Update(account);
+            var contentResult = actionResult as OkNegotiatedContentResult<ApiResponse<int>>;
+            Assert.That(contentResult, Is.Not.Null);
+            Assert.That(contentResult.Content, Is.Not.Null);
+
+            var apiResult = contentResult.Content;
+            Assert.That(apiResult.Values.Count, Is.EqualTo(1));
+            Assert.That(apiResult.Messages.Count, Is.EqualTo(0));
+            Assert.That(apiResult.Values.First(), Is.EqualTo(10));
+        }
+
+
+        [Test]
+        public void DeleteAccount()
+        {
+           
+            var serviceResponse = new Response<bool>(true);
+
+
+            _accountService.Setup(x => x.Delete(10, 0))
+                .Returns(serviceResponse);
+
+            var actionResult = _controller.Delete(10);
+            var contentResult = actionResult as OkNegotiatedContentResult<ApiResponse<bool>>;
+            Assert.That(contentResult, Is.Not.Null);
+            Assert.That(contentResult.Content, Is.Not.Null);
+
+            var apiResult = contentResult.Content;
+            Assert.That(apiResult.Values.Count, Is.EqualTo(1));
+            Assert.That(apiResult.Messages.Count, Is.EqualTo(0));
+            Assert.That(apiResult.Values.First(), Is.EqualTo(true));
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using BaselineSolution.Bo.Internal;
+using BaselineSolution.Framework.Infrastructure;
 using BaselineSolution.Framework.Infrastructure.Contracts;
 using BaselineSolution.Framework.Response;
 

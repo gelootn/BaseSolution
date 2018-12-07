@@ -1,4 +1,5 @@
 ﻿using BaselineSolution.Bo.Internal;
+using BaselineSolution.Framework.Infrastructure;
 using BaselineSolution.Framework.Infrastructure.Contracts;
 
 namespace BaselineSolution.WebApi.Infrastructure.Filters

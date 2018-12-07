@@ -1,8 +1,4 @@
-﻿using System;
-using System.Data.Entity;
-using System.Linq;
-using BaselineSolution.Bo.Internal.Extensions;
-using BaselineSolution.Bo.Models.Security;
+﻿using BaselineSolution.Bo.Models.Security;
 using BaselineSolution.Bo.Resources.Security;
 using BaselineSolution.DAL.Domain.Security;
 using BaselineSolution.DAL.UnitOfWork.Interfaces.Security;
@@ -14,6 +10,9 @@ using BaselineSolution.Framework.Response;
 using BaselineSolution.Service.Infrastructure.Extentions;
 using BaselineSolution.Service.Infrastructure.Internal;
 using BaselineSolution.Service.Translators.Security;
+using System;
+using System.Data.Entity;
+using System.Linq;
 
 namespace BaselineSolution.Service.Security
 {
@@ -27,10 +26,10 @@ namespace BaselineSolution.Service.Security
 
         public SecurityMgntService(
             ILogging log,
-            ISecurityUnitOfWork unitOfWork, 
-            IGenericService<UserBo> userService, 
-            IGenericService<RoleBo> roleService, 
-            IGenericService<AccountBo> accountService, 
+            ISecurityUnitOfWork unitOfWork,
+            IGenericService<UserBo> userService,
+            IGenericService<RoleBo> roleService,
+            IGenericService<AccountBo> accountService,
             IGenericService<RightBo> rightService) : base(log)
         {
             _unitOfWork = unitOfWork;

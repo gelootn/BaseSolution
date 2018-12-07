@@ -2,6 +2,7 @@
 using System.Linq;
 using BaselineSolution.Bo.Internal;
 using BaselineSolution.DAL.Infrastructure.Bases;
+using BaselineSolution.Framework.Infrastructure;
 using BaselineSolution.Service.Translators.Internal;
 
 namespace BaselineSolution.Service.Infrastructure.Extentions

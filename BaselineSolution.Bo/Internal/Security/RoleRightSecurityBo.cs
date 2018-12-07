@@ -1,4 +1,5 @@
 ﻿using System;
+using BaselineSolution.Framework.Infrastructure;
 using FluentValidation;
 
 namespace BaselineSolution.Bo.Internal.Security

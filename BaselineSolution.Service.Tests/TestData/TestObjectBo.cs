@@ -1,6 +1,7 @@
 ﻿using System.CodeDom;
 using BaselineSolution.Bo.Internal;
 using BaselineSolution.Bo.Models.Security;
+using BaselineSolution.Framework.Infrastructure;
 using FluentValidation;
 
 namespace BaselineSolution.Service.Tests.TestData

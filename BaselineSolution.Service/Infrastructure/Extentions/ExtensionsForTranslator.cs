@@ -1,5 +1,6 @@
 ﻿using BaselineSolution.Bo.Internal;
 using BaselineSolution.DAL.Infrastructure.Bases;
+using BaselineSolution.Framework.Infrastructure;
 using BaselineSolution.Service.Translators.Internal;
 
 

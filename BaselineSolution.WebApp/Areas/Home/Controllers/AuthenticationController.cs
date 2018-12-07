@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System.Linq;
+using System.Web.Mvc;
 using BaselineSolution.Bo.Internal.Security;
 using BaselineSolution.Facade.Internal;
 using BaselineSolution.WebApp.Areas.Home.ViewModels.Authentication;
@@ -55,7 +56,7 @@ namespace BaselineSolution.WebApp.Areas.Home.Controllers
                 return View(model);
             }
 
-            User = new AuthenticatedCustomPrincipal(bo, languagesResponse.Values);
+            User = new AuthenticatedCustomPrincipal(bo, languagesResponse.Values.ToList());
             new Authenticator(Request.RequestContext, bo).BuildCache(bo);
 
             return Redirect(returnUrl ?? Url.Action("Index", "Home"));

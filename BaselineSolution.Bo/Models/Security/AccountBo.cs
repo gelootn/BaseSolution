@@ -2,12 +2,18 @@
 using System.ComponentModel.DataAnnotations;
 using BaselineSolution.Bo.Internal;
 using BaselineSolution.Bo.Resources.Security;
+using BaselineSolution.Bo.Validators.Security;
+using BaselineSolution.Framework.Infrastructure;
 using FluentValidation;
 
 namespace BaselineSolution.Bo.Models.Security
 {
     public class AccountBo : BaseBo
     {
+        public AccountBo()
+        {
+            Validator = new AccountBoValidator();
+        }
 
         [Display(ResourceType = typeof(AccountBoResource), Name = "Name")]
         public virtual string Name { get; set; }

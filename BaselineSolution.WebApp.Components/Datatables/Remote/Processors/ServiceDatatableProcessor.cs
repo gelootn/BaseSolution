@@ -2,6 +2,7 @@
 using System.Linq;
 using BaselineSolution.Bo.Internal;
 using BaselineSolution.Facade.Internal;
+using BaselineSolution.Framework.Infrastructure;
 using BaselineSolution.Framework.Infrastructure.Contracts;
 
 using BaselineSolution.WebApp.Components.Datatables.Remote.Filtering;
@@ -44,7 +45,7 @@ namespace BaselineSolution.WebApp.Components.Datatables.Remote.Processors
             totalCount = countResponse.Value;
             var listResponse = Service.List(filter, sorter, page, pageSize);
             filteredCount = datatableRequest.ContainsFiltering || BaseFilter != null ? Service.Count(filter).Value : totalCount;
-            return listResponse.Values;
+            return listResponse.Values.ToList();
         }
     }
 

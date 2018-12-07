@@ -57,6 +57,9 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="FluentValidation, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7de548da2fbae0f0, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentValidation.8.1.0\lib\net45\FluentValidation.dll</HintPath>
+    </Reference>
     <Reference Include="LinqKit, Version=1.1.15.0, Culture=neutral, PublicKeyToken=bc217f8844052a91, processorArchitecture=MSIL">
       <HintPath>..\packages\LinqKit.1.1.15\lib\net45\LinqKit.dll</HintPath>
     </Reference>
@@ -68,6 +71,15 @@
       <HintPath>..\packages\NLog.4.5.11\lib\net45\NLog.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Annotations.4.4.1\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.ComponentModel.Primitives, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Primitives.4.3.0\lib\net45\System.ComponentModel.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.IO.Compression" />
@@ -102,6 +114,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApiHandling\ApiViewModel.cs" />
+    <Compile Include="Infrastructure\BaseBo.cs" />
+    <Compile Include="ApiHandling\HyperMediaLink.cs" />
     <Compile Include="Exporting\DoddleExporter.cs" />
     <Compile Include="Exporting\ExportColumn.cs" />
     <Compile Include="Exporting\IExportColumn.cs" />
@@ -145,6 +160,7 @@
     <Compile Include="Infrastructure\Sorting\QuerySorter.cs" />
     <Compile Include="Infrastructure\Sorting\SortDirection.cs" />
     <Compile Include="Infrastructure\Sorting\ThenByEntitySorter.cs" />
+    <Compile Include="Infrastructure\ValidationMessage.cs" />
     <Compile Include="Logging\ILogging.cs" />
     <Compile Include="Logging\NlogConfig.cs" />
     <Compile Include="Logging\NLogLogger.cs" />

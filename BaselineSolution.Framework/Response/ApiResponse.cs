@@ -15,7 +15,7 @@ namespace BaselineSolution.Framework.Response
 
         }
 
-        public ApiResponse(ICollection<T> values): base(values)
+        public ApiResponse(IEnumerable<T> values): base(values)
         {
 
         }

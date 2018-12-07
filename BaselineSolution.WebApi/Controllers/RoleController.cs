@@ -9,6 +9,7 @@ using BaselineSolution.WebApi.Infrastructure.Filters;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
+using BaselineSolution.WebApi.ViewModels.Role;
 
 namespace BaselineSolution.WebApi.Controllers
 {
@@ -39,13 +40,13 @@ namespace BaselineSolution.WebApi.Controllers
         /// <param name="filter"></param>
         /// <returns></returns>
         [HttpGet]
-        [ResponseType(typeof(ApiResponse<RoleBo>))]
+        [ResponseType(typeof(ApiResponse<RoleViewModel>))]
         [Route("api/role")]
         public async Task<IHttpActionResult> List([FromUri]RoleBoFilter filter)
         {
             var localFilter = _filterHandler.CreateFilter(filter);
             var result = await _roleService.ListAsync(localFilter);
-            return Ok(result);
+            return Ok(result.ToApiResponse<RoleBo,RoleViewModel>());
         }
 
         /// <summary>
@@ -54,12 +55,12 @@ namespace BaselineSolution.WebApi.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpGet]
-        [ResponseType(typeof(ApiResponse<RoleBo>))]
+        [ResponseType(typeof(ApiResponse<RoleViewModel>))]
         [Route("api/role/{id:int}")]
         public async Task<IHttpActionResult> Get(int id)
         {
             var result = await _roleService.GetByIdAsync(id);
-            return Ok(result.ToApiResponse());
+            return Ok(result.ToApiResponse<RoleBo,RoleViewModel>());
         }
 
         /// <summary>

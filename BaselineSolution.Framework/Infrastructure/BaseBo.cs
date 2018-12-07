@@ -4,7 +4,7 @@ using System.Linq;
 using BaselineSolution.Framework.Infrastructure.Contracts;
 using FluentValidation;
 
-namespace BaselineSolution.Bo.Internal
+namespace BaselineSolution.Framework.Infrastructure
 {
     [Serializable]
     public abstract class BaseBo : IIdentifiable

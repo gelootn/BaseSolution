@@ -5,6 +5,7 @@ using System.Linq.Expressions;
 using System.Web.Mvc;
 using BaselineSolution.Bo.Internal;
 using BaselineSolution.Framework.Extensions;
+using BaselineSolution.Framework.Infrastructure;
 
 namespace BaselineSolution.WebApp.Infrastructure.Extensions
 {

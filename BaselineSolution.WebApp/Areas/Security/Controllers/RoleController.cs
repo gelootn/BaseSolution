@@ -98,7 +98,7 @@ namespace BaselineSolution.WebApp.Areas.Security.Controllers
 
             vm.RoleBo = role.Value;
             vm.User = user.Value;
-            vm.AllowedRights = allowedRights.Values;
+            vm.AllowedRights = allowedRights.Values.ToList();
 
             return View(vm);
         }
@@ -133,7 +133,7 @@ namespace BaselineSolution.WebApp.Areas.Security.Controllers
             vm.RoleBo = bo;
             var roleResponse = _service.GetAllowedRoles(User.Id);
             if(roleResponse.IsSuccess)
-                vm.AllowedRoles = roleResponse.Values;
+                vm.AllowedRoles = roleResponse.Values.ToList();
             return vm;
         }
 

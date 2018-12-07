@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System.Linq;
+using System.Web.Mvc;
 using BaselineSolution.Bo.Models.Security;
 using BaselineSolution.Bo.Models.Shared;
 using BaselineSolution.Facade.Security;
@@ -143,10 +144,10 @@ namespace BaselineSolution.WebApp.Areas.Security.Controllers
                 vm.Roles = roleRespone.Values.ToMultiSelectList(x => x.Id, x => x.Name);
             var accountResponse = _service.AccountService.List(EntityFilter<AccountBo>.AsQueryable());
             if (accountResponse.IsSuccess)
-                vm.Accounts = accountResponse.Values;
+                vm.Accounts = accountResponse.Values.ToList();
             var languageResponse = _sharedService.SystemLanguageService.List(EntityFilter<SystemLanguageBo>.AsQueryable());
             if (languageResponse.IsSuccess)
-                vm.Languages = languageResponse.Values;
+                vm.Languages = languageResponse.Values.ToList();
 
             return vm;
 

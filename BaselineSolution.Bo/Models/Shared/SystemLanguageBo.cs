@@ -3,6 +3,7 @@ using BaselineSolution.Bo.Internal;
 using BaselineSolution.Bo.Resources;
 using BaselineSolution.Bo.Resources.Shared;
 using BaselineSolution.Bo.Validators.Shared;
+using BaselineSolution.Framework.Infrastructure;
 
 namespace BaselineSolution.Bo.Models.Shared
 {

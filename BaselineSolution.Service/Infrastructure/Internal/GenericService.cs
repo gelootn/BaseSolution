@@ -1,13 +1,8 @@
-﻿using System;
-using System.Data.Entity;
-using System.Linq;
-using System.Threading.Tasks;
-using BaselineSolution.Bo.Internal;
-using BaselineSolution.Bo.Internal.Extensions;
-using BaselineSolution.DAL.Infrastructure.Bases;
+﻿using BaselineSolution.DAL.Infrastructure.Bases;
 using BaselineSolution.DAL.Repositories;
 using BaselineSolution.Facade.Internal;
 using BaselineSolution.Framework.Extensions;
+using BaselineSolution.Framework.Infrastructure;
 using BaselineSolution.Framework.Infrastructure.Attributes;
 using BaselineSolution.Framework.Infrastructure.Contracts;
 using BaselineSolution.Framework.Infrastructure.Filtering;
@@ -16,6 +11,10 @@ using BaselineSolution.Framework.Logging;
 using BaselineSolution.Framework.Response;
 using BaselineSolution.Service.Infrastructure.Extentions;
 using BaselineSolution.Service.Translators.Internal;
+using System;
+using System.Data.Entity;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace BaselineSolution.Service.Infrastructure.Internal
 {
@@ -36,7 +35,7 @@ namespace BaselineSolution.Service.Infrastructure.Internal
         Response<TBo> IGenericService<TBo>.GetById(int id)
         {
             return GetByIdAsyncInternal(id).Result;
-;
+            ;
         }
 
         async Task<Response<TBo>> IGenericService<TBo>.GetByIdAsync(int id)

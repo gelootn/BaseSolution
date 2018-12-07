@@ -1,11 +1,12 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace BaselineSolution.Framework.Response
 {
     public abstract class BaseResponse<T>
     {
         private List<Message> _messages;
-        private List<T> _values;
+        private IEnumerable<T> _values;
 
         protected BaseResponse()
         {
@@ -14,12 +15,12 @@ namespace BaselineSolution.Framework.Response
 
         protected BaseResponse(T value)
         {
-            Values.Add(value);
+            Values = Values.Append(value);
         }
 
-        protected BaseResponse(ICollection<T> values)
+        protected BaseResponse(IEnumerable<T> values)
         {
-            Values.AddRange(values);
+            Values = values;
         }
 
         public List<Message> Messages
@@ -28,7 +29,7 @@ namespace BaselineSolution.Framework.Response
             set { _messages = value; }
         }
 
-        public List<T> Values
+        public IEnumerable<T> Values
         {
             get => _values ?? (_values = new List<T>());
             private set => _values = value;

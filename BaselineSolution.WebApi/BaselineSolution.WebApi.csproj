@@ -128,6 +128,8 @@
     <Compile Include="Infrastructure\Controllers\BaseApiController.cs" />
     <Compile Include="Infrastructure\Filters\BoFilter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\Account\AccountViewModel.cs" />
+    <Compile Include="ViewModels\Role\RoleViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="NLog.config">

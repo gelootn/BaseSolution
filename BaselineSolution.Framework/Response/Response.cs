@@ -23,20 +23,20 @@ namespace BaselineSolution.Framework.Response
 
         }
 
-        public Response(ICollection<T> values) : base(values)
+        public Response(IEnumerable<T> values) : base(values)
         {
 
         }
 
 
 
-        public bool HasValue => Values.Count != 0;
+        public bool HasValue => Values.Any();
 
         public T Value
         {
             get
             {
-                if (Values != null && Values.Count == 1)
+                if (Values != null && Values.Count() == 1)
                     return Values.First();
                 return default(T);
             }

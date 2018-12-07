@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using BaselineSolution.Framework.Infrastructure;
 using BaselineSolution.Framework.Infrastructure.Contracts;
 using FluentValidation;
 

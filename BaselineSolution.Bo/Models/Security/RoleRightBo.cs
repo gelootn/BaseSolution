@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using BaselineSolution.Bo.Internal;
 using BaselineSolution.Bo.Resources.Security;
+using BaselineSolution.Framework.Infrastructure;
 
 namespace BaselineSolution.Bo.Models.Security
 {
