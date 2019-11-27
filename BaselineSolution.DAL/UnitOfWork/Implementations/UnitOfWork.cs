@@ -44,7 +44,7 @@ namespace BaselineSolution.DAL.UnitOfWork.Implementations
                     _context.SaveChanges();
                     transaction.Commit();
                 }
-                catch (Exception ex)
+                catch
                 {
                     transaction.Rollback();
                     throw;

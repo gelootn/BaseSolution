@@ -39,9 +39,6 @@ namespace BaselineSolution.Service.Tests
         [SetUp]
         public void SetUp()
         {
-
-
-
             _logger = new Mock<ILogging>();
 
             _repository = new Mock<IGenericRepository<TestObject>>();
@@ -53,13 +50,18 @@ namespace BaselineSolution.Service.Tests
         [Test]
         public void GetByIdTest()
         {
+            //Arange
             var dbObject = new TestObject { Id = 1, Name = "db object" };
 
             _repository.Setup(x => x.FindByIdAsync(1))
                 .Returns(Task.FromResult(dbObject));
 
+
+            //Act
             var response = _service.GetById(1);
 
+
+            //Assert
             Assert.That(response, Is.Not.Null);
             Assert.That(response.HasValue, Is.True);
             Assert.That(response.HasWarnings, Is.False);
@@ -158,14 +160,14 @@ namespace BaselineSolution.Service.Tests
         }
 
         [Test]
-        public async Task GetByIdAsyncTest()
+        public void GetByIdAsyncTest()
         {
             var dbObject = new TestObject { Id = 1, Name = "db object" };
 
             _repository.Setup(x => x.FindByIdAsync(1))
                 .Returns(Task.FromResult(dbObject));
 
-            var response = await _service.GetByIdAsync(1);
+            var response = _service.GetById(1);
 
             Assert.That(response, Is.Not.Null);
             Assert.That(response.HasValue, Is.True);
@@ -275,24 +277,6 @@ namespace BaselineSolution.Service.Tests
 
         }
 
-        [Test]
-        public async Task GetAsyncBasicFilteredListTest()
-        {
-            var data = GenerateData(10);
-
-            _repository.Setup(x => x.List())
-                .Returns(data);
-
-            var response = await _service.ListAsync(EntityFilter<TestObjectBo>.Where(x => x.Id > 5));
-
-            Assert.That(response.IsSuccess, Is.True);
-            Assert.That(response.HasValue, Is.True);
-            Assert.That(response.HasWarnings, Is.False);
-
-            Assert.That(response.Values.Count, Is.EqualTo(5));
-        }
-
-
 
         [Test]
         public void GetBasicFilteredAndSortedListTest()
@@ -303,26 +287,6 @@ namespace BaselineSolution.Service.Tests
                 .Returns(data);
 
             var response = _service.List(
-                EntityFilter<TestObjectBo>.Where(x => x.Id > 5),
-                EntitySorter<TestObjectBo>.OrderByDescending(x => x.Id), 0, 100);
-
-            Assert.That(response.IsSuccess, Is.True);
-            Assert.That(response.HasValue, Is.True);
-            Assert.That(response.HasWarnings, Is.False);
-
-            Assert.That(response.Values.Count, Is.EqualTo(5));
-            Assert.That(response.Values.First().Id, Is.EqualTo(10));
-        }
-
-        [Test]
-        public async Task GetAsyncBasicFilteredAndSortedListTest()
-        {
-            var data = GenerateData(10);
-
-            _repository.Setup(x => x.List())
-                .Returns(data);
-
-            var response = await _service.ListAsync(
                 EntityFilter<TestObjectBo>.Where(x => x.Id > 5),
                 EntitySorter<TestObjectBo>.OrderByDescending(x => x.Id), 0, 100);
 
@@ -452,24 +416,6 @@ namespace BaselineSolution.Service.Tests
 
         }
 
-        [Test]
-        public async Task CountAsyncFilteredTest()
-        {
-            var data = GenerateData(10);
-
-            _repository.Setup(x => x.List())
-                .Returns(data);
-
-            var response = await _service.CountAsync(
-                EntityFilter<TestObjectBo>.Where(x => x.Id > 5));
-
-            Assert.That(response.IsSuccess, Is.True);
-            Assert.That(response.HasValue, Is.True);
-            Assert.That(response.HasWarnings, Is.False);
-
-            Assert.That(response.Value, Is.EqualTo(5));
-
-        }
 
         [Test]
         public void CountExceptionTest()

@@ -6,7 +6,6 @@ using BaselineSolution.Framework.Response;
 using BaselineSolution.WebApi.Filters.Account;
 using BaselineSolution.WebApi.Infrastructure.Controllers;
 using BaselineSolution.WebApi.Infrastructure.Filters;
-using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using BaselineSolution.WebApi.ViewModels.Account;
@@ -41,11 +40,11 @@ namespace BaselineSolution.WebApi.Controllers
         [HttpGet]
         [ResponseType(typeof(ApiResponse<AccountViewModel>))]
         [Route("api/account")]
-        public async Task<IHttpActionResult> List([FromUri]AccountBoFilter filter)
+        public IHttpActionResult List([FromUri]AccountBoFilter filter)
         {
             var localFilter = _listFilterHandler.CreateFilter(filter);
 
-            var result = await _accountService.ListAsync(localFilter);
+            var result = _accountService.List(localFilter);
             return Ok(result.ToApiResponse<AccountBo,AccountViewModel>());
         }
 
@@ -57,9 +56,9 @@ namespace BaselineSolution.WebApi.Controllers
         [HttpGet]
         [ResponseType(typeof(ApiResponse<AccountBo>))]
         [Route("api/account/{id:int}")]
-        public async Task<IHttpActionResult> GetById(int id)
+        public IHttpActionResult GetById(int id)
         {
-            var account = await _accountService.GetByIdAsync(id);
+            var account = _accountService.GetById(id);
             LogResponse(account);
             return Ok(account.ToApiResponse<AccountBo,AccountViewModel>());
         }

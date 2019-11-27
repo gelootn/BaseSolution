@@ -124,10 +124,10 @@ namespace BaselineSolution.DAL.Repositories
                 }
                 try
                 {
-                    var response =  _context.SaveChangesAsync();
+                    var response =  _context.SaveChanges();
                     transaction.Commit();
                 }
-                catch (Exception ex)
+                catch
                 {
                     transaction.Rollback();
                     throw;

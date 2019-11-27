@@ -51,6 +51,7 @@ namespace BaselineSolution.Framework.Extensions
         {
             var values = response.Values.Select(x => new TViewModel {Result = x});
             var api = new ApiResponse<TViewModel>(values) { Messages = response.Messages };
+            
             return api;
         }
 

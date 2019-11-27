@@ -4,12 +4,18 @@ using Autofac;
 using Autofac.Integration.WebApi;
 using BaselineSolution.Framework.Logging;
 using BaselineSolution.IOC;
-using BaselineSolution.WebApi.Infrastructure.Controllers;
 
 namespace BaselineSolution.WebApi.App_Start
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class IocConfig
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="config"></param>
         public static void ConfigureContainer(HttpConfiguration config)
         {
             var builder = new ContainerBuilder();

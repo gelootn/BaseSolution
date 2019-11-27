@@ -9,7 +9,6 @@ using BaselineSolution.WebApi.Filters.Account;
 using BaselineSolution.WebApi.Infrastructure.Filters;
 using NUnit.Framework;
 using System.Net.Http;
-using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Results;
 using BaselineSolution.Framework.Infrastructure.Filtering;
@@ -46,11 +45,11 @@ namespace BasaelineSolution.WebApi.Tests
             var accountBo = new AccountBo { Id = 1, Name = "Test Account" };
             var response = new Response<AccountBo>(accountBo);
 
-            _accountService.Setup(x => x.GetByIdAsync(It.IsAny<int>()))
-                .Returns(Task.FromResult(response));
+            _accountService.Setup(x => x.GetById(It.IsAny<int>()))
+                .Returns(response);
 
             var actionResult = _controller.GetById(1);
-            var contentResult = actionResult.Result as OkNegotiatedContentResult<ApiResponse<AccountViewModel>>;
+            var contentResult = actionResult as OkNegotiatedContentResult<ApiResponse<AccountViewModel>>;
 
 
             Assert.That(contentResult, Is.Not.Null);
@@ -70,11 +69,11 @@ namespace BasaelineSolution.WebApi.Tests
             var response = new Response<AccountBo>(new List<AccountBo>{accountOne, accountTwo});
 
  
-            _accountService.Setup(x => x.ListAsync(null))
-                .Returns(Task.FromResult(response));
+            _accountService.Setup(x => x.List(null))
+                .Returns(response);
 
             var actionResult = _controller.List(null);
-            var contentResult = actionResult.Result as OkNegotiatedContentResult<ApiResponse<AccountViewModel>>;
+            var contentResult = actionResult as OkNegotiatedContentResult<ApiResponse<AccountViewModel>>;
 
 
             Assert.That(contentResult, Is.Not.Null);
@@ -97,11 +96,11 @@ namespace BasaelineSolution.WebApi.Tests
             _listFilterHandler.Setup(x => x.CreateFilter(filter))
                 .Returns(repoFilter);
 
-            _accountService.Setup(x => x.ListAsync(repoFilter))
-                .Returns(Task.FromResult(serviceResponse));
+            _accountService.Setup(x => x.List(repoFilter))
+                .Returns(serviceResponse);
 
             var actionResult = _controller.List(filter);
-            var contentResult = actionResult.Result as OkNegotiatedContentResult<ApiResponse<AccountViewModel>>;
+            var contentResult = actionResult as OkNegotiatedContentResult<ApiResponse<AccountViewModel>>;
 
             _listFilterHandler.VerifyAll();
             _accountService.VerifyAll();
